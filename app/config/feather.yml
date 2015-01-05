@@ -1,7 +1,7 @@
 parameters:
     transmission_authentication: true
-    transmission_username: admin
-    transmission_password: admin
+    transmission_username: transmission
+    transmission_password: transmission
     transmission_dir: /home/downloads/
     transmission_tmp: /home/downloads/tmp/
     user_username: admin
