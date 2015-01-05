@@ -81,8 +81,8 @@ swiftmailer:
 transmission:
     host: 127.0.0.1
     port: 9091
-    username: admin
-    password: admin
+    username: transmission
+    password: transmission
 
 parameters:
     feather_name: Feather
