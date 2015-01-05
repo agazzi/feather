@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: feather.yml }
 
 framework:
     #esi:             ~
@@ -82,3 +83,7 @@ transmission:
     port: 9091
     username: admin
     password: admin
+
+parameters:
+    feather_name: Feather
+    feather_desc: a simple flexible and beautiful torrent webapp    

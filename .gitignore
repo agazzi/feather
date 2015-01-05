@@ -45,3 +45,4 @@ Temporary Items
 # Path to symfony 2 cache and logs folder
 app/cache
 app/logs
+vendor

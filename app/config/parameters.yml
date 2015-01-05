@@ -12,10 +12,3 @@ parameters:
     mailer_password: null
     locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt
-
-    feather_name: Feather
-    feather_desc: a simple flexible and beautiful torrent webapp
-
-
-imports:
-    - { resource: feather.yml }
