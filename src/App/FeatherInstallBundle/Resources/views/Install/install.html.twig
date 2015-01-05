@@ -1,0 +1,195 @@
+{% extends "::install.html.twig" %}
+
+{% block title %}{{ parent() }} - AppFeatherInstallBundle:Install:install{% endblock %}
+
+{% block content %}
+
+{% set modal_error = "0" %}
+
+<div class="warper container-fluid">
+
+	<div class="page-header">
+		<h1><img width="150px" style="margin-top:-50px" src="{{ asset('img/logo.png') }}"/>{{ feather_name }} <small> {{ feather_description }}</small></h1>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">Bienvenue dans l'assistant d'installation de feather</div>
+				<div class="panel-body">
+					<div class="alert alert-info alert-dismissible" role="alert">
+					  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  	<strong>INFO!</strong> Si vous rencontrer des problèmes insolvable durant l'installation <a href="mailto:contact@vigitas.com">contactez-nous</a>
+					</div>
+					<p>
+    					Bienvenue dans l'assistant d'installation de <strong>{{ feather_name }}</strong>,<br> avant de nous lancer nous avons besoin de quelques informations concernant <strong><em>l'environnement</em></strong> et les <strong><em>dépendances</em></strong> necessaires au bon fonctionnement de cette application, et afin de proceder a la suites des evenements dans les meilleurs conditions possible il est important que vous ayer en votre possession les informations suivantes:
+
+    					<hr class="dotted">
+
+    					<h4>
+    						1 <small>l'adresse de votre serveur rpc</small>
+    						<button type="button" class="btn btn-link tooltip-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Par défault l'adresse est 127.0.0.1">
+    							<i class="fa fa-question-circle"></i>
+    						</button><br>
+							2 <small>le port de votre serveur rpc</small>
+    						<button type="button" class="btn btn-link tooltip-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Par défault le port est 9091">
+    							<i class="fa fa-question-circle"></i>
+    						</button><br>
+    						3 <small>Le répertoire ou seront enregistrer vos fichiers une fois le telechargement terminé</small>
+    						<button type="button" class="btn btn-link tooltip-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Par exemple /var/www/films">
+    							<i class="fa fa-question-circle"></i>
+    						</button><br>
+    						4 <small>le répertoire temporaire ou seront enregistrer vos fichier durant le téléchargement</small>
+    						<button type="button" class="btn btn-link tooltip-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Par défaut le repertoire est /var/tmp/">
+    							<i class="fa fa-question-circle"></i>
+    						</button><br>
+    						5 <small>l'echelle de votre amour inconditionnelle pour le téléchargement</small>
+    						<button type="button" class="btn btn-link tooltip-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quand on aime on ne compte pas">
+    							<i class="fa fa-question-circle"></i>
+    						</button>
+    					</h4>
+
+    					<hr class="dotted">
+
+    					Si pour une raison quelconque l'installation automatique rencontrer des <strong><em>difficultés</em></strong>, ne paniquer pas, le programme vous indiquera la marche a suivre afin de l'aider dans l'accomplissement de sa tache et ce de manière concise et clair<br>
+
+    					<br>Nous vous indiqueront ou chercher les informations qui vous sont demander durant la phase d'installations si jamais pour une raison x ou y les valeurs par défauts ou celles que vous auriez préciser ne fonctionnes pas.<br><br>
+
+    					{% if app_cache_path == 0777 %}
+    						{% if app_kernel_path == 0777 %}
+    							{% if app_kernel_path == 0777 %}
+    								{% if app_bin_php5 == 1 %}
+    									{% if app_bin_apache2 == 1 %}
+    										{% if app_bin_transmission_daemon == 1 %}
+    											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-normal">Commancer l'installation</button>
+    										{% else %}
+    											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    											{% set modal_error = "1" %}
+    										{% endif %}
+    									{% else %}
+    										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    										{% set modal_error = "1" %}
+    									{% endif %}
+    								{% else %}
+    									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    									{% set modal_error = "1" %}
+    								{% endif %}
+    							{% else %}
+    								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    								{% set modal_error = "1" %}
+    							{% endif %}
+    						{% else %}
+    							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    							{% set modal_error = "1" %}
+    						{% endif %}
+    					{% else %}
+    						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-error">Commancer l'installation</button>
+    						{% set modal_error = "1" %}
+    					{% endif %}
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Verification des dépendances</div>
+						<ul class="list-group">
+						  	<li class="list-group-item">
+						    	<span class="badge badge-{% if app_bin_php5 == 1 %}success{% else %}danger{% endif%}">
+						    		{% if app_bin_php5 == 1 %}ok{% else %}erreur{% endif%}
+						    	</span><strong>PHP5</strong><br><em class="check-daemon-var">/var/lib/php5</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge badge-{% if app_bin_apache2 == 1 %}success{% else %}danger{% endif%}">
+						    		{% if app_bin_apache2 == 1 %}ok{% else %}erreur{% endif%}
+						    	</span><strong>Apache2</strong><br><em class="check-daemon-var">/var/run/apache2</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge badge-{% if app_bin_transmission_daemon == 1 %}success{% else %}danger{% endif%}">
+						    		{% if app_bin_transmission_daemon == 1 %}ok{% else %}erreur{% endif%}
+						    	</span><strong>Transmission-daemon</strong><br><em class="check-daemon-var">/var/lib/transmission-daemon</em>
+						    </li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Authorisations des fichiers</div>
+						<ul class="list-group">
+						  	<li class="list-group-item">
+						    	<span class="badge badge-{% if app_cache_path == 0777 %}success{% else %}danger{% endif%}">{{ app_cache_path }}</span><strong>Cache</strong><br><em class="check-daemon-var">/var/www/Feather/feather/app/cache</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge badge-{% if app_kernel_path == 0777 %}success{% else %}danger{% endif%}">{{ app_kernel_path }}</span><strong>App</strong><br><em class="check-daemon-var">/var/www/Feather/feather/app/</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge badge-{% if app_base_path == 0777 %}success{% else %}danger{% endif%}">{{ app_base_path }}</span><strong>Web</strong><br><em class="check-daemon-var">/var/www/Feather/feather/web/</em>
+						    </li>
+						</ul>
+					</div>
+				</div>
+
+				{% if modal_error == 1 %}
+					<div class="col-md-12">
+						<div class="alert alert-danger alert-dismissible" role="alert">
+						  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  	<strong>ATTENTION!</strong> Un ou plusieurs point necessite votre attention et doivent être corriger pour poursuivre l'installation.</a>
+						</div>
+					</div>
+				{% else %}
+					<div class="col-md-12">
+						<div class="alert alert-success alert-dismissible" role="alert">
+						  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  	<strong>Youpii!</strong> Tout semble parfait pour une installation sans bobo :).</a>
+						</div>
+					</div>
+				{% endif  %}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% if app_cache_path == 0777 %}{% if app_kernel_path == 0777 %}{% if app_kernel_path == 0777 %}{% if app_bin_php5 == 1 %}{% if app_bin_apache2 == 1 %}{% if app_bin_transmission_daemon == 1 %}
+<div class="modal fade" id="modal-normal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+	  		<div class="modal-header">
+            	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            	<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+          	</div>
+	  	  	<div class="modal-body">
+	  	  	  	<p>Avez-vous bien lu les prérequis avant de vous lancer ? Si oui, cliquer sur « <strong>je suis prêt</strong> » sinon, sur « <strong>Annuler</strong> »</p>
+	  	  	</div>
+	  	  	<div class="modal-footer">
+	  	  	  	<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+	  	  	  	<button type="button" class="btn btn-primary" onclick="window.location.href='http://{{ host }}/1';">Je suis prêt</button>
+	  	  	</div>
+	  	</div>
+	</div>
+</div>
+{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+
+<div class="modal fade" id="modal-error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+	  		<div class="modal-header">
+            	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            	<h4 class="modal-title" id="myModalLabel">Erreur: vérifier que tout les prérequis sont dans le vert</h4>
+          	</div>
+	  	  	<div class="modal-body">
+	  	  	  	<p>Verifier bien que les repertoires ont les bonnes autorisations et que les dépendances sont correctement installer et executer</p>
+	  	  	</div>
+	  	  	<div class="modal-footer">
+	  	  	  	<button type="button" class="btn btn-primary" onclick="window.location.href='http://{{ host }}';">Revérifier</button>
+	  	  	</div>
+	  	</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+app_feather_install:
+    resource: "@AppFeatherInstallBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app_feather:
+    resource: "@AppFeatherBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app_feather_login:
+    pattern:  login
+    defaults: { _controller: AppFeatherUserBundle:Security:login }
+
+app_feather_login_check:
+    pattern: /login_check
+
+app_feather_logout:
+    pattern: logout

@@ -1,0 +1,48 @@
+# Flashbag messages
+'Close': Fermer
+'Yeahh': Youpii
+
+# Dashboard rounded stat
+'Download rate': 'Débit en réception'
+'Upload rate': 'Débit en émission'
+'Disk space available': 'Espace de stockage disponible'
+
+# Modal box for adding new torrent
+'Get the torrent file': 'Récuperer le fichier torrent'
+'URI of file': 'URL du fichier'
+'URI of your .torrent file': 'URL de votre fichier .torrent'
+'Download torrent file': 'Télécharger le fichier torrent'
+'Submit': Valider
+'Add': Ajouter
+
+# Torrent list translation
+'Torrent listing': 'Liste des torrents actifs'
+'Filename': 'Nom du fichier'
+'Size': Taille
+'Time remaining': 'Temps restant'
+'Progress': Progression
+'Actions': Actions
+'hours': heures
+'minutes': minutes
+'seconds': secondes
+'Completed': Terminé
+'Suspended': Suspendre
+'Checking file': 'Vérification du fichier'
+'Restart download': 'Reprendre le téléchargement'
+'Appended': Reprendre
+'Suspend': En pause
+'Delete': Supprimer
+'Nothing to display here': 'Aucun elements a afficher ici'
+
+# Size sufix
+'Kb': Ko
+'Mb': Mo
+'Gb': Go
+'bytes': octets 
+
+# Aside menu
+'Dashboard': Dashboard
+'Logout': Déconnexion
+
+# Header navbar
+'Profile': 'Profil de'

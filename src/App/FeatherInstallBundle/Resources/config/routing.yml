@@ -1,0 +1,3 @@
+app_feather_install:
+    path:     /install
+    defaults: { _controller: AppFeatherInstallBundle:Install:install }

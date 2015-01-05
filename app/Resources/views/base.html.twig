@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- META PROPERTIES -->
+        <meta charset="UTF-8" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- TITLE -->
+        <title>{% block title %}Feather webapp{% endblock %}</title>
+
+        <!-- ASSETIC -->
+        {% stylesheets '@AppFeatherBundle/Resources/public/css/*' %}
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <!-- GOOGLE FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
+
+        <!-- FAVICON -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <!-- PRELOADER -->
+        {% block preloader %}  
+            {% include 'includes/preloader.inc.html.twig' %}
+        {% endblock %}
+        <!-- ENDPRELOADER -->
+
+        <!-- ASIDE -->
+        {% block aside %}
+            {% include 'includes/aside.inc.html.twig' %}
+        {% endblock %}
+        <!-- ENDASIDE -->
+
+        <!-- BODY -->
+        {% block body %}
+
+            <section class="content">
+
+                <!-- HEADER -->
+                {% block header %}
+                    {% include 'includes/header.inc.html.twig' %}
+                {% endblock %}
+                <!-- ENDHEADER -->
+
+                <!-- CONTENT -->
+                {% block content %}{% endblock %}
+                <!-- ENDCONTENT -->
+
+                <!-- FOOTER -->
+                {% block footer %}
+                    {% include 'includes/footer.inc.html.twig' %}
+                {% endblock %}
+                <!-- ENDFOOTER -->
+
+            </section>
+
+        {% endblock %}
+        <!-- ENDBODY -->
+
+        <!-- JAVASCRIPT -->
+        {% javascripts 
+            '@AppFeatherBundle/Resources/public/js/jquery/jquery-1.9.1.min.js' 
+            '@AppFeatherBundle/Resources/public/js/bootstrap/bootstrap.min.js' 
+            '@AppFeatherBundle/Resources/public/js/globalize/globalize.min.js'
+            '@AppFeatherBundle/Resources/public/js/plugins/nicescroll/jquery.nicescroll.min.js'
+            '@AppFeatherBundle/Resources/public/js/plugins/DevExpressChartJS/dx.chartjs.js' 
+            '@AppFeatherBundle/Resources/public/js/plugins/DevExpressChartJS/demo-charts.js'  
+            '@AppFeatherBundle/Resources/public/js/plugins/sparkline/jquery.sparkline.min.js' 
+            '@AppFeatherBundle/Resources/public/js/plugins/sparkline/jquery.sparkline.demo.js' 
+            '@AppFeatherBundle/Resources/public/js/angular/1.3.0-beta.14/angular.min.js'
+            '@AppFeatherBundle/Resources/public/js/plugins/datatables/jquery.dataTables.js'  
+            '@AppFeatherBundle/Resources/public/js/plugins/datatables/DT_bootstrap.js'
+            '@AppFeatherBundle/Resources/public/js/plugins/datatables/jquery.dataTables-conf.js'
+            '@AppFeatherBundle/Resources/public/js/app/custom.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- ENDJAVASCRIPTS -->
+
+    </body>
+</html>

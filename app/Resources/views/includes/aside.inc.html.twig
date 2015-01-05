@@ -1,0 +1,21 @@
+<!--
+=====================================
+===========  ASIDE BLOCK  ===========
+=====================================
+-->
+
+<aside class="left-panel">
+	<div class="user text-center"> <img src="{{ asset('img/logo.png') }}" class="img-circle" alt="...">
+		<h4 class="user-name">{{ feather_name }}</h4>
+	</div>
+	<nav class="navigation">
+		<ul class="list-unstyled">
+			<li class="active">
+				<a href="{{ path('app_feather_core') }}"><i class="fa fa-bookmark-o"></i><span class="nav-label">{{ 'Dashboard'|trans }}</span></a>
+			</li>
+			<li>
+				<a href="{{ path('app_feather_logout') }}"><i class="fa fa-sign-out"></i><span class="nav-label">{{ 'Logout'|trans }}</span></a>
+			</li>
+		</ul>
+	</nav>
+</aside>

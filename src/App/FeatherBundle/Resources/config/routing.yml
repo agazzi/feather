@@ -1,0 +1,23 @@
+app_feather_core:
+    path:     /
+    defaults: { _controller: AppFeatherBundle:Core:core }
+
+app_feather_add_torrent:
+    path:     /add
+    defaults: { _controller: AppFeatherBundle:Core:add }
+
+app_feather_delete_torrent:
+    path:     /delete/{id}
+    defaults: { _controller: AppFeatherBundle:Core:delete }
+
+app_feather_start_torrent:
+    path:     /start/{id}
+    defaults: { _controller: AppFeatherBundle:Core:start }
+
+app_feather_stop_torrent:
+    path:     /stop/{id}
+    defaults: { _controller: AppFeatherBundle:Core:stop }
+
+app_feather_data:
+    path:     /data
+    defaults: { _controller: AppFeatherBundle:Core:data }

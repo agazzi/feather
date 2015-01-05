@@ -1,0 +1,42 @@
+{% extends "::security.html.twig" %}
+
+{% block title %}{{ parent() }} - AppFeatherUserBundle:Security:login{% endblock %}
+
+{% block content %}
+
+{# Display error for bad attempt to login #}
+{% if error %}
+	<div style="margin-top:20px;" class="alert alert-danger">{{ error.message }}</div>
+{% endif %}
+
+{# Display login form #}
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+		<h3 class="text-center">Feather</h3>
+	    <p class="text-center">a simple, flexible and beautiful torrent webapp</p>
+	    <hr class="clean">
+			<form action="{{ path('app_feather_login_check') }}" method="POST">
+	    		<div class="form-group input-group">
+	    			<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+	    			<input type="hidden" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Identifiant" />
+	    			<input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Identifiant" />
+	    		</div>
+	    		<div class="form-group input-group">
+	    			<span class="input-group-addon"><i class="fa fa-key"></i></span>
+	    		  	<input type="hidden" class="form-control" id="password" name="_password" placeholder="Mot de passe" />
+	    		  	<input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe" />
+	    		</div>
+	    		<div class="form-group">
+	    		  	<label class="cr-styled">
+	    		      	<input type="checkbox" ng-model="todo.done">
+	    		      	<i class="fa"></i> 
+	    		  	</label>
+	    		  	Se souvenir de moi
+	    		</div>
+				<button type="submit" class="btn btn-purple btn-block">Connexion</button>
+	    	</form>
+	    <hr>
+	</div>
+</div>
+
+{% endblock %}
