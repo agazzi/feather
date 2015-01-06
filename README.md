@@ -13,8 +13,8 @@ Si vous avez des problèmes contacter moi a l'adresse email suivante: william[do
 
 Changelog
 ========================
-0.9.8 :
-      # Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux
+0.9.8 :<br/>
+			# Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux
       # et le rend ainsi fonctionnel uniquement sur des environnements vierge et tournant sur ( Debian/Ubuntu )
       # il n'en  deumeurent pas moin un autoinstaller inachevé.
 0.9.7 :
