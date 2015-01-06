@@ -14,31 +14,31 @@ Si vous avez des problèmes contacter moi a l'adresse email suivante: william[do
 Changelog
 ========================
 0.9.8 :<br/>
-			# Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux
-      # et le rend ainsi fonctionnel uniquement sur des environnements vierge et tournant sur ( Debian/Ubuntu )
-      # il n'en  deumeurent pas moin un autoinstaller inachevé.
-0.9.7 :
-      # Apporte l'ajout d'un autoinstaller linux peu fonctionnel est limité pas encore accessible a l'utilisation
-      # Inclus egalement la mise a jour de l'installer web de feather 
-      # Mise a jour des requetes curl
-0.9.6 :
-      # Ajout d'un installer web pour feather
-      # Corrections de plusieurs bug
-0.9.5 :
-      # Ajout des fonctions Ajouter
-      # Ajout du calcul de débit montant
-      # Ajout d'une verification de session
-0.9.4 :
-      # Ajout d'un système d'identification ( par défaut: admin/adminpass )
-      # Securisation de l'application
-      # Mise en place d'un firewall php
-0.9.3 :
-      # Ajout des fonctions start|stop|delete
-      # Correction de plusieurs bug
-0.9.2 :
-      # Premiere release du noyau de l'application
-0.9.1 :
-      # Corrections de quelques bug lié a l'interface
-      # Intégration de l'interface de l'application
-0.9.0 :
-      # Initial release
+			# Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux<br/>
+      # et le rend ainsi fonctionnel uniquement sur des environnements vierge et tournant sur ( Debian/Ubuntu )<br/>
+      # il n'en  deumeurent pas moin un autoinstaller inachevé.<br/>
+0.9.7 :<br/>
+      # Apporte l'ajout d'un autoinstaller linux peu fonctionnel est limité pas encore accessible a l'utilisation<br/>
+      # Inclus egalement la mise a jour de l'installer web de feather<br/>
+      # Mise a jour des requetes curl<br/>
+0.9.6 :<br/>
+      # Ajout d'un installer web pour feather<br/>
+      # Corrections de plusieurs bug<br/>
+0.9.5 :<br/>
+      # Ajout des fonctions Ajouter<br/>
+      # Ajout du calcul de débit montant<br/>
+      # Ajout d'une verification de session<br/>
+0.9.4 :<br/>
+      # Ajout d'un système d'identification ( par défaut: admin/adminpass )<br/>
+      # Securisation de l'application<br/>
+      # Mise en place d'un firewall php<br/>
+0.9.3 :<br/>
+      # Ajout des fonctions start|stop|delete<br/>
+      # Correction de plusieurs bug<br/>
+0.9.2 :<br/>
+      # Premiere release du noyau de l'application<br/>
+0.9.1 :<br/>
+      # Corrections de quelques bug lié a l'interface<br/>
+      # Intégration de l'interface de l'application<br/>
+0.9.0 :<br/>
+      # Initial release<br/>
