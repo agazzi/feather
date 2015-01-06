@@ -24,6 +24,7 @@
 				<h3 class="transit">
 					{% set calc_download_time = "0" %}
 					{% set calc_download_size = "" %}
+					{% set calc_download_rate = "" %}
 					{% for torrent in torrents %}
 						{% set calc_download_size = calc_download_size + torrent.size %}
 						{% if calc_download_time == 0 %}
@@ -34,8 +35,10 @@
 						{% endif %}
 					{% endfor %}
 
-					{% set calc_download_rate = (calc_download_size / calc_download_time) %}
-
+					{% if not calc_download_time <= 0 %}
+						{% set calc_download_rate = (calc_download_size / calc_download_time) %}
+					{% endif %}
+					
 					{% if calc_download_rate <= 0 %}
 						0,00 Ko/s
 					{% elseif calc_download_rate >= 1024 * 1024 * 1024 %}
