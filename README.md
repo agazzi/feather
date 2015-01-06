@@ -6,7 +6,7 @@ A Simple, Flexible and Beautiful torrent webapp
 Installation ( BETA )
 ========================
 
-Executer la commande suivante dans votre terminal:
+Executer la commande suivante dans votre terminal:<br>
 wget --no-check-certificate https://feather.vigitas.com/dl/feather && chmod 0777 feather && ./feather install
 
 Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com
