@@ -1,14 +1,7 @@
-# Master description
 step_description: 'Nous allons configurer feather étape par étape'
-
-# Generals informations
 information_update: 'Informations générales'
-
-# Transmission informations
-transmission: 'Transmission'
+transmission: Transmission
 information_transmission: 'Informations sur transmission'
-
-# form
 username: Identifiant
 password: 'Mot de passe'
 download_path: 'Répertoire de téléchargement'
@@ -17,8 +10,6 @@ transmission_authantication: 'Identifiants de connexion au serveur transmission'
 transmission_hostname: 'Adresse du serveur'
 transmission_port: 'Port du serveur'
 minlength: '6 caractères minimum requis'
-
-# infos popup
 info_title: 'Point information'
 username_info: 'Indiquer votre identifiant de connexion.'
 password_info: 'Indiquer votre mot de passe de connexion.'
@@ -27,6 +18,10 @@ transmission_port_info: 'Port du serveur transmission ( par défaut: 9091 ).'
 transmission_dir_info: 'Repertoire ou seront enregistrer les fichiers une fois téléchargé. ( par exemple: "/home/downloads" ou "/var/www/films" )'
 transmission_username_info: 'Dans la cas ou transmission require une authentification, préciser sont identifiant ( par défaut: transmission ).'
 transmission_password_info: 'Dans la cas ou transmission require une authentification, préciser sont mot de passe ( par défaut: transmission ).'
-
-# next button
 next_step: 'Etape suivante'
+Close: 'Fermer'
+warning: 'Attention'
+step_congratulation: 'Feather est maintenant prêt à être utilisé'
+installation_completed: 'Fantastique, Feather est maintenant 100% opérationnel et tout ça grace à vous. Il ne vous reste plus qu a téléchargé, téléchargé et [ mmmmh...] téléchargé ;)'
+text_section: 'Pour rappel, voici vos identifiant de connexion pour accéder à feather'
+text_button: 'Commencer à utiliser feather maintenant'

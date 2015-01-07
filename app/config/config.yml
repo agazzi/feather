@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: feather.yml }
+    - { resource: transmission.yml }
 
 framework:
     #esi:             ~

@@ -44,9 +44,9 @@
 					{% elseif calc_download_rate >= 1024 * 1024 * 1024 %}
 						{{ (calc_download_rate / 1024 / 1024 / 1024)|round(0, 'floor') }} {{ 'Gb'|trans }}/s
 					{% elseif calc_download_rate >= 1024 * 1024 %}
-						{{ (calc_download_rate / 1024 / 1024)|round(0, 'floor') }} {{ 'Mb'|trans }}/s
+						{{ (calc_download_rate / 1024 / 1024)|round(1, 'floor') }} {{ 'Mb'|trans }}/s
 					{% elseif calc_download_rate >= 1024 %}
-						{{ (calc_download_rate / 1024)|round(0, 'floor') }} {{ 'Kb'|trans }}/s
+						{{ (calc_download_rate / 1024)|round(1, 'floor') }} {{ 'Kb'|trans }}/s
 					{% else %}
 						{{ calc_download_rate|round(0, 'floor') }} {{ 'bytes'|trans }}/s
 					{% endif %}

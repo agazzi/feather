@@ -20,6 +20,16 @@ class InstallController extends Controller
 	private $app_bin_apache2;
 
     private $_user_username;
+    private $_user_password;
+    private $_transmission_dir;
+    private $_transmission_tmp;
+    private $_transmission_hostname;
+    private $_transmission_port;
+    private $_transmission_authentication;
+    private $_transmission_username;
+    private $_transmission_password;
+
+    private $basepath;
 
 	private function getPathPermission($path)
 	{
@@ -86,8 +96,8 @@ class InstallController extends Controller
         $user_password = "";
         $transmission_dir = "";
         $transmission_tmp = "";
-        $transmission_hostname = "";
-        $transmission_port = "";
+        $transmission_hostname = "127.0.0.1";
+        $transmission_port = "9091";
         $transmission_authentication = "";
         $transmission_username = "";
         $transmission_password = "";
@@ -104,12 +114,14 @@ class InstallController extends Controller
                     $transmission_hostname = "127.0.0.1";
                     $transmission_port = "9091";
                     $transmission_authentication = true;
-                    $transmission_username = "transmission0";
+                    $transmission_username = "transmission";
                     $transmission_password = "transmission";
                 }     
                 else {
-                    $transmission_hostname = $request->request->get('_transmission_hostname');
-                    $transmission_port = $request->request->get('_transmission_port');
+                    if ($request->request->get('_transmission_hostname'))
+                        $transmission_hostname = $request->request->get('_transmission_hostname');
+                    if ($request->request->get('_transmission_port'))
+                        $transmission_port = $request->request->get('_transmission_port');
                     if ($request->request->get('_transmission_authentication') == true) {
                         $transmission_username = $request->request->get('_transmission_username');
                         $transmission_password = $request->request->get('_transmission_password');
@@ -135,6 +147,9 @@ class InstallController extends Controller
                     $transmission->setClient($client);
                 }
                 else $transmission = new Transmission();
+
+                // Instance of basepath
+                $this->basepath = $this->container->get('kernel')->getRootdir() . "/config";
 
                 // Instance of form setting
                 $this->_user_username = $user_username;
@@ -164,10 +179,157 @@ class InstallController extends Controller
             }
         }
     }
+
     private function processexecAction()
     {
-        echo $this->_transmission_authentication;
-        die();
-        return new Response('ok');
+        // Seting up transmission config file (.yml)
+        $file_path = $this->basepath . "/transmission.yml";
+        $file_open = fopen($file_path, "r+");
+        ftruncate($file_open, 0);
+
+        // Initialize transmission setting array
+        $transmission_setting_ouptput = array(
+            "transmission_dir: " . $this->_transmission_dir, 
+            "transmission_tmp: " . $this->_transmission_tmp, 
+            "transmission_hostname: " . $this->_transmission_hostname, 
+            "transmission_port: " . $this->_transmission_port, 
+            "transmission_authentication: " . $this->_transmission_authentication, 
+            "transmission_username: " . $this->_transmission_username, 
+            "transmission_password: " . $this->_transmission_password,
+        );
+
+        // Put settings into the config file
+        fputs($file_open, "parameters:\n");
+        for ($i = 0 ; $i < 7 ; $i++)
+           fputs($file_open, "    " . $transmission_setting_ouptput[$i]."\n");
+        fclose($file_open);
+
+
+        // Seting up transmission config file (.yml)
+        $file_path = $this->basepath . "/feather.yml";
+        $file_open = fopen($file_path, "r+");
+        ftruncate($file_open, 0);
+
+        // Initialize transmission setting array
+        $transmission_setting_ouptput = array(
+            "user_username: " . $this->_user_username, 
+            "user_password: " . $this->_user_password, 
+        );
+
+        // Put settings into the config file
+        fputs($file_open, "parameters:\n");
+        for ($i = 0 ; $i < 2 ; $i++)
+           fputs($file_open, "    " . $transmission_setting_ouptput[$i]."\n");
+        fclose($file_open);
+
+        $filesystem = new Filesystem();
+        $filesystem->touch($this->basepath . "/settings.json");
+
+        // Seting up transmission config file (.yml)
+        $file_path = $this->basepath . "/settings.json";
+        $file_open = fopen($file_path, "r+");
+        ftruncate($file_open, 0);
+
+        // Initialize transmission setting array
+        $transmission_setting_ouptput = array(
+            "\"alt-speed-down\": 50,", 
+            "\"alt-speed-enabled\": false,", 
+            "\"alt-speed-time-begin\": 540,", 
+            "\"alt-speed-time-day\": 127,", 
+            "\"alt-speed-time-enabled\": false,", 
+            "\"alt-speed-time-end\": 1020,", 
+            "\"alt-speed-up\": 50,", 
+            "\"bind-address-ipv4\": \"0.0.0.0\",", 
+            "\"bind-address-ipv6\": \"::\",", 
+            "\"blocklist-enabled\": false,", 
+            "\"blocklist-url\": \"http://www.example.com/blocklist\",", 
+            "\"cache-size-mb\": 4,", 
+            "\"dht-enabled\": true,", 
+            "\"download-dir\": \"" . $this->_transmission_dir . "\",", 
+            "\"download-limit\": 100,", 
+            "\"download-limit-enabled\": 0,", 
+            "\"download-queue-enabled\": true,", 
+            "\"download-queue-size\": 15,", 
+            "\"encryption\": 1,", 
+            "\"idle-seeding-limit\": 30,", 
+            "\"idle-seeding-limit-enabled\": false,", 
+            "\"incomplete-dir\": \"" . $this->_transmission_tmp . "\",", 
+            "\"incomplete-dir-enabled\": true,", 
+            "\"lpd-enabled\": false,", 
+            "\"max-peers-global\": 200,", 
+            "\"message-level\": 2,", 
+            "\"peer-congestion-algorithm\": \"\",", 
+            "\"peer-limit-global\": 240,", 
+            "\"peer-limit-per-torrent\": 60,", 
+            "\"peer-port\": 51413,", 
+            "\"peer-port-random-high\": 65535,", 
+            "\"peer-port-random-low\": 49152,", 
+            "\"peer-port-random-on-start\": false,", 
+            "\"peer-socket-tos\": \"default\",", 
+            "\"pex-enabled\": true,", 
+            "\"port-forwarding-enabled\": false,", 
+            "\"preallocation\": 1,", 
+            "\"prefetch-enabled\": 1,", 
+            "\"queue-stalled-enabled\": true,", 
+            "\"queue-stalled-minutes\": 30,", 
+            "\"ratio-limit\": 2,", 
+            "\"ratio-limit-enabled\": false,", 
+            "\"rename-partial-files\": true,", 
+            "\"rpc-authentication-required\": " . $this->_transmission_authentication . ",", 
+            "\"rpc-bind-address\": \"0.0.0.0\",", 
+            "\"rpc-enabled\": true,", 
+            "\"rpc-password\": \"" . $this->_transmission_password . "\",", 
+            "\"rpc-port\": " . $this->_transmission_port . ",", 
+            "\"rpc-url\": \"/transmission/\",", 
+            "\"rpc-username\": \"" . $this->_transmission_username . "\",", 
+            "\"rpc-whitelist\": \"127.0.0.1\",", 
+            "\"rpc-whitelist-enabled\": false,", 
+            "\"scrape-paused-torrents-enabled\": true,", 
+            "\"script-torrent-done-enabled\": false,", 
+            "\"script-torrent-done-filename\": \"\",", 
+            "\"seed-queue-enabled\": false,", 
+            "\"seed-queue-size\": 10,", 
+            "\"speed-limit-down\": 100,", 
+            "\"speed-limit-down-enabled\": false,", 
+            "\"speed-limit-up\": 100,", 
+            "\"speed-limit-up-enabled\": false,", 
+            "\"start-added-torrents\": true,", 
+            "\"trash-original-torrent-files\": false,", 
+            "\"umask\": 18,", 
+            "\"upload-limit\": 100,", 
+            "\"upload-limit-enabled\": 0,", 
+            "\"upload-slots-per-torrent\": 14,", 
+            "\"utp-enabled\": true", 
+        );
+
+        // Put settings into the config file
+        fputs($file_open, "{\n");
+        for ($i = 0 ; $i < 68 ; $i++)
+           fputs($file_open, "    " . $transmission_setting_ouptput[$i]."\n");
+        fputs($file_open, "}\n");
+        fclose($file_open);
+
+        // Return process exec action
+        // return $this->redirect($this->generateUrl('app_feather_install_step_final')); 
+        return $this->stepfinalAction();
+    }
+
+    private function stepfinalAction()
+    {
+        // Initialize filesystem Manager
+        $filesystem = new Filesystem();
+        
+        // Create download repository
+        $filesystem->mkdir($this->_transmission_dir, $mode = 0777);
+        $filesystem->mkdir($this->_transmission_tmp, $mode = 0777);
+
+        // Remove install file from base of symfony
+        $filesystem->remove($this->basepath . "/../../INSTALL");
+
+        // Return congratulation page
+        return $this->render('AppFeatherInstallBundle:Install:stepfinal.html.twig', array(
+            'username' => $this->_user_username,
+            'password' => $this->_user_password,
+        ));
     }
 }
