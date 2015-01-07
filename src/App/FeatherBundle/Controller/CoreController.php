@@ -33,6 +33,9 @@ class CoreController extends Controller
     	$transmission_dir = $this->container->getParameter('transmission_dir');
     	$transmission_tmp = $this->container->getParameter('transmission_tmp');
 
+        // Initialize Transmission Connector
+        $transmission = new Transmission();
+
     	// Checking if transmission authentication is enabled
     	if ($transmission_authentication == true) {
     		$this->username = $this->container->getParameter('transmission_username');
@@ -43,11 +46,10 @@ class CoreController extends Controller
     			$client = new Client();
 				$client->authenticate($this->username, $this->password);
 			}
-    	}
-  	
-    	// Initialize Transmission Connector
-		$transmission = new Transmission();
-		$transmission->setClient($client);
+
+            // Inject authentication informations
+            $transmission->setClient($client);
+        }
 
 		// Configuring many var of transmission and save as session
 		$session = $transmission->getSession();
