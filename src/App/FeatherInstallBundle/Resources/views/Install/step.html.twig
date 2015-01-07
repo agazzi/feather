@@ -1,0 +1,193 @@
+{% extends "::install.html.twig" %}
+
+{% block title %}{{ parent() }} - AppFeatherInstallBundle:Install:step{% endblock %}
+
+{% block content %}
+
+<div class="warper container-fluid">
+
+	<div class="page-header">
+		<h1><img width="150px" style="margin-top:-50px" src="{{ asset('img/logo.png') }}"/>{{ feather_name }} <small> {{ feather_description }}</small></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">{{ 'step_description'|trans }}</div>
+				<div class="panel-body panel-body-step">
+
+					{# Get & display all messages with id 'info' #}
+					{% for message in app.session.flashbag.get('error') %}
+						<div class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">{{ 'Close'|trans }}</span></button>
+							<strong>{{ 'warning'|trans }}!</strong> {{ message }} 
+						</div>
+					{% endfor %}
+
+					<form method="POST" action="{{ path('app_feather_install_process') }}">
+						
+						<p>Si j'amais vous ne connaisser pas les informations concernant transmission comme l'adresse, le port et les identifiants de connexions de transmission, ce n'est pas très grave et nous allons nous occuper de ces détails à votre place pour que vous puissiez profiter le plus rapidement de notre application, et dans ce cas nous vous invitons à cocher la case ci-dessous :
+
+						<div class="form-group">
+                            <label class="cr-styled">
+                                <input type="checkbox" name="_transmission_lostinfo" id="transmission_lostinfo" ng-model="todo.done">
+                                <i class="fa"></i> 
+                        	</label>
+                        	&nbsp;&nbsp;&nbsp;Cocher la case si vous ne disposer pas des informations de connexion à transmission
+                        </div>
+
+						<!-- dotted -->
+						<hr class="dotted">
+						<!-- enddotted -->
+
+						<!-- Input: main_title -->
+						<div class="page-header">
+							<h3>{{ feather_name }} <small>{{ 'information_update'|trans }}</small></h3>
+						</div>
+
+						<!-- Input: username -->
+						<div class="form-group">
+                        	<label>{{ 'username'|trans }}</label>
+                        	<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								<input type="text" name="_user_username" class="form-control" placeholder="{{ 'username'|trans }}" required>
+								<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+									data-content="{{ 'username_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                            		<i class="fa fa-question"></i>
+                            	</button>
+							</div>
+						</div>
+					
+						<!-- Input: password -->
+						<div class="form-group">
+							<label>{{ 'password'|trans }} :</label>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								<input type="password" name="_user_password" class="form-control" placeholder="{{ 'password'|trans }}" required>
+								<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+									data-content="{{ 'password_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                            		<i class="fa fa-question"></i>
+                            	</button>
+							</div>
+						</div>
+
+						<!-- dotted -->
+						<hr class="dotted">
+						<!-- enddotted -->
+
+						<!-- Input: transmission_title -->
+						<div class="page-header">
+							<h3>{{ 'transmission'|trans }} <small>{{ 'information_transmission'|trans }}</small></h3>
+						</div>
+						
+						<!-- Input: transmission_dir -->
+						<div class="form-group">
+							<label>{{ 'download_path'|trans }} :</label>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-folder-o"></i></span>
+								<input type="text" name="_transmission_dir" class="form-control" placeholder="/repertoire/de/telechargement" required>
+								<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+									data-content="{{ 'transmission_dir_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                            		<i class="fa fa-question"></i>
+                            	</button>
+							</div>
+						</div>
+
+						<div id="transmission_property">
+							<!-- Input: transmission_hostname -->
+							<div class="form-group">
+                        		<label>{{ 'transmission_hostname'|trans }} :</label>
+                        		<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-tasks"></i></span>
+									<input type="text" name="_transmission_hostname" class="form-control" placeholder="127.0.0.1">
+									<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+										data-content="{{ 'transmission_hostname_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                        	   			<i class="fa fa-question"></i>
+                        	   		</button>
+								</div>
+							</div>
+
+							<!-- Input: transmission_port -->
+							<div class="form-group">
+                        		<label>{{ 'transmission_port'|trans }} :</label>
+                        		<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-exchange"></i></span>
+									<input type="text" name="_transmission_port" class="form-control" placeholder="9091">
+									<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+										data-content="{{ 'transmission_port_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                        	   			<i class="fa fa-question"></i>
+                        	   		</button>
+								</div>
+							</div>
+						
+							<!-- Input: transmission_authantication_checkbox -->
+							<div class="form-group">
+                        		<label>{{ 'transmission_authantication'|trans }} :</label></br>
+								<div class="switch-button info showcase-switch-button">
+                      		    	<input name="_transmission_authentication" id="transmission_authentication" checked="" type="checkbox">
+                      		     	<label for="transmission_authentication"></label>
+                      			</div>
+							</div>
+
+							<div id="transmission_authinfo">
+								<!-- Input: transmission_username -->
+                        		<div class="form-group">
+                        			<label>{{ 'username'|trans }} :</label>
+                        			<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" name="_transmission_username" class="form-control" placeholder="{{ 'username'|trans }}">
+										<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+											data-content="{{ 'transmission_username_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                        	    			<i class="fa fa-question"></i>
+                        	    		</button>
+									</div>
+								</div>
+
+								<!-- Input: transmission_password -->
+								<div class="form-group" id="transmission_authinfo">
+									<label>{{ 'password'|trans }} :</label>
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+										<input type="password" name="_transmission_password" class="form-control" placeholder="{{ 'password'|trans }}">
+										<button type="button" class="btn btn-link popover-btn panel-icon form-control-feedback" data-container="body" title="" data-toggle="popover" data-placement="right" 
+											data-content="{{ 'transmission_password_info'|trans }}" data-original-title="{{ 'info_title'|trans }}" aria-describedby="popover74740">
+                        	    			<i class="fa fa-question"></i>
+                        	    		</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="dotted">
+
+						<!-- Input: submit -->
+						<div class="form-group">
+							<input type="submit" name="submit" id="submit" value="{{ 'next_step'|trans }}" class="pull-right btn btn-primary">
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Informations systèmes</div>
+						<div class="panel-body">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Liens utiles</div>
+						<div class="panel-body">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
