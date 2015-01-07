@@ -1,0 +1,40 @@
+{% extends "::install.html.twig" %}
+
+{% block title %}{{ parent() }} - AppFeatherInstallBundle:Install:step{% endblock %}
+
+{% block content %}
+
+<div class="warper container-fluid">
+
+	<div class="page-header">
+		<h1><img width="150px" style="margin-top:-50px" src="{{ asset('img/logo.png') }}"/>{{ feather_name }} <small> {{ feather_description }}</small></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">{{ 'step_congratulation'|trans }}</div>
+				<div class="panel-body panel-body-step">
+					<div class="page-header">
+						<h1>YEAHH! <br><small>{{ 'installation_completed'|trans }}</small></h1>
+					</div>
+
+					<p>{{ 'text_section'|trans }}</p>
+
+					<hr class="dotted">
+					
+					<p>{{ 'username'|trans }}: <code>{{ username }}</code></p>
+					<p>{{ 'password'|trans }}: <code>{{ password }}</code></p>
+
+					<hr class="dotted">
+
+					<div class="form-group pull-right">
+                        <button type="submit" class="btn btn-primary" name="signup" value="Validate" onclick="window.location.href='{{ path('app_feather_login') }}';">{{ 'text_button'|trans }}</button>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

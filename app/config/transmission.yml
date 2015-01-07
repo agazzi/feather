@@ -1,0 +1,8 @@
+parameters:
+    transmission_dir: /var/www/download/
+    transmission_tmp: /var/www/download//tmp
+    transmission_hostname: 127.0.0.1
+    transmission_port: 9091
+    transmission_authentication: true
+    transmission_username: transmission
+    transmission_password: transmission
