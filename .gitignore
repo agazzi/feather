@@ -43,6 +43,7 @@ Temporary Items
 .apdisk
 
 # Path to symfony 2 cache and logs folder
+src/App/FeatherBundle/Resources/sass/.sass-cache
 app/cache
 app/logs
 vendor
