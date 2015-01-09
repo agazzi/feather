@@ -174,15 +174,41 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">Informations systèmes</div>
-						<div class="panel-body">
-						</div>
+						<ul class="list-group">
+						  	<li class="list-group-item">
+						  		<span class="badge">info</span>
+						    	<strong>Système d'exploitation: </strong><br><em class="check-daemon-var">{{ system_os }}</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge">info</span>
+						    	<strong>Architecture: </strong><br><em class="check-daemon-var">{{ system_architecture }} bits</em>
+						    </li>
+						    <li class="list-group-item">
+						    	<span class="badge">info</span>
+						    	<strong>Espace de stockage</strong><br>
+						    	<em class="check-daemon-var">
+									{% if system_diskspace >= 1024 * 1024 * 1024 %}
+										{{ (system_diskspace / 1024 / 1024 / 1024)|round(0, 'floor') }} {{ 'Go'|trans }}
+									{% elseif system_diskspace >= 1024 * 1024 %}
+										{{ (system_diskspace / 1024 / 1024)|round(0, 'floor') }} {{ 'Mo'|trans }}
+									{% elseif system_diskspace >= 1024 %}
+										{{ (system_diskspace / 1024)|round(0, 'floor') }} {{ 'Ko'|trans }}
+									{% else %}
+										{{ system_diskspace|round(0, 'floor') }} {{ 'octets'|trans }}
+									{% endif %}
+						    	</em>
+						    </li>
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">Liens utiles</div>
-						<div class="panel-body">
-						</div>
+							<div class="panel-body">
+								- Dépot GitHub: <a href="https://github.com/agazzi/feather">github.com/agazzi/feather</a></br>
+								- Site officiel: <a href="https://feather.vigitas.com/">feather.vigitas.com</a></br>
+								- FAQ: <a href="https://feather.vigitas.com/faq/">feather.vigitas.com/faq</a>
+							</div>
 					</div>
 				</div>
 			</div>

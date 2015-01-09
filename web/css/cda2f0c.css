@@ -3813,10 +3813,9 @@ select[multiple].form-group-lg .form-control {
   height: 34px;
   line-height: 34px;
   text-align: center;
-  pointer-events: none;
 }
 
-/* line 348, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 347, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback {
@@ -3825,7 +3824,7 @@ select[multiple].form-group-lg .form-control {
   line-height: 46px;
 }
 
-/* line 353, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 352, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback {
@@ -3930,16 +3929,16 @@ select[multiple].form-group-lg .form-control {
   color: #a94442;
 }
 
-/* line 373, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 372, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .has-feedback label ~ .form-control-feedback {
   top: 25px;
 }
-/* line 376, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 375, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .has-feedback label.sr-only ~ .form-control-feedback {
   top: 0;
 }
 
-/* line 387, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 386, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .help-block {
   display: block;
   margin-top: 5px;
@@ -3948,43 +3947,43 @@ select[multiple].form-group-lg .form-control {
 }
 
 @media (min-width: 768px) {
-  /* line 412, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 411, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 419, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 418, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
   }
-  /* line 426, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 425, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .form-control-static {
     display: inline-block;
   }
-  /* line 430, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 429, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .input-group {
     display: inline-table;
     vertical-align: middle;
   }
-  /* line 434, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 433, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .input-group .input-group-addon,
   .form-inline .input-group .input-group-btn,
   .form-inline .input-group .form-control {
     width: auto;
   }
-  /* line 442, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 441, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .input-group > .form-control {
     width: 100%;
   }
-  /* line 446, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 445, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .control-label {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 454, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 453, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .radio,
   .form-inline .checkbox {
     display: inline-block;
@@ -3992,24 +3991,24 @@ select[multiple].form-group-lg .form-control {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 461, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 460, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .radio label,
   .form-inline .checkbox label {
     padding-left: 0;
   }
-  /* line 465, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 464, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .radio input[type="radio"],
   .form-inline .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0;
   }
-  /* line 472, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 471, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-inline .has-feedback .form-control-feedback {
     top: 0;
   }
 }
 
-/* line 494, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 493, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
@@ -4018,12 +4017,12 @@ select[multiple].form-group-lg .form-control {
   margin-bottom: 0;
   padding-top: 7px;
 }
-/* line 504, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 503, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .form-horizontal .radio,
 .form-horizontal .checkbox {
   min-height: 27px;
 }
-/* line 510, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 509, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .form-horizontal .form-group {
   margin-left: -15px;
   margin-right: -15px;
@@ -4038,25 +4037,25 @@ select[multiple].form-group-lg .form-control {
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 517, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 516, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
     padding-top: 7px;
   }
 }
-/* line 528, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+/* line 527, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px;
 }
 @media (min-width: 768px) {
-  /* line 538, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 537, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-horizontal .form-group-lg .control-label {
     padding-top: 14.3px;
   }
 }
 @media (min-width: 768px) {
-  /* line 545, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 544, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px;
   }
@@ -5421,43 +5420,43 @@ tbody.collapse.in {
   margin-bottom: 8px;
 }
 @media (min-width: 768px) {
-  /* line 412, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 411, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 419, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 418, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
   }
-  /* line 426, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 425, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .form-control-static {
     display: inline-block;
   }
-  /* line 430, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 429, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .input-group {
     display: inline-table;
     vertical-align: middle;
   }
-  /* line 434, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 433, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .input-group .input-group-addon,
   .navbar-form .input-group .input-group-btn,
   .navbar-form .input-group .form-control {
     width: auto;
   }
-  /* line 442, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 441, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .input-group > .form-control {
     width: 100%;
   }
-  /* line 446, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 445, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .control-label {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 454, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 453, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .radio,
   .navbar-form .checkbox {
     display: inline-block;
@@ -5465,18 +5464,18 @@ tbody.collapse.in {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  /* line 461, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 460, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .radio label,
   .navbar-form .checkbox label {
     padding-left: 0;
   }
-  /* line 465, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 464, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .radio input[type="radio"],
   .navbar-form .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0;
   }
-  /* line 472, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
+  /* line 471, ../../sass/sass/bootstrap/bootstrap/_forms.scss */
   .navbar-form .has-feedback .form-control-feedback {
     top: 0;
   }
@@ -8209,8 +8208,8 @@ button.close {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../../Bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.eot");
-  src: url("../../Bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../../Bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.woff") format("woff"), url("../../Bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.ttf") format("truetype"), url("../../Bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.svg#fontawesomeregular") format("svg");
+  src: url("../bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.eot");
+  src: url("../bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.woff") format("woff"), url("../bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.ttf") format("truetype"), url("../bundles/fontawesome/fonts/font-awesome/fontawesome-webfont.svg#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -10886,7 +10885,8 @@ button.close {
 /*
  * Variable
 */
-/* line 1, ../../sass/sass/modules/_index.scss */
+/* e.g : $var: value; */
+/* line 1, ../../sass/sass/modules/_feather_main.scss */
 body {
   background-color: #f9f9f9;
   color: #85868d;
@@ -10894,17 +10894,17 @@ body {
   position: relative;
 }
 
-/* line 7, ../../sass/sass/modules/_index.scss */
+/* line 7, ../../sass/sass/modules/_feather_main.scss */
 body, html {
   overflow-x: hidden;
 }
 
-/* line 10, ../../sass/sass/modules/_index.scss */
+/* line 10, ../../sass/sass/modules/_feather_main.scss */
 strong, b {
   font-weight: 700;
 }
 
-/* line 14, ../../sass/sass/modules/_index.scss */
+/* line 14, ../../sass/sass/modules/_feather_main.scss */
 .transit {
   transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -10912,20 +10912,44 @@ strong, b {
   -o-transition: all 0.5s;
 }
 
-/* line 21, ../../sass/sass/modules/_index.scss */
+/* line 21, ../../sass/sass/modules/_feather_main.scss */
 a:focus {
   outline: none;
 }
 
-/* line 24, ../../sass/sass/modules/_index.scss */
+/* line 24, ../../sass/sass/modules/_feather_main.scss */
 a:hover {
   text-decoration: none;
+}
+
+/* line 27, ../../sass/sass/modules/_feather_main.scss */
+.badge-success {
+  background-color: #5cb85c !important;
+}
+
+/* line 30, ../../sass/sass/modules/_feather_main.scss */
+.badge-danger {
+  background-color: #d9534f !important;
+}
+
+/* line 33, ../../sass/sass/modules/_feather_main.scss */
+.check-daemon-var {
+  font-size: 12px !important;
+  margin-top: 12px !important;
+}
+
+/*****************************
+Modal box
+*****************************/
+/* line 45, ../../sass/sass/modules/_feather_main.scss */
+.modal-open .modal {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /*****************************
 Loader
 *****************************/
-/* line 35, ../../sass/sass/modules/_index.scss */
+/* line 58, ../../sass/sass/modules/_feather_main.scss */
 .loading-container {
   position: fixed;
   background-color: #f9f9f9;
@@ -10937,7 +10961,7 @@ Loader
   cursor: wait;
 }
 
-/* line 46, ../../sass/sass/modules/_index.scss */
+/* line 69, ../../sass/sass/modules/_feather_main.scss */
 .loading {
   width: 40px;
   height: 40px;
@@ -10950,55 +10974,55 @@ Loader
   transform: rotate(45deg);
 }
 
-/* line 58, ../../sass/sass/modules/_index.scss */
+/* line 81, ../../sass/sass/modules/_feather_main.scss */
 .loading div {
   width: 16px;
   height: 16px;
   position: absolute;
 }
 
-/* line 64, ../../sass/sass/modules/_index.scss */
+/* line 87, ../../sass/sass/modules/_feather_main.scss */
 .l1 div, .l2 div, .l3 div, .l4 div {
   width: 100%;
   height: 100%;
 }
 
-/* line 69, ../../sass/sass/modules/_index.scss */
+/* line 92, ../../sass/sass/modules/_feather_main.scss */
 .l1 div {
   background-color: #2ecc71;
 }
 
-/* line 70, ../../sass/sass/modules/_index.scss */
+/* line 93, ../../sass/sass/modules/_feather_main.scss */
 .l2 div {
   background-color: #9b59b6;
 }
 
-/* line 71, ../../sass/sass/modules/_index.scss */
+/* line 94, ../../sass/sass/modules/_feather_main.scss */
 .l3 div {
   background-color: #3498db;
 }
 
-/* line 72, ../../sass/sass/modules/_index.scss */
+/* line 95, ../../sass/sass/modules/_feather_main.scss */
 .l4 div {
   background-color: #f1c30f;
 }
 
-/* line 74, ../../sass/sass/modules/_index.scss */
+/* line 97, ../../sass/sass/modules/_feather_main.scss */
 .l1 {
   transform: translate(0, 0);
 }
 
-/* line 75, ../../sass/sass/modules/_index.scss */
+/* line 98, ../../sass/sass/modules/_feather_main.scss */
 .l2 {
   transform: translate(0, 16px);
 }
 
-/* line 76, ../../sass/sass/modules/_index.scss */
+/* line 99, ../../sass/sass/modules/_feather_main.scss */
 .l3 {
   transform: translate(16px, 0px);
 }
 
-/* line 77, ../../sass/sass/modules/_index.scss */
+/* line 100, ../../sass/sass/modules/_feather_main.scss */
 .l4 {
   transform: translate(16px, 16px);
 }
@@ -11107,32 +11131,32 @@ Loader
     transform: translate(16px, 16px);
   }
 }
-/* line 132, ../../sass/sass/modules/_index.scss */
+/* line 155, ../../sass/sass/modules/_feather_main.scss */
 .l1 {
   animation: l1-rise 3s ease 0s infinite;
 }
 
-/* line 133, ../../sass/sass/modules/_index.scss */
+/* line 156, ../../sass/sass/modules/_feather_main.scss */
 .l2 {
   animation: l2-rise 3s ease 0s infinite;
 }
 
-/* line 134, ../../sass/sass/modules/_index.scss */
+/* line 157, ../../sass/sass/modules/_feather_main.scss */
 .l3 {
   animation: l3-rise 3s ease 0s infinite;
 }
 
-/* line 135, ../../sass/sass/modules/_index.scss */
+/* line 158, ../../sass/sass/modules/_feather_main.scss */
 .l4 {
   animation: l4-rise 3s ease 0s infinite;
 }
 
-/* line 137, ../../sass/sass/modules/_index.scss */
+/* line 160, ../../sass/sass/modules/_feather_main.scss */
 .l1 div, .l4 div {
   animation: rot1 3s ease 0s infinite;
 }
 
-/* line 138, ../../sass/sass/modules/_index.scss */
+/* line 161, ../../sass/sass/modules/_feather_main.scss */
 .l2 div, .l3 div {
   animation: rot2 3s ease 0s infinite;
 }
@@ -11140,7 +11164,7 @@ Loader
 /*****************************
 Left Panel (aside navigation)
 *****************************/
-/* line 149, ../../sass/sass/modules/_index.scss */
+/* line 172, ../../sass/sass/modules/_feather_main.scss */
 aside.left-panel {
   background-color: #2b2f3e;
   width: 230px;
@@ -11152,7 +11176,7 @@ aside.left-panel {
   left: 0px;
 }
 
-/* line 159, ../../sass/sass/modules/_index.scss */
+/* line 182, ../../sass/sass/modules/_feather_main.scss */
 aside.left-panel.collapsed {
   overflow: visible !important;
   position: absolute;
@@ -11160,46 +11184,46 @@ aside.left-panel.collapsed {
 }
 
 /*** Aside sizes ***/
-/* line 167, ../../sass/sass/modules/_index.scss */
+/* line 190, ../../sass/sass/modules/_feather_main.scss */
 aside.left-panel.lg {
   width: 250px;
 }
 
-/* line 170, ../../sass/sass/modules/_index.scss */
+/* line 193, ../../sass/sass/modules/_feather_main.scss */
 aside.left-panel.lg + .content {
   margin-left: 250px;
 }
 
 /*** Aside Collapsed ***/
 @media (min-width: 768px) {
-  /* line 178, ../../sass/sass/modules/_index.scss */
+  /* line 201, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed {
     width: 75px;
     text-align: center;
   }
 
-  /* line 182, ../../sass/sass/modules/_index.scss */
+  /* line 205, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed + .content {
     margin-left: 75px;
   }
 
-  /* line 185, ../../sass/sass/modules/_index.scss */
+  /* line 208, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .user .user-login,
   aside.left-panel.collapsed span.nav-label {
     display: none;
   }
 
-  /* line 190, ../../sass/sass/modules/_index.scss */
+  /* line 213, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation > ul > li > a {
     padding: 20px;
   }
 
-  /* line 195, ../../sass/sass/modules/_index.scss */
+  /* line 218, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed i.fa {
     font-size: 22px;
   }
 
-  /* line 198, ../../sass/sass/modules/_index.scss */
+  /* line 221, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation > ul > li.has-submenu:after {
     display: none;
   }
@@ -11207,30 +11231,30 @@ aside.left-panel.lg + .content {
 /*****************************
 User
 *****************************/
-/* line 207, ../../sass/sass/modules/_index.scss */
+/* line 230, ../../sass/sass/modules/_feather_main.scss */
 .user {
   margin-bottom: 35px;
 }
 
-/* line 210, ../../sass/sass/modules/_index.scss */
+/* line 233, ../../sass/sass/modules/_feather_main.scss */
 .user h4.user-name {
   color: #8e909a;
   font-size: 16px;
 }
 
-/* line 214, ../../sass/sass/modules/_index.scss */
+/* line 237, ../../sass/sass/modules/_feather_main.scss */
 .user img {
   border: 1px solid #383c4a;
   padding: 8px;
   width: 70px;
 }
 
-/* line 219, ../../sass/sass/modules/_index.scss */
+/* line 242, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login {
   display: inline-block;
 }
 
-/* line 222, ../../sass/sass/modules/_index.scss */
+/* line 245, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .btn {
   border: 1px solid #343847;
   background-color: transparent;
@@ -11238,7 +11262,7 @@ User
   padding: 4px 8px;
 }
 
-/* line 228, ../../sass/sass/modules/_index.scss */
+/* line 251, ../../sass/sass/modules/_feather_main.scss */
 .user-login .dropdown-menu {
   border: 1px solid #343847;
   color: #616574;
@@ -11250,21 +11274,21 @@ User
   border-top: 0px;
 }
 
-/* line 238, ../../sass/sass/modules/_index.scss */
+/* line 261, ../../sass/sass/modules/_feather_main.scss */
 .user-login .dropdown-menu li a {
   font-size: 12px;
   color: #616574;
   padding: 4px 8px;
 }
 
-/* line 243, ../../sass/sass/modules/_index.scss */
+/* line 266, ../../sass/sass/modules/_feather_main.scss */
 .user-login .dropdown-menu li a:hover,
 .user-login .dropdown-menu li a:focus {
   background-color: #616574;
   color: #fff;
 }
 
-/* line 248, ../../sass/sass/modules/_index.scss */
+/* line 271, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .status-icon {
   font-size: 6px;
   line-height: 0px;
@@ -11273,22 +11297,22 @@ User
   bottom: 2px;
 }
 
-/* line 255, ../../sass/sass/modules/_index.scss */
+/* line 278, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .status-icon.available {
   color: #27c7bc;
 }
 
-/* line 258, ../../sass/sass/modules/_index.scss */
+/* line 281, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .status-icon.busy {
   color: #EC971F;
 }
 
-/* line 261, ../../sass/sass/modules/_index.scss */
+/* line 284, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .status-icon.invisibled {
   color: #4a4e5d;
 }
 
-/* line 264, ../../sass/sass/modules/_index.scss */
+/* line 287, ../../sass/sass/modules/_feather_main.scss */
 .user .user-login .status-icon.signout {
   color: #FF404B;
 }
@@ -11296,17 +11320,17 @@ User
 /*****************************
 Navigation
 *****************************/
-/* line 274, ../../sass/sass/modules/_index.scss */
+/* line 297, ../../sass/sass/modules/_feather_main.scss */
 .navigation {
   margin: 20px 0px;
 }
 
-/* line 277, ../../sass/sass/modules/_index.scss */
+/* line 300, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul > li {
   position: relative;
 }
 
-/* line 281, ../../sass/sass/modules/_index.scss */
+/* line 304, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul > li.has-submenu:after {
   content: "\f105";
   font-family: 'FontAwesome';
@@ -11322,13 +11346,13 @@ Navigation
   visibility: hidden;
 }
 
-/* line 295, ../../sass/sass/modules/_index.scss */
+/* line 318, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul > li.active.has-submenu:after,
 .navigation > ul > li.has-submenu:hover:after {
   color: #fff;
 }
 
-/* line 301, ../../sass/sass/modules/_index.scss */
+/* line 324, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul > li > a {
   display: block;
   padding: 12px 25px;
@@ -11344,14 +11368,14 @@ Navigation
   -o-transition: all 0.4s;
 }
 
-/* line 315, ../../sass/sass/modules/_index.scss */
+/* line 338, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul:hover > li.active > a {
   background-color: transparent;
   box-shadow: none;
   color: #7a7e8a;
 }
 
-/* line 320, ../../sass/sass/modules/_index.scss */
+/* line 343, ../../sass/sass/modules/_feather_main.scss */
 .navigation > ul > li:hover > a,
 .navigation > ul > li.active:hover > a,
 .navigation > ul > li.active > a {
@@ -11361,14 +11385,14 @@ Navigation
   box-shadow: inset -6px 0 8px -2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 328, ../../sass/sass/modules/_index.scss */
+/* line 351, ../../sass/sass/modules/_feather_main.scss */
 .navigation ul li a i {
   margin-right: 6px;
   font-size: 14px;
 }
 
 /*** Sub Menu ***/
-/* line 335, ../../sass/sass/modules/_index.scss */
+/* line 358, ../../sass/sass/modules/_feather_main.scss */
 .navigation ul li ul {
   display: none;
   background-color: #333747;
@@ -11376,12 +11400,12 @@ Navigation
   box-shadow: inset -6px 0 8px -2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 342, ../../sass/sass/modules/_index.scss */
+/* line 365, ../../sass/sass/modules/_feather_main.scss */
 aside:not(.collapsed) .navigation ul li.active ul {
   display: block;
 }
 
-/* line 345, ../../sass/sass/modules/_index.scss */
+/* line 368, ../../sass/sass/modules/_feather_main.scss */
 .navigation ul li ul li a {
   padding: 8px 25px;
   color: #5e6271;
@@ -11397,7 +11421,7 @@ aside:not(.collapsed) .navigation ul li.active ul {
   display: block;
 }
 
-/* line 359, ../../sass/sass/modules/_index.scss */
+/* line 382, ../../sass/sass/modules/_feather_main.scss */
 .navigation ul li ul li a:hover,
 .navigation ul li ul li.active a {
   border-left: 5px solid #5e6271;
@@ -11406,7 +11430,7 @@ aside:not(.collapsed) .navigation ul li.active ul {
 
 /*** Aside Collapsed Sub Menu ***/
 @media (min-width: 768px) {
-  /* line 369, ../../sass/sass/modules/_index.scss */
+  /* line 392, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation ul li ul {
     position: absolute;
     z-index: 3;
@@ -11419,7 +11443,7 @@ aside:not(.collapsed) .navigation ul li.active ul {
     border: 1px solid #dddddd;
   }
 
-  /* line 380, ../../sass/sass/modules/_index.scss */
+  /* line 403, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation ul li ul:before {
     display: block;
     content: "";
@@ -11434,12 +11458,12 @@ aside:not(.collapsed) .navigation ul li.active ul {
     top: 22px;
   }
 
-  /* line 393, ../../sass/sass/modules/_index.scss */
+  /* line 416, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation > ul > li:hover > ul {
     display: block !important;
   }
 
-  /* line 397, ../../sass/sass/modules/_index.scss */
+  /* line 420, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed .navigation ul li ul li a {
     border: 0px;
     color: #8f8f9f;
@@ -11449,7 +11473,7 @@ aside:not(.collapsed) .navigation ul li.active ul {
 /*****************************
 Top Header
 *****************************/
-/* line 409, ../../sass/sass/modules/_index.scss */
+/* line 432, ../../sass/sass/modules/_feather_main.scss */
 header {
   background-color: #f2f2f4;
   border-bottom: 1px solid #ececee;
@@ -11457,19 +11481,19 @@ header {
   padding-bottom: 4px;
 }
 
-/* line 417, ../../sass/sass/modules/_index.scss */
+/* line 440, ../../sass/sass/modules/_feather_main.scss */
 .navbar-toggle {
   margin: 8px 20px 8px 0px;
   display: block;
   padding-left: 0px;
 }
 
-/* line 422, ../../sass/sass/modules/_index.scss */
+/* line 445, ../../sass/sass/modules/_feather_main.scss */
 .navbar-toggle .icon-bar {
   background-color: #b3b3be;
 }
 
-/* line 427, ../../sass/sass/modules/_index.scss */
+/* line 450, ../../sass/sass/modules/_feather_main.scss */
 .app-search {
   position: relative;
   margin-top: 8px;
@@ -11477,7 +11501,7 @@ header {
   margin-right: 15px;
 }
 
-/* line 434, ../../sass/sass/modules/_index.scss */
+/* line 457, ../../sass/sass/modules/_feather_main.scss */
 .app-search .form-control,
 .app-search .form-control:focus {
   border: 1px solid #d3d3db;
@@ -11488,7 +11512,7 @@ header {
   box-shadow: none;
 }
 
-/* line 445, ../../sass/sass/modules/_index.scss */
+/* line 468, ../../sass/sass/modules/_feather_main.scss */
 .app-search:before {
   content: "\f002";
   position: absolute;
@@ -11500,25 +11524,25 @@ header {
   display: inline-block;
 }
 
-/* line 455, ../../sass/sass/modules/_index.scss */
+/* line 478, ../../sass/sass/modules/_feather_main.scss */
 .app-search .form-control::-moz-placeholder {
   color: #c4c4cd;
 }
 
 /*** Nav Toolbar (right)***/
-/* line 462, ../../sass/sass/modules/_index.scss */
+/* line 485, ../../sass/sass/modules/_feather_main.scss */
 header .navbar-default .navbar-nav > li > a {
   color: #b3b3be;
 }
 
 /*** Nav Toolbar (right)***/
-/* line 468, ../../sass/sass/modules/_index.scss */
+/* line 491, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar {
   margin: 8px 0px;
   float: right;
 }
 
-/* line 472, ../../sass/sass/modules/_index.scss */
+/* line 495, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar > li {
   padding: 0px;
   display: inline-block;
@@ -11527,7 +11551,7 @@ header .navbar-default .navbar-nav > li > a {
   list-style: none;
 }
 
-/* line 479, ../../sass/sass/modules/_index.scss */
+/* line 502, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar li span.badge {
   position: absolute;
   top: -3px;
@@ -11540,17 +11564,17 @@ header .navbar-default .navbar-nav > li > a {
   padding: 1px;
 }
 
-/* line 490, ../../sass/sass/modules/_index.scss */
+/* line 513, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar li span.badge.bg-info {
   background-color: #8d82b5;
 }
 
-/* line 493, ../../sass/sass/modules/_index.scss */
+/* line 516, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar li span.badge.bg-warning {
   background-color: #E35B5A;
 }
 
-/* line 497, ../../sass/sass/modules/_index.scss */
+/* line 520, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar > li > a {
   color: #d3d3db;
   font-size: 18px;
@@ -11563,13 +11587,13 @@ header .navbar-default .navbar-nav > li > a {
   padding: 4px;
 }
 
-/* line 508, ../../sass/sass/modules/_index.scss */
+/* line 531, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar > li > a:hover {
   color: #C1C1C9;
   border: 1px solid #C1C1C9;
 }
 
-/* line 513, ../../sass/sass/modules/_index.scss */
+/* line 536, ../../sass/sass/modules/_feather_main.scss */
 .nav-toolbar .dropdown-menu.panel {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -11579,18 +11603,18 @@ header .navbar-default .navbar-nav > li > a {
 /*****************************
 Content Area (right)
 *****************************/
-/* line 524, ../../sass/sass/modules/_index.scss */
+/* line 547, ../../sass/sass/modules/_feather_main.scss */
 .content {
   margin-left: 230px;
 }
 
-/* line 527, ../../sass/sass/modules/_index.scss */
+/* line 550, ../../sass/sass/modules/_feather_main.scss */
 .content > .container-fluid {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-/* line 532, ../../sass/sass/modules/_index.scss */
+/* line 555, ../../sass/sass/modules/_feather_main.scss */
 .warper {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -11598,13 +11622,13 @@ Content Area (right)
 }
 
 /*** Page Header / Page Title ***/
-/* line 544, ../../sass/sass/modules/_index.scss */
+/* line 567, ../../sass/sass/modules/_feather_main.scss */
 .page-header {
   margin: 0px;
   border: 0px;
 }
 
-/* line 548, ../../sass/sass/modules/_index.scss */
+/* line 571, ../../sass/sass/modules/_feather_main.scss */
 .page-header h1 {
   color: #84868e;
   font-weight: 300;
@@ -11613,12 +11637,12 @@ Content Area (right)
   margin-bottom: 20px;
 }
 
-/* line 555, ../../sass/sass/modules/_index.scss */
+/* line 578, ../../sass/sass/modules/_feather_main.scss */
 .page-header * {
   font-weight: 300;
 }
 
-/* line 559, ../../sass/sass/modules/_index.scss */
+/* line 582, ../../sass/sass/modules/_feather_main.scss */
 .page-header * small {
   font-size: 14px;
   color: #9D9EA5;
@@ -11627,62 +11651,62 @@ Content Area (right)
 /*****************************
 Custom Margins & Paddings
 *****************************/
-/* line 572, ../../sass/sass/modules/_index.scss */
+/* line 595, ../../sass/sass/modules/_feather_main.scss */
 .no-margn {
   margin: 0px;
 }
 
-/* line 576, ../../sass/sass/modules/_index.scss */
+/* line 599, ../../sass/sass/modules/_feather_main.scss */
 .margn-t-xs {
   margin-top: 5px;
 }
 
-/* line 579, ../../sass/sass/modules/_index.scss */
+/* line 602, ../../sass/sass/modules/_feather_main.scss */
 .margn-t-sm {
   margin-top: 10px;
 }
 
-/* line 588, ../../sass/sass/modules/_index.scss */
+/* line 611, ../../sass/sass/modules/_feather_main.scss */
 .no-padd {
   padding: 0px;
 }
 
-/* line 592, ../../sass/sass/modules/_index.scss */
+/* line 615, ../../sass/sass/modules/_feather_main.scss */
 .padd-xs {
   padding: 5px;
 }
 
-/* line 595, ../../sass/sass/modules/_index.scss */
+/* line 618, ../../sass/sass/modules/_feather_main.scss */
 .padd-sm {
   padding: 10px;
 }
 
-/* line 598, ../../sass/sass/modules/_index.scss */
+/* line 621, ../../sass/sass/modules/_feather_main.scss */
 .padd-md {
   padding: 15px;
 }
 
-/* line 601, ../../sass/sass/modules/_index.scss */
+/* line 624, ../../sass/sass/modules/_feather_main.scss */
 .padd-lg {
   padding: 20px;
 }
 
-/* line 605, ../../sass/sass/modules/_index.scss */
+/* line 628, ../../sass/sass/modules/_feather_main.scss */
 .padd-t-xs {
   padding-top: 5px;
 }
 
-/* line 608, ../../sass/sass/modules/_index.scss */
+/* line 631, ../../sass/sass/modules/_feather_main.scss */
 .padd-t-sm {
   padding-top: 10px;
 }
 
-/* line 611, ../../sass/sass/modules/_index.scss */
+/* line 634, ../../sass/sass/modules/_feather_main.scss */
 .padd-t-md {
   padding-top: 15px;
 }
 
-/* line 614, ../../sass/sass/modules/_index.scss */
+/* line 637, ../../sass/sass/modules/_feather_main.scss */
 .padd-t-lg {
   padding-top: 20px;
 }
@@ -11690,13 +11714,13 @@ Custom Margins & Paddings
 /*****************************
 Styled Radio/Checkbox
 *****************************/
-/* line 629, ../../sass/sass/modules/_index.scss */
+/* line 652, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled {
   display: inline-block;
   margin: 0px 2px;
 }
 
-/* line 633, ../../sass/sass/modules/_index.scss */
+/* line 656, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled i {
   display: inline-block;
   height: 20px;
@@ -11710,31 +11734,31 @@ Styled Radio/Checkbox
   font-family: 'FontAwesome';
 }
 
-/* line 645, ../../sass/sass/modules/_index.scss */
+/* line 668, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled input {
   visibility: hidden;
   display: none;
 }
 
 /* Checkbox */
-/* line 652, ../../sass/sass/modules/_index.scss */
+/* line 675, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled input[type=checkbox]:checked + i:before {
   content: "\f00c";
 }
 
 /* Radio */
-/* line 657, ../../sass/sass/modules/_index.scss */
+/* line 680, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled input[type=radio] + i {
   border-radius: 20px;
 }
 
-/* line 659, ../../sass/sass/modules/_index.scss */
+/* line 682, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled input[type=radio]:checked + i:before {
   content: "\f111";
 }
 
 /*** cr-styled Theaming/Colorss ***/
-/* line 667, ../../sass/sass/modules/_index.scss */
+/* line 690, ../../sass/sass/modules/_feather_main.scss */
 .cr-styled input:checked + i {
   border-color: #a49bc4;
   color: #a49bc4;
@@ -11744,14 +11768,14 @@ Styled Radio/Checkbox
  Pages / Widgets / Elements 
 *****************************/
 /****Dashboard Stats****/
-/* line 694, ../../sass/sass/modules/_index.scss */
+/* line 717, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats.panel {
   position: relative;
   cursor: pointer;
   padding: 10px 10px 10px 106px;
 }
 
-/* line 699, ../../sass/sass/modules/_index.scss */
+/* line 722, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats i.fa.stats-icon {
   width: 80px;
   padding: 20px;
@@ -11766,13 +11790,31 @@ Styled Radio/Checkbox
   height: 80px;
 }
 
-/* line 713, ../../sass/sass/modules/_index.scss */
+/* line 735, ../../sass/sass/modules/_feather_main.scss */
+.torrent-title {
+  padding-top: 15px !important;
+}
+
+/* line 738, ../../sass/sass/modules/_feather_main.scss */
+.torrent-list {
+  padding-left: 20px !important;
+  padding-right: 20px  !important;
+}
+
+/* line 742, ../../sass/sass/modules/_feather_main.scss */
+.torrent-list .progress {
+  margin-top: 9px !important;
+  margin-bottom: 0px !important;
+  height: 15px !important;
+}
+
+/* line 747, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats.rounded i.fa.stats-icon,
 .dashboard-stats.rounded.panel {
   border-radius: 50px;
 }
 
-/* line 718, ../../sass/sass/modules/_index.scss */
+/* line 751, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats .sparkline {
   position: absolute;
   left: 30px;
@@ -11780,45 +11822,43 @@ Styled Radio/Checkbox
   opacity: 0;
 }
 
-/* line 724, ../../sass/sass/modules/_index.scss */
+/* line 757, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats h3 {
   margin-top: 14px;
 }
 
-/* line 727, ../../sass/sass/modules/_index.scss */
+/* line 760, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats small {
   font-size: 14px;
   margin-left: 6px;
   opacity: 0.8;
 }
 
-/* line 732, ../../sass/sass/modules/_index.scss */
-.dashboard-stats:hover i.fa.stats-icon {
-  /*right:10px;*/
-  left: 100%;
-  margin-left: -90px;
+/* line 765, ../../sass/sass/modules/_feather_main.scss */
+.dashboard-stats.upload:hover i.fa.stats-icon {
+  width: 94.75%;
 }
 
-/* line 738, ../../sass/sass/modules/_index.scss */
-.dashboard-stats:hover h3,
-.dashboard-stats:hover p {
+/* line 769, ../../sass/sass/modules/_feather_main.scss */
+.dashboard-stats.upload:hover h3,
+.dashboard-stats.upload:hover p {
   opacity: 0;
 }
 
-/* line 742, ../../sass/sass/modules/_index.scss */
+/* line 773, ../../sass/sass/modules/_feather_main.scss */
 .dashboard-stats:hover .sparkline,
 .dashboard-stats:hover i.fa.stats-icon {
   opacity: 1;
 }
 
 /****Messages-Chating****/
-/* line 754, ../../sass/sass/modules/_index.scss */
+/* line 785, ../../sass/sass/modules/_feather_main.scss */
 .messages {
   max-height: 520px;
   overflow: auto;
 }
 
-/* line 758, ../../sass/sass/modules/_index.scss */
+/* line 789, ../../sass/sass/modules/_feather_main.scss */
 .messages .media {
   padding-top: 18px;
   padding-bottom: 18px;
@@ -11826,25 +11866,25 @@ Styled Radio/Checkbox
   border-top: 1px dashed #eaeef1;
 }
 
-/* line 764, ../../sass/sass/modules/_index.scss */
+/* line 795, ../../sass/sass/modules/_feather_main.scss */
 .messages .media:first-child {
   border: 0px;
 }
 
-/* line 767, ../../sass/sass/modules/_index.scss */
+/* line 798, ../../sass/sass/modules/_feather_main.scss */
 .messages .media .media-body .media {
   margin-top: 18px;
   padding-bottom: 0px;
 }
 
 /*user status icon*/
-/* line 773, ../../sass/sass/modules/_index.scss */
+/* line 804, ../../sass/sass/modules/_feather_main.scss */
 .user-status {
   position: relative;
   display: inline-block;
 }
 
-/* line 777, ../../sass/sass/modules/_index.scss */
+/* line 808, ../../sass/sass/modules/_feather_main.scss */
 .user-status:before,
 .user-status:before {
   content: "";
@@ -11860,54 +11900,54 @@ Styled Radio/Checkbox
 }
 
 /*user status icon color*/
-/* line 792, ../../sass/sass/modules/_index.scss */
+/* line 823, ../../sass/sass/modules/_feather_main.scss */
 .user-status.online:before {
   background-color: #70ba63;
 }
 
-/* line 795, ../../sass/sass/modules/_index.scss */
+/* line 826, ../../sass/sass/modules/_feather_main.scss */
 .user-status.busy:before {
   background-color: #01a0e6;
 }
 
-/* line 798, ../../sass/sass/modules/_index.scss */
+/* line 829, ../../sass/sass/modules/_feather_main.scss */
 .user-status.invisibled:before {
   background-color: #f2b635;
 }
 
-/* line 801, ../../sass/sass/modules/_index.scss */
+/* line 832, ../../sass/sass/modules/_feather_main.scss */
 .user-status.offline:before {
   background-color: #f25648;
 }
 
-/* line 806, ../../sass/sass/modules/_index.scss */
+/* line 837, ../../sass/sass/modules/_feather_main.scss */
 .messages .media > .pull-left {
   margin-right: 15px;
 }
 
-/* line 808, ../../sass/sass/modules/_index.scss */
+/* line 839, ../../sass/sass/modules/_feather_main.scss */
 .messages .media > .pull-right {
   margin-left: 15px;
 }
 
-/* line 811, ../../sass/sass/modules/_index.scss */
+/* line 842, ../../sass/sass/modules/_feather_main.scss */
 .messages .media > .pull-right + .media-body {
   text-align: right;
 }
 
-/* line 815, ../../sass/sass/modules/_index.scss */
+/* line 846, ../../sass/sass/modules/_feather_main.scss */
 .messages .media img.media-object {
   width: 54px;
   border-radius: 100%;
 }
 
-/* line 819, ../../sass/sass/modules/_index.scss */
+/* line 850, ../../sass/sass/modules/_feather_main.scss */
 .messages .media .media-body {
   font-size: 13px;
 }
 
 /****ToDo List****/
-/* line 827, ../../sass/sass/modules/_index.scss */
+/* line 858, ../../sass/sass/modules/_feather_main.scss */
 .todo-list li {
   border: 0px;
   margin: 0px;
@@ -11916,19 +11956,19 @@ Styled Radio/Checkbox
 }
 
 /****Activities List****/
-/* line 840, ../../sass/sass/modules/_index.scss */
+/* line 871, ../../sass/sass/modules/_feather_main.scss */
 .activities-list {
   max-height: 560px;
   overflow: auto;
 }
 
-/* line 844, ../../sass/sass/modules/_index.scss */
+/* line 875, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li {
   position: relative;
   padding: 10px 95px 10px 40px;
 }
 
-/* line 848, ../../sass/sass/modules/_index.scss */
+/* line 879, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li:before {
   content: "";
   position: absolute;
@@ -11938,7 +11978,7 @@ Styled Radio/Checkbox
   border-left: 1px solid #ccc;
 }
 
-/* line 856, ../../sass/sass/modules/_index.scss */
+/* line 887, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li:after {
   content: "";
   position: absolute;
@@ -11951,50 +11991,50 @@ Styled Radio/Checkbox
   background-color: #fff;
 }
 
-/* line 868, ../../sass/sass/modules/_index.scss */
+/* line 899, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li span.time {
   font-size: 12px;
   color: #ccc;
 }
 
-/* line 873, ../../sass/sass/modules/_index.scss */
+/* line 904, ../../sass/sass/modules/_feather_main.scss */
 .activities-list li .activity-actions {
   position: absolute;
   right: 0px;
   top: 25px;
 }
 
-/* line 879, ../../sass/sass/modules/_index.scss */
+/* line 910, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.info-activity:before,
 .activities-list > li.info-activity:after {
   border-color: #4fcdfc;
 }
 
-/* line 883, ../../sass/sass/modules/_index.scss */
+/* line 914, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.warning-activity:before,
 .activities-list > li.warning-activity:after {
   border-color: #fcd036;
 }
 
-/* line 887, ../../sass/sass/modules/_index.scss */
+/* line 918, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.danger-activity:before,
 .activities-list > li.danger-activity:after {
   border-color: #ff6264;
 }
 
-/* line 891, ../../sass/sass/modules/_index.scss */
+/* line 922, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.success-activity:before,
 .activities-list li.success-activity:after {
   border-color: #68b828;
 }
 
-/* line 895, ../../sass/sass/modules/_index.scss */
+/* line 926, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.primary-activity:before,
 .activities-list > li.primary-activity:after {
   border-color: #7c38bc;
 }
 
-/* line 899, ../../sass/sass/modules/_index.scss */
+/* line 930, ../../sass/sass/modules/_feather_main.scss */
 .activities-list > li.info-activity:before,
 .activities-list > li.info-activity:after {
   border-color: #4fcdfc;
@@ -12003,7 +12043,7 @@ Styled Radio/Checkbox
 /*****************************
 Footer
 *****************************/
-/* line 912, ../../sass/sass/modules/_index.scss */
+/* line 943, ../../sass/sass/modules/_feather_main.scss */
 .footer {
   background-color: #f2f2f4;
   border-top: 1px solid #ececee;
@@ -12019,13 +12059,13 @@ Footer
 /*****************************
  Grid
 *****************************/
-/* line 936, ../../sass/sass/modules/_index.scss */
+/* line 967, ../../sass/sass/modules/_feather_main.scss */
 .row.no-gutter {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 940, ../../sass/sass/modules/_index.scss */
+/* line 971, ../../sass/sass/modules/_feather_main.scss */
 .row.no-gutter [class*="col-"]:not(:first-child),
 .row.no-gutter [class*="col-"]:not(:last-child) {
   padding-left: 0;
@@ -12035,162 +12075,162 @@ Footer
 /*****************************
  Color >> Backgrounds + Text 
 *****************************/
-/* line 953, ../../sass/sass/modules/_index.scss */
+/* line 984, ../../sass/sass/modules/_feather_main.scss */
 .bg-white {
   background-color: #fff;
 }
 
-/* line 955, ../../sass/sass/modules/_index.scss */
+/* line 986, ../../sass/sass/modules/_feather_main.scss */
 .text-white {
   color: #fff;
 }
 
-/* line 959, ../../sass/sass/modules/_index.scss */
+/* line 990, ../../sass/sass/modules/_feather_main.scss */
 .bg-pink {
   background-color: #eaa1bd;
 }
 
-/* line 961, ../../sass/sass/modules/_index.scss */
+/* line 992, ../../sass/sass/modules/_feather_main.scss */
 .text-pink {
   color: #eaa1bd;
 }
 
-/* line 965, ../../sass/sass/modules/_index.scss */
+/* line 996, ../../sass/sass/modules/_feather_main.scss */
 .bg-yellow {
   background-color: #f9dc85;
 }
 
-/* line 967, ../../sass/sass/modules/_index.scss */
+/* line 998, ../../sass/sass/modules/_feather_main.scss */
 .text-yellow {
   color: #f9dc85;
 }
 
-/* line 971, ../../sass/sass/modules/_index.scss */
+/* line 1002, ../../sass/sass/modules/_feather_main.scss */
 .bg-gray {
   background-color: #b2b2b2;
 }
 
-/* line 973, ../../sass/sass/modules/_index.scss */
+/* line 1004, ../../sass/sass/modules/_feather_main.scss */
 .text-gray {
   color: #b2b2b2;
 }
 
-/* line 977, ../../sass/sass/modules/_index.scss */
+/* line 1008, ../../sass/sass/modules/_feather_main.scss */
 .bg-lightgray {
   background-color: #fbfbfd;
 }
 
-/* line 979, ../../sass/sass/modules/_index.scss */
+/* line 1010, ../../sass/sass/modules/_feather_main.scss */
 .text-lightgray {
   color: #fbfbfd;
 }
 
-/* line 983, ../../sass/sass/modules/_index.scss */
+/* line 1014, ../../sass/sass/modules/_feather_main.scss */
 .bg-red {
   background-color: #F16364;
 }
 
-/* line 985, ../../sass/sass/modules/_index.scss */
+/* line 1016, ../../sass/sass/modules/_feather_main.scss */
 .text-red {
   color: #F16364;
 }
 
-/* line 989, ../../sass/sass/modules/_index.scss */
+/* line 1020, ../../sass/sass/modules/_feather_main.scss */
 .bg-blue {
   background-color: #00a0e6;
 }
 
-/* line 991, ../../sass/sass/modules/_index.scss */
+/* line 1022, ../../sass/sass/modules/_feather_main.scss */
 .text-blue {
   color: #00a0e6;
 }
 
-/* line 994, ../../sass/sass/modules/_index.scss */
+/* line 1025, ../../sass/sass/modules/_feather_main.scss */
 .bg-green {
   background-color: #67BF74;
 }
 
-/* line 996, ../../sass/sass/modules/_index.scss */
+/* line 1027, ../../sass/sass/modules/_feather_main.scss */
 .text-green {
   color: #67BF74;
 }
 
-/* line 1000, ../../sass/sass/modules/_index.scss */
+/* line 1031, ../../sass/sass/modules/_feather_main.scss */
 .bg-purple {
   background-color: #8d82b5;
 }
 
-/* line 1002, ../../sass/sass/modules/_index.scss */
+/* line 1033, ../../sass/sass/modules/_feather_main.scss */
 .text-purple {
   color: #8d82b5;
 }
 
-/* line 1006, ../../sass/sass/modules/_index.scss */
+/* line 1037, ../../sass/sass/modules/_feather_main.scss */
 .bg-yellow {
   background-color: #F9A43E;
 }
 
-/* line 1008, ../../sass/sass/modules/_index.scss */
+/* line 1039, ../../sass/sass/modules/_feather_main.scss */
 .text-yellow {
   color: #F9A43E;
 }
 
-/* line 1012, ../../sass/sass/modules/_index.scss */
+/* line 1043, ../../sass/sass/modules/_feather_main.scss */
 .bg-orange {
   background-color: #F58559;
 }
 
-/* line 1014, ../../sass/sass/modules/_index.scss */
+/* line 1045, ../../sass/sass/modules/_feather_main.scss */
 .text-orange {
   color: #F58559;
 }
 
-/* line 1018, ../../sass/sass/modules/_index.scss */
+/* line 1049, ../../sass/sass/modules/_feather_main.scss */
 .bg-test {
   background-color: #79B9D9;
 }
 
-/* line 1020, ../../sass/sass/modules/_index.scss */
+/* line 1051, ../../sass/sass/modules/_feather_main.scss */
 .text-test {
   color: #79B9D9;
 }
 
-/* line 1024, ../../sass/sass/modules/_index.scss */
+/* line 1055, ../../sass/sass/modules/_feather_main.scss */
 .bg-warning {
   background-color: #FEB252;
 }
 
-/* line 1026, ../../sass/sass/modules/_index.scss */
+/* line 1057, ../../sass/sass/modules/_feather_main.scss */
 .text-warning {
   color: #FEB252;
 }
 
-/* line 1029, ../../sass/sass/modules/_index.scss */
+/* line 1060, ../../sass/sass/modules/_feather_main.scss */
 .bg-danger {
   background-color: #E9573F;
 }
 
-/* line 1031, ../../sass/sass/modules/_index.scss */
+/* line 1062, ../../sass/sass/modules/_feather_main.scss */
 .text-danger {
   color: #E9573F;
 }
 
-/* line 1034, ../../sass/sass/modules/_index.scss */
+/* line 1065, ../../sass/sass/modules/_feather_main.scss */
 .bg-success {
   background-color: #70BA63;
 }
 
-/* line 1036, ../../sass/sass/modules/_index.scss */
+/* line 1067, ../../sass/sass/modules/_feather_main.scss */
 .text-success {
   color: #70BA63;
 }
 
-/* line 1039, ../../sass/sass/modules/_index.scss */
+/* line 1070, ../../sass/sass/modules/_feather_main.scss */
 .bg-info {
   background-color: #4DC5F9;
 }
 
-/* line 1041, ../../sass/sass/modules/_index.scss */
+/* line 1072, ../../sass/sass/modules/_feather_main.scss */
 .text-info {
   color: #4DC5F9;
 }
@@ -12199,14 +12239,14 @@ Footer
  Form Elements
 *****************************/
 /*** Custom Colors Btn ***/
-/* line 1061, ../../sass/sass/modules/_index.scss */
+/* line 1092, ../../sass/sass/modules/_feather_main.scss */
 .btn-purple {
   background-color: #8d82b5;
   border-color: #6b5f98;
   color: #fff;
 }
 
-/* line 1066, ../../sass/sass/modules/_index.scss */
+/* line 1097, ../../sass/sass/modules/_feather_main.scss */
 .btn-purple:hover,
 .btn-purple:focus,
 .btn-purple:active,
@@ -12216,14 +12256,14 @@ Footer
   color: #fff;
 }
 
-/* line 1076, ../../sass/sass/modules/_index.scss */
+/* line 1107, ../../sass/sass/modules/_feather_main.scss */
 .btn-green {
   background-color: #70ba63;
   border-color: #579e4b;
   color: #fff;
 }
 
-/* line 1081, ../../sass/sass/modules/_index.scss */
+/* line 1112, ../../sass/sass/modules/_feather_main.scss */
 .btn-green:hover,
 .btn-green:focus,
 .btn-green:active,
@@ -12234,14 +12274,14 @@ Footer
 }
 
 /*** Btn Shapes ***/
-/* line 1100, ../../sass/sass/modules/_index.scss */
+/* line 1131, ../../sass/sass/modules/_feather_main.scss */
 .btn-circle,
 .form-control-circle,
 .btn-group .btn-circle:first-child:not(:last-child):not(.dropdown-toggle) {
   border-radius: 50px;
 }
 
-/* line 1105, ../../sass/sass/modules/_index.scss */
+/* line 1136, ../../sass/sass/modules/_feather_main.scss */
 .btn-flat,
 .form-control-flat {
   border-radius: 0px;
@@ -12250,7 +12290,7 @@ Footer
 /*****************************
 Form Elements
 *****************************/
-/* line 1116, ../../sass/sass/modules/_index.scss */
+/* line 1147, ../../sass/sass/modules/_feather_main.scss */
 .has-feedback div[class*=col-] .form-control-feedback {
   right: 15px;
   line-height: 34px;
@@ -12259,17 +12299,17 @@ Form Elements
 /*****************************
 Panel Styling
 *****************************/
-/* line 1128, ../../sass/sass/modules/_index.scss */
+/* line 1159, ../../sass/sass/modules/_feather_main.scss */
 .panel {
   margin-bottom: 30px;
 }
 
-/* line 1131, ../../sass/sass/modules/_index.scss */
+/* line 1162, ../../sass/sass/modules/_feather_main.scss */
 .panel-heading {
   font-weight: 700;
 }
 
-/* line 1133, ../../sass/sass/modules/_index.scss */
+/* line 1164, ../../sass/sass/modules/_feather_main.scss */
 .panel-heading small,
 .panel-heading span,
 .panel-heading.un-bold {
@@ -12277,26 +12317,26 @@ Panel Styling
 }
 
 /*** default ***/
-/* line 1140, ../../sass/sass/modules/_index.scss */
+/* line 1171, ../../sass/sass/modules/_feather_main.scss */
 .panel-default > .panel-heading,
 .panel-default > .panel-footer {
   border-color: #e8e8eb;
   box-shadow: none;
 }
 
-/* line 1145, ../../sass/sass/modules/_index.scss */
+/* line 1176, ../../sass/sass/modules/_feather_main.scss */
 .panel-default > .panel-heading,
 .btn-default {
   color: #9D9EA5;
 }
 
 /*** primary ***/
-/* line 1151, ../../sass/sass/modules/_index.scss */
+/* line 1182, ../../sass/sass/modules/_feather_main.scss */
 .panel-primary {
   border-color: #8d82b5;
 }
 
-/* line 1154, ../../sass/sass/modules/_index.scss */
+/* line 1185, ../../sass/sass/modules/_feather_main.scss */
 .panel-primary > .panel-heading,
 .panel-primary > .panel-footer {
   border-color: #8d82b5;
@@ -12305,12 +12345,12 @@ Panel Styling
 }
 
 /*** success ***/
-/* line 1162, ../../sass/sass/modules/_index.scss */
+/* line 1193, ../../sass/sass/modules/_feather_main.scss */
 .panel-success {
   border-color: #70ba63;
 }
 
-/* line 1165, ../../sass/sass/modules/_index.scss */
+/* line 1196, ../../sass/sass/modules/_feather_main.scss */
 .panel-success > .panel-heading,
 .panel-success > .panel-footer {
   border-color: #70ba63;
@@ -12320,12 +12360,12 @@ Panel Styling
 }
 
 /*** info ***/
-/* line 1174, ../../sass/sass/modules/_index.scss */
+/* line 1205, ../../sass/sass/modules/_feather_main.scss */
 .panel-info {
   border-color: #4cbceb;
 }
 
-/* line 1177, ../../sass/sass/modules/_index.scss */
+/* line 1208, ../../sass/sass/modules/_feather_main.scss */
 .panel-info > .panel-heading,
 .panel-info > .panel-footer {
   border-color: #4cbceb;
@@ -12335,12 +12375,12 @@ Panel Styling
 }
 
 /*** warning ***/
-/* line 1186, ../../sass/sass/modules/_index.scss */
+/* line 1217, ../../sass/sass/modules/_feather_main.scss */
 .panel-warning {
   border-color: #feb252;
 }
 
-/* line 1189, ../../sass/sass/modules/_index.scss */
+/* line 1220, ../../sass/sass/modules/_feather_main.scss */
 .panel-warning > .panel-heading,
 .panel-warning > .panel-footer {
   border-color: #feb252;
@@ -12350,12 +12390,12 @@ Panel Styling
 }
 
 /*** danger ***/
-/* line 1198, ../../sass/sass/modules/_index.scss */
+/* line 1229, ../../sass/sass/modules/_feather_main.scss */
 .panel-danger {
   border-color: #e35b5a;
 }
 
-/* line 1201, ../../sass/sass/modules/_index.scss */
+/* line 1232, ../../sass/sass/modules/_feather_main.scss */
 .panel-danger > .panel-heading,
 .panel-danger > .panel-footer {
   border-color: #e35b5a;
@@ -12365,7 +12405,7 @@ Panel Styling
 }
 
 /*** Clean Panel Heading ***/
-/* line 1214, ../../sass/sass/modules/_index.scss */
+/* line 1245, ../../sass/sass/modules/_feather_main.scss */
 .panel-heading.clean,
 .panel-footer.clean {
   background: none;
@@ -12375,23 +12415,23 @@ Panel Styling
 /*****************************
  Dropdown
 *****************************/
-/* line 1230, ../../sass/sass/modules/_index.scss */
+/* line 1261, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu > li > a {
   color: #84868e;
 }
 
 /*** Dropdown Menu Sizes ***/
-/* line 1235, ../../sass/sass/modules/_index.scss */
+/* line 1266, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.md {
   min-width: 300px;
 }
 
-/* line 1239, ../../sass/sass/modules/_index.scss */
+/* line 1270, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.lg {
   min-width: 400px;
 }
 
-/* line 1245, ../../sass/sass/modules/_index.scss */
+/* line 1276, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow:after,
 .dropdown-menu.arrow:before {
   content: "";
@@ -12411,14 +12451,14 @@ Panel Styling
   left: 6px;
 }
 
-/* line 1264, ../../sass/sass/modules/_index.scss */
+/* line 1295, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-right,
 .dropdown-menu.arrow.arrow-top-left {
   top: calc(100% + 15px);
 }
 
 /**Top Right Arrow**/
-/* line 1271, ../../sass/sass/modules/_index.scss */
+/* line 1302, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-right:after,
 .dropdown-menu.arrow.arrow-top-right:before {
   border-bottom-color: inherit;
@@ -12426,19 +12466,19 @@ Panel Styling
   left: auto;
 }
 
-/* line 1277, ../../sass/sass/modules/_index.scss */
+/* line 1308, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-right:before {
   right: 5px;
   left: auto;
 }
 
-/* line 1281, ../../sass/sass/modules/_index.scss */
+/* line 1312, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-right:after {
   border-bottom-color: #fff;
 }
 
 /**Top Left Arrow**/
-/* line 1288, ../../sass/sass/modules/_index.scss */
+/* line 1319, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-left:after,
 .dropdown-menu.arrow.arrow-top-left:before {
   border-bottom-color: inherit;
@@ -12446,19 +12486,19 @@ Panel Styling
   left: auto;
 }
 
-/* line 1294, ../../sass/sass/modules/_index.scss */
+/* line 1325, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.arrow-top-left:before {
   left: 5px;
 }
 
-/* line 1300, ../../sass/sass/modules/_index.scss */
+/* line 1331, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow:after {
   height: 10px;
   width: 10px;
   border-width: 10px;
 }
 
-/* line 1305, ../../sass/sass/modules/_index.scss */
+/* line 1336, ../../sass/sass/modules/_feather_main.scss */
 .dropdown-menu.arrow.panel-default:after {
   border-bottom-color: #F5F5F5;
 }
@@ -12466,22 +12506,22 @@ Panel Styling
 /*****************************
 Progress Bars
 *****************************/
-/* line 1317, ../../sass/sass/modules/_index.scss */
+/* line 1348, ../../sass/sass/modules/_feather_main.scss */
 .progress.progress-xxs {
   height: 4px;
 }
 
-/* line 1320, ../../sass/sass/modules/_index.scss */
+/* line 1351, ../../sass/sass/modules/_feather_main.scss */
 .progress.progress-xs {
   height: 8px;
 }
 
-/* line 1323, ../../sass/sass/modules/_index.scss */
+/* line 1354, ../../sass/sass/modules/_feather_main.scss */
 .progress.progress-sm {
   height: 12px;
 }
 
-/* line 1326, ../../sass/sass/modules/_index.scss */
+/* line 1357, ../../sass/sass/modules/_feather_main.scss */
 .progress.progress-lg {
   height: 24px;
 }
@@ -12489,24 +12529,24 @@ Progress Bars
 /*****************************
 Horizaontal Row
 *****************************/
-/* line 1338, ../../sass/sass/modules/_index.scss */
+/* line 1369, ../../sass/sass/modules/_feather_main.scss */
 hr.sm {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-/* line 1342, ../../sass/sass/modules/_index.scss */
+/* line 1373, ../../sass/sass/modules/_feather_main.scss */
 hr.xs {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 1347, ../../sass/sass/modules/_index.scss */
+/* line 1378, ../../sass/sass/modules/_feather_main.scss */
 hr.dotted {
   border-style: dashed;
 }
 
-/* line 1350, ../../sass/sass/modules/_index.scss */
+/* line 1381, ../../sass/sass/modules/_feather_main.scss */
 hr.clean {
   border: 0px;
 }
@@ -12514,7 +12554,7 @@ hr.clean {
 /*****************************
 Tabs with panel
 *****************************/
-/* line 1358, ../../sass/sass/modules/_index.scss */
+/* line 1389, ../../sass/sass/modules/_feather_main.scss */
 .panel.tab-pane.tabs-up {
   border-top: 0px;
   border-top-left-radius: 0px;
@@ -12527,14 +12567,14 @@ Responsive Stying
 =========================================
 *****************************************/
 @media (max-width: 768px) {
-  /* line 1380, ../../sass/sass/modules/_index.scss */
+  /* line 1411, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed {
     width: 250px;
     left: 0px;
     overflow: hidden !important;
   }
 
-  /* line 1385, ../../sass/sass/modules/_index.scss */
+  /* line 1416, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel.collapsed + .content {
     margin-left: 0px;
     transform: translate3d(250px, 0px, 0px);
@@ -12544,59 +12584,59 @@ Responsive Stying
     -o-transition: translate3d(250px, 0px, 0px);
   }
 
-  /* line 1395, ../../sass/sass/modules/_index.scss */
+  /* line 1426, ../../sass/sass/modules/_feather_main.scss */
   aside.left-panel {
     left: 100%;
   }
 
-  /* line 1398, ../../sass/sass/modules/_index.scss */
+  /* line 1429, ../../sass/sass/modules/_feather_main.scss */
   section.content {
     margin-left: 0px;
   }
 
-  /* line 1401, ../../sass/sass/modules/_index.scss */
+  /* line 1432, ../../sass/sass/modules/_feather_main.scss */
   .content > .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  /* line 1405, ../../sass/sass/modules/_index.scss */
+  /* line 1436, ../../sass/sass/modules/_feather_main.scss */
   .page-header h1 {
     margin-top: 0px;
   }
 }
 @media (max-width: 450px) {
-  /* line 1415, ../../sass/sass/modules/_index.scss */
+  /* line 1446, ../../sass/sass/modules/_feather_main.scss */
   .dropdown-menu {
     min-width: 280px !important;
   }
 
-  /* line 1418, ../../sass/sass/modules/_index.scss */
+  /* line 1449, ../../sass/sass/modules/_feather_main.scss */
   .messages-dropdown {
     right: -80px !important;
   }
 
-  /* line 1421, ../../sass/sass/modules/_index.scss */
+  /* line 1452, ../../sass/sass/modules/_feather_main.scss */
   .messages-dropdown.arrow.arrow-top-right:after {
     right: 85px;
   }
 
-  /* line 1423, ../../sass/sass/modules/_index.scss */
+  /* line 1454, ../../sass/sass/modules/_feather_main.scss */
   .messages-dropdown.arrow.arrow-top-right:before {
     right: 84px;
   }
 
-  /* line 1426, ../../sass/sass/modules/_index.scss */
+  /* line 1457, ../../sass/sass/modules/_feather_main.scss */
   .notifications {
     right: -40px !important;
   }
 
-  /* line 1429, ../../sass/sass/modules/_index.scss */
+  /* line 1460, ../../sass/sass/modules/_feather_main.scss */
   .notifications.arrow.arrow-top-right:after {
     right: 45px;
   }
 
-  /* line 1431, ../../sass/sass/modules/_index.scss */
+  /* line 1462, ../../sass/sass/modules/_feather_main.scss */
   .notifications.arrow.arrow-top-right:before {
     right: 44px;
   }
@@ -12606,37 +12646,175 @@ Responsive Stying
 Just For Demo / Showcase
 =========================================
 *****************************************/
-/* line 1446, ../../sass/sass/modules/_index.scss */
+/* line 1477, ../../sass/sass/modules/_feather_main.scss */
 .showcase-btn li, .showcase-btn {
   margin-bottom: 10px;
 }
 
-/* line 1449, ../../sass/sass/modules/_index.scss */
+/* line 1480, ../../sass/sass/modules/_feather_main.scss */
 .showcase-switch-button {
   margin-right: 15px;
 }
 
-/* line 1452, ../../sass/sass/modules/_index.scss */
+/* line 1483, ../../sass/sass/modules/_feather_main.scss */
 .showcase-pagination {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 1460, ../../sass/sass/modules/_index.scss */
+/* line 1491, ../../sass/sass/modules/_feather_main.scss */
 .showcase-icons div {
   line-height: 40px;
   cursor: pointer;
   height: 40px;
 }
 
-/* line 1465, ../../sass/sass/modules/_index.scss */
+/* line 1496, ../../sass/sass/modules/_feather_main.scss */
 .showcase-icons i {
   transition: font-size 0.2s ease 0s;
   text-align: center;
   width: 40px;
 }
 
-/* line 1471, ../../sass/sass/modules/_index.scss */
+/* line 1502, ../../sass/sass/modules/_feather_main.scss */
 .showcase-icons > div:hover i {
   font-size: 26px;
+}
+
+/****************************************
+=========================================
+Install index, step, others
+=========================================
+*****************************************/
+/* line 1513, ../../sass/sass/modules/_feather_main.scss */
+.panel-body-step {
+  padding: 30px;
+}
+
+/* line 1516, ../../sass/sass/modules/_feather_main.scss */
+.panel-icon {
+  padding: 0 5px 0 0;
+}
+
+/* line 1519, ../../sass/sass/modules/_feather_main.scss */
+.form-control-feedback {
+  outline: none !important;
+}
+
+/* line 3, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button {
+  display: inline-block;
+}
+
+/* line 6, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button input {
+  visibility: hidden;
+  position: absolute;
+  margin: 0px;
+}
+
+/* line 11, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button label {
+  position: relative;
+  background-color: #CCC;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+  width: 50px;
+  height: 25px;
+  margin: 0px;
+  cursor: pointer;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 31, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button label:after {
+  background-color: #fff;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  content: "";
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 49, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button input:checked + label {
+  background-color: #27C24C;
+  border-color: #27C24C;
+}
+
+/* line 53, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button input:checked + label:after {
+  margin-left: 50%;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/****Sizes***/
+/* line 63, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.xs label {
+  width: 30px;
+  height: 15px;
+}
+
+/* line 68, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.sm label {
+  width: 40px;
+  height: 20px;
+}
+
+/* line 73, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.lg label {
+  width: 60px;
+  height: 30px;
+}
+
+/* line 78, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.xlg label {
+  width: 80px;
+  height: 40px;
+}
+
+/****Colors***/
+/* line 85, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.primary input:checked + label {
+  background-color: #8d82b5;
+  border-color: #8d82b5;
+}
+
+/* line 89, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.info input:checked + label {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+/* line 93, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.warning input:checked + label {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+/* line 97, ../../sass/sass/modules/_feather_buttons.scss */
+.switch-button.danger input:checked + label {
+  background-color: #d9534f;
+  border-color: #d9534f;
 }

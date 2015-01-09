@@ -54,33 +54,11 @@
             '@AppFeatherBundle/Resources/public/js/jquery/jquery-1.9.1.min.js' 
             '@AppFeatherBundle/Resources/public/js/bootstrap/bootstrap.min.js' 
             '@AppFeatherBundle/Resources/public/js/plugins/nicescroll/jquery.nicescroll.min.js'
-            '@AppFeatherBundle/Resources/public/js/app/custom.js' %}
+            '@AppFeatherBundle/Resources/public/js/app/custom.js' 
+            '@AppFeatherBundle/Resources/public/js/app/feather.common.js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         <!-- ENDJAVASCRIPTS -->
-
-        <script type="text/javascript">
-        
-            $('#transmission_authentication').change(function(){
-                if (this.checked) {
-                  $('#transmission_authinfo').fadeIn('slow');
-                } else {
-                  $('#transmission_authinfo').hide().fadeOut('slow');
-                }                   
-            });
-
-            $('#transmission_authinfo').hide();
-            $('#transmission_authentication').removeAttr('checked');
-            
-            $('#transmission_lostinfo').change(function(){
-                if (this.checked) {
-                  $('#transmission_property').fadeOut('slow');
-                } else {
-                  $('#transmission_property').fadeIn('slow');
-                }                   
-            });
-
-        </script>
 
     </body>
 </html>

@@ -83,7 +83,17 @@ class InstallController extends Controller
 
     public function stepAction()
     {
-        return $this->render('AppFeatherInstallBundle:Install:step.html.twig');    
+        // Check Dataspace available
+        $system_diskspace = disk_free_space('/');
+
+        // Determine the os architectur compare of x86 and x86_64 bits
+        $system_architecture = 8 * PHP_INT_SIZE;
+
+        return $this->render('AppFeatherInstallBundle:Install:step.html.twig', array(
+            'system_os' => PHP_OS,
+            'system_diskspace' => $system_diskspace,
+            'system_architecture' => $system_architecture,
+        ));    
     }
 
     public function processAction(Request $request)
