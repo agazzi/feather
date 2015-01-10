@@ -177,6 +177,21 @@ class InstallController extends Controller
                 $this->_transmission_username = $transmission_username;
                 $this->_transmission_password = $transmission_password;
 
+                // Create download repository
+                if (!is_dir($this->_transmission_dir)) {
+                    if (!@mkdir($this->_transmission_dir)) {
+                        // Return flashbag info_box
+                        $session = $request->getSession();
+                        $session->getFlashBag()->add('error', 'Vous n\'avez pas les permissions suffisantes pour créer ce dossier de téléchargement. Veuiller en choisir un autre ou vous autoriser les droit de création!');
+
+                        return $this->redirect($this->generateUrl('app_feather_install_step'));
+                    }
+                    else
+                        $filesystem->mkdir($this->_transmission_dir, $mode = 0777);
+                        if (!is_dir($this->_transmission_tmp)) 
+                            $filesystem->mkdir($this->_transmission_tmp, $mode = 0777);
+                }
+ 
                 // Redirect to the next step if all checkpoints is green
                 return $this->processexecAction();
             }
@@ -328,10 +343,6 @@ class InstallController extends Controller
     {
         // Initialize filesystem Manager
         $filesystem = new Filesystem();
-        
-        // Create download repository
-        $filesystem->mkdir($this->_transmission_dir, $mode = 0777);
-        $filesystem->mkdir($this->_transmission_tmp, $mode = 0777);
 
         // Remove install file from base of symfony
         $filesystem->remove($this->basepath . "/../../INSTALL");
