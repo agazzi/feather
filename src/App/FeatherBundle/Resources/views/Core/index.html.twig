@@ -91,7 +91,8 @@
                 <form action="{{ path('app_feather_add_torrent') }}" role="form" method="POST">
                     <div class="form-group">
                         <label for="addtorrent_uri">{{ 'Search a torrent'|trans }}</label>
-                        <input type="text" class="form-control" id="addtorrent_uri" name="search"placeholder="{{ 'Write your search'|trans }}">
+                        <input onkeyup="showResult(this.value)" type="text" class="form-control" id="addtorrent_uri" name="search"placeholder="{{ 'Write your search'|trans }}">
+                        <div id="livesearch"></div>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="{{ 'Search'|trans }}">
