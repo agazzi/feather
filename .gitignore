@@ -47,3 +47,4 @@ src/App/FeatherBundle/Resources/sass/.sass-cache
 app/cache
 app/logs
 vendor
+/nbproject/private/
