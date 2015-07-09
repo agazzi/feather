@@ -11,7 +11,7 @@
 
         <!-- ASSETIC -->
         {% stylesheets '@AppFeatherBundle/Resources/public/css/*' %}
-            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
 
         <!-- GOOGLE FONTS -->
@@ -19,6 +19,29 @@
 
         <!-- FAVICON -->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script>
+            function showResult(str) {
+                if (str.length == 0) {
+                    document.getElementById("livesearch").innerHTML = "";
+                    document.getElementById("livesearch").style.border = "0px";
+                    return;
+                }
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {  // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("livesearch").innerHTML = xmlhttp.responseText;
+                        document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+                    }
+                }
+                xmlhttp.open("GET", "https://getstrike.net/api/v2/torrents/search/?phrase=" + str, true);
+                xmlhttp.send();
+            }
+        </script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,22 +76,22 @@
                 <!-- ENDHEADER -->
 
                 <!-- CONTENT -->
-                {% block content %}{% endblock %}
-                <!-- ENDCONTENT -->
+            {% block content %}{% endblock %}
+            <!-- ENDCONTENT -->
 
-                <!-- FOOTER -->
-                {% block footer %}
-                    {% include 'includes/footer.inc.html.twig' %}
-                {% endblock %}
-                <!-- ENDFOOTER -->
+            <!-- FOOTER -->
+            {% block footer %}
+                {% include 'includes/footer.inc.html.twig' %}
+            {% endblock %}
+            <!-- ENDFOOTER -->
 
-            </section>
+        </section>
 
-        {% endblock %}
-        <!-- ENDBODY -->
+    {% endblock %}
+    <!-- ENDBODY -->
 
-        <!-- JAVASCRIPT -->
-        {% javascripts 
+    <!-- JAVASCRIPT -->
+    {% javascripts 
             '@AppFeatherBundle/Resources/public/js/jquery/jquery-1.9.1.min.js' 
             '@AppFeatherBundle/Resources/public/js/bootstrap/bootstrap.min.js' 
             '@AppFeatherBundle/Resources/public/js/globalize/globalize.min.js'
@@ -82,9 +105,9 @@
             '@AppFeatherBundle/Resources/public/js/plugins/datatables/DT_bootstrap.js'
             '@AppFeatherBundle/Resources/public/js/plugins/datatables/jquery.dataTables-conf.js'
             '@AppFeatherBundle/Resources/public/js/app/custom.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        <!-- ENDJAVASCRIPTS -->
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <!-- ENDJAVASCRIPTS -->
 
-    </body>
+</body>
 </html>
