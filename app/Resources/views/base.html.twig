@@ -20,19 +20,35 @@
         <!-- FAVICON -->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <script>
+            function getJson(item, name) {
+                var p;
+                var getStrikeAPI = "https://getstrike.net/api/v2/torrents/download/?hash=" + item;
+                var myjson = null;
+                $.ajax({
+                    url: getStrikeAPI,
+                    type: 'GET',
+                    success: function (data) {
+                        myjson = data.message;
+                        p = "<a href='" + myjson + "'><li>" + name + "</li></a>";
+                        $("#livesearch").append(p);
+                    }
+                });
+
+
+
+
+            }
             function showResult(str) {
-                var p = ""
-                var flickerAPI = "https://getstrike.net/api/v2/torrents/search/?phrase=" + str;
-                $.getJSON(flickerAPI, {
+
+
+                var getStrikeAPI = "https://getstrike.net/api/v2/torrents/search/?phrase=" + str;
+                $.getJSON(getStrikeAPI, {
                     format: "json"
                 })
                         .done(function (data) {
                             $.each(data.torrents, function (i, item) {
-                                p = p + "<li>" + item.torrent_title + "</li>";
-
+                                getJson(item.torrent_hash, item.torrent_title);
                             });
-                            console.log(p);
-                            document.getElementById("livesearch").innerHTML = p;
                             document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
                             document.getElementById("livesearch").style.background = "white";
                             document.getElementById("livesearch").style.position = "absolute";
@@ -41,7 +57,9 @@
                             document.getElementById("livesearch").style.height = "331px";
                             document.getElementById("livesearch").style.width = "96%";
                         });
+
             }
+
         </script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
