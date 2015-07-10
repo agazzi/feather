@@ -13,7 +13,7 @@ Installation ( BETA )
 Executer la commande suivante dans votre terminal:<br>
 wget --no-check-certificate https://feather.vigitas.com/dl/feather && chmod 0777 feather && ./feather install
 
-Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com ou quentin[dot]grisard[at]gmail[dot]com
+Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com <br/>ou : quentin[dot]grisard[at]gmail[dot]com
 
 Changelog
 ========================
