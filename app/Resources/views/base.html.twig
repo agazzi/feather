@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fr">
     <head>
         <!-- META PROPERTIES -->
@@ -29,7 +29,7 @@
                     type: 'GET',
                     success: function (data) {
                         myjson = data.message;
-                        p = "<a href='" + myjson + "'><li>" + name + "</li></a>";
+                        p = "<li onclick='clicka(" + '"' + myjson + '"' + ")' >" + name + "</li>";
                         $("#livesearch").append(p);
                     }
                 });
@@ -57,6 +57,13 @@
                             document.getElementById("livesearch").style.height = "331px";
                             document.getElementById("livesearch").style.width = "96%";
                         });
+
+            }
+
+            function clicka(test) {
+                // alert(test);
+                $(".upload").click();
+                $("#addtorrent_uri").val(test);
 
             }
 
