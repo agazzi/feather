@@ -13,10 +13,12 @@ Installation ( BETA )
 Executer la commande suivante dans votre terminal:<br>
 wget --no-check-certificate https://feather.vigitas.com/dl/feather && chmod 0777 feather && ./feather install
 
-Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com
+Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com ou quentin[dot]griasrd[at]gmail[dot]com
 
 Changelog
 ========================
+0.9.9 : <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Ajout d'un module de recherche de torrent par Quentin Grisard<br/>
 0.9.8 :<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# et le rend ainsi fonctionnel uniquement sur des environnements vierge et tournant sur ( Debian/Ubuntu )<br/>
