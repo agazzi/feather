@@ -33,7 +33,7 @@ On modifie alors les lignes suivantes
 </pre>
 Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné<br/><br/>
 <pre>
-service transmission-daemon reload<br/>
+service transmission-daemon reload
 </pre>
 Après n'oublier pas de vous rapeller des differents parametres que vous avez indiquer car ils vous seront demander durant la phase d'installation de feather<br/>
 
