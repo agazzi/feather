@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fr">
     <head>
         <!-- META PROPERTIES -->
@@ -11,7 +11,7 @@
 
         <!-- ASSETIC -->
         {% stylesheets '@AppFeatherBundle/Resources/public/css/*' %}
-            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
 
         <!-- GOOGLE FONTS -->
@@ -19,6 +19,67 @@
 
         <!-- FAVICON -->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script>
+            function getJson(item, name, size) {
+                var p;
+                var data;
+                var getStrikeAPI = "https://getstrike.net/api/v2/torrents/download/?hash=" + item;
+                var myjson = null;
+                $.ajax({
+                    url: getStrikeAPI,
+                    type: 'GET',
+                    success: function (data) {
+                        myjson = data.message;
+                        p = "<li onclick='clicka(" + '"' + myjson + '"' + ")' >" + name + " | " + (size / 1048576) + "Mo</li>";
+                        $("#livesearch").append(p);
+                    }
+                });
+
+
+
+
+            }
+            function showResult(str) {
+                $("#livesearch").html(" ");
+                if (str == "") {
+                    $("#livesearch").css("display", "none");
+
+                    $("#livesearch").html(" ");
+                }
+                var data = "";
+                var getStrikeAPI = "https://getstrike.net/api/v2/torrents/search/?phrase=" + str;
+                $("#livesearch").html(" ");
+                $.getJSON(getStrikeAPI, {
+                    format: "json"
+                })
+                        .done(function (data) {
+                            $("#livesearch").html(" ");
+                            $.each(data.torrents, function (i, item) {
+                                getJson(item.torrent_hash, item.torrent_title, item.size);
+                            });
+                            document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+                            document.getElementById("livesearch").style.background = "white";
+                            document.getElementById("livesearch").style.position = "absolute";
+                            document.getElementById("livesearch").style.zIndex = "999";
+                            document.getElementById("livesearch").style.overflow = "auto";
+                            document.getElementById("livesearch").style.height = "331px";
+                            document.getElementById("livesearch").style.width = "96%";
+                            $("#livesearch").css("display", "block");
+                        });
+
+            }
+
+            function clicka(test) {
+                // alert(test);
+                $(".upload").click();
+                $("#addtorrent_uri").val(test);
+                $("#livesearch").html(" ");
+                $("#livesearch").css("display", "none");
+
+
+            }
+
+        </script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,22 +114,22 @@
                 <!-- ENDHEADER -->
 
                 <!-- CONTENT -->
-                {% block content %}{% endblock %}
-                <!-- ENDCONTENT -->
+            {% block content %}{% endblock %}
+            <!-- ENDCONTENT -->
 
-                <!-- FOOTER -->
-                {% block footer %}
-                    {% include 'includes/footer.inc.html.twig' %}
-                {% endblock %}
-                <!-- ENDFOOTER -->
+            <!-- FOOTER -->
+            {% block footer %}
+                {% include 'includes/footer.inc.html.twig' %}
+            {% endblock %}
+            <!-- ENDFOOTER -->
 
-            </section>
+        </section>
 
-        {% endblock %}
-        <!-- ENDBODY -->
+    {% endblock %}
+    <!-- ENDBODY -->
 
-        <!-- JAVASCRIPT -->
-        {% javascripts 
+    <!-- JAVASCRIPT -->
+    {% javascripts 
             '@AppFeatherBundle/Resources/public/js/jquery/jquery-1.9.1.min.js' 
             '@AppFeatherBundle/Resources/public/js/bootstrap/bootstrap.min.js' 
             '@AppFeatherBundle/Resources/public/js/globalize/globalize.min.js'
@@ -82,9 +143,9 @@
             '@AppFeatherBundle/Resources/public/js/plugins/datatables/DT_bootstrap.js'
             '@AppFeatherBundle/Resources/public/js/plugins/datatables/jquery.dataTables-conf.js'
             '@AppFeatherBundle/Resources/public/js/app/custom.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        <!-- ENDJAVASCRIPTS -->
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <!-- ENDJAVASCRIPTS -->
 
-    </body>
+</body>
 </html>

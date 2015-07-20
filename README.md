@@ -5,18 +5,50 @@ A Simple, Flexible and Beautiful torrent webapp
 
 Site officiel
 ========================
-https://feather.vigitas.com
+https://feather.vigitas.com<br/>
+http://quentingrisard.fr
 
 Installation ( BETA )
 ========================
 
 Executer la commande suivante dans votre terminal:<br>
-wget --no-check-certificate https://feather.vigitas.com/dl/feather && chmod 0777 feather && ./feather install
+wget https://github.com/WENKz/feather/archive/master.zip && unzip master.zip && mv feather-master /usr/share/feather && chmod 0777 /usr/share/feather
+<pre>
+apt-get install -y php5 php5-curl apache2 transmission-daemon git
+</pre>
+Et ensuite aller éditer le fichier settings.json<br/>
+<pre>
+nano /var/lib/transmission-daemon/info/settings.json
+</pre>
+On modifie alors les lignes suivantes
+<pre>
+"download-dir": "/repertoire/des/fichiers",<br/>
+"download-queue-size": Nombre de téléchargement simultané,<br/>
+"incomplete-dir": "/repertoire/des/fichiers/incomplets",<br/>
+"rpc-authentication-required": true/false,<br/>
+"rpc-enabled": true,<br/>
+"rpc-password": "Votre mot de passe transmission",<br/>
+"rpc-port": "Port d'écoute de l'API",<br/>
+"rpc-username": "Votre identifiant transmission",<br/>
+"rpc-whitelist-enabled": false,
+</pre>
+Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné<br/>
+<pre>
+service transmission-daemon reload
+</pre>
+Après n'oublier pas de vous rapeller des differents parametres que vous avez indiquer car ils vous seront demander durant la phase d'installation de feather<br/>
 
-Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com
+On enchaine avec la mise à jour de composer et l'installations de tout les vendors<br/>
+<pre>
+php composer.phar update
+</pre>
+
+Si vous avez des problèmes contacter moi a l'adresse email suivante:  <a href="mailto:quentin.grisard@gmail.com" title="quentin grisard">quentin[dot]grisard[at]gmail[dot]com</a>
 
 Changelog
 ========================
+0.9.9 : <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Ajout d'un module de recherche de torrent par Quentin Grisard<br/>
 0.9.8 :<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Cette version apporte de grosses amelioration au niveau de l'autoinstaller linux<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# et le rend ainsi fonctionnel uniquement sur des environnements vierge et tournant sur ( Debian/Ubuntu )<br/>
