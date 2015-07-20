@@ -13,8 +13,9 @@ Installation ( BETA )
 
 Executer la commande suivante dans votre terminal:<br>
 wget https://github.com/WENKz/feather/archive/master.zip && unzip master.zip && mv feather-master /usr/share/feather && chmod 0777 /usr/share/feather
-
-apt-get install -y php5 php5-curl apache2 transmission-daemon git<br/><br/>
+<pre>
+apt-get install -y php5 php5-curl apache2 transmission-daemon git
+</pre>
 Et ensuite aller éditer le fichier settings.json<br/><br/>
 <pre>
 nano /var/lib/transmission-daemon/info/settings.json
