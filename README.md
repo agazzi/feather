@@ -42,8 +42,8 @@ On enchaine avec la mise à jour de composer et l'installations de tout les vend
 <pre>
 php composer.phar update
 </pre>
-<br/><br/>
-Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com <br/>ou : quentin[dot]grisard[at]gmail[dot]com
+
+Si vous avez des problèmes contacter moi a l'adresse email suivante:  <a href="mailto:quentin.grisard@gmail.com" title="quentin grisard">quentin[dot]grisard[at]gmail[dot]com</a>
 
 Changelog
 ========================
