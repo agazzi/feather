@@ -16,9 +16,11 @@ wget https://github.com/WENKz/feather/archive/master.zip && unzip master.zip && 
 
 apt-get install -y php5 php5-curl apache2 transmission-daemon git<br/><br/>
 Et ensuite aller éditer le fichier settings.json<br/><br/>
+<pre>
 nano /var/lib/transmission-daemon/info/settings.json<br/><br/>
+</pre>
 On modifie alors les lignes suivantes
-
+<pre>
 "download-dir": "/repertoire/des/fichiers",<br/>
 "download-queue-size": Nombre de téléchargement simultané,<br/>
 "incomplete-dir": "/repertoire/des/fichiers/incomplets",<br/>
@@ -28,14 +30,17 @@ On modifie alors les lignes suivantes
 "rpc-port": "Port d'écoute de l'API",<br/>
 "rpc-username": "Votre identifiant transmission",<br/>
 "rpc-whitelist-enabled": false,<br/><br/>
+</pre>
 Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné<br/><br/>
-
+<pre>
 service transmission-daemon reload<br/><br/>
+</pre>
 Après n'oublier pas de vous rapeller des differents parametres que vous avez indiquer car ils vous seront demander durant la phase d'installation de feather<br/>
 
 On enchaine avec la mise à jour de composer et l'installations de tout les vendors<br/><br/>
-
+<pre>
 php composer.phar update
+</pre>
 <br/><br/>
 Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com <br/>ou : quentin[dot]grisard[at]gmail[dot]com
 
