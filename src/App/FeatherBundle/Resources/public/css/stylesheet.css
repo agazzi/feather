@@ -5789,7 +5789,7 @@ tbody.collapse.in {
 }
 /* line 16, ../../sass/sass/bootstrap/bootstrap/_breadcrumbs.scss */
 .breadcrumb > li + li:before {
-  content: "/ ";
+  content: "/ ";
   padding: 0 5px;
   color: #ccc;
 }

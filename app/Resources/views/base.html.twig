@@ -20,7 +20,7 @@
         <!-- FAVICON -->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <script>
-            function getJson(item, name,size) {
+            function getJson(item, name, size) {
                 var p;
                 var data;
                 var getStrikeAPI = "https://getstrike.net/api/v2/torrents/download/?hash=" + item;
@@ -30,7 +30,7 @@
                     type: 'GET',
                     success: function (data) {
                         myjson = data.message;
-                        p = "<li onclick='clicka(" + '"' + myjson + '"' + ")' >" + name + " | "+(size/1048576)+"Mo</li>";
+                        p = "<li onclick='clicka(" + '"' + myjson + '"' + ")' >" + name + " | " + (size / 1048576) + "Mo</li>";
                         $("#livesearch").append(p);
                     }
                 });
@@ -55,7 +55,7 @@
                         .done(function (data) {
                             $("#livesearch").html(" ");
                             $.each(data.torrents, function (i, item) {
-                                getJson(item.torrent_hash, item.torrent_title,item.size);
+                                getJson(item.torrent_hash, item.torrent_title, item.size);
                             });
                             document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
                             document.getElementById("livesearch").style.background = "white";
