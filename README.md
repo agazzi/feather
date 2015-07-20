@@ -6,12 +6,38 @@ A Simple, Flexible and Beautiful torrent webapp
 Site officiel
 ========================
 https://feather.vigitas.com
+http://quentingrisard.fr
 
 Installation ( BETA )
 ========================
 
 Executer la commande suivante dans votre terminal:<br>
-wget --no-check-certificate https://feather.vigitas.com/dl/feather && chmod 0777 feather && ./feather install
+wget https://github.com/WENKz/feather/archive/master.zip && unzip master.zip && mv feather-master /usr/share/feather && chmod 0777 /usr/share/feather
+
+apt-get install -y php5 php5-curl apache2 transmission-daemon git
+
+Et ensuite aller éditer le fichier settings.json
+
+nano /var/lib/transmission-daemon/info/settings.json
+On modifie alors les lignes suivantes
+
+"download-dir": "/repertoire/des/fichiers",
+"download-queue-size": Nombre de téléchargement simultané,
+"incomplete-dir": "/repertoire/des/fichiers/incomplets",
+"rpc-authentication-required": true/false,
+"rpc-enabled": true,
+"rpc-password": "Votre mot de passe transmission",
+"rpc-port": "Port d'écoute de l'API",
+"rpc-username": "Votre identifiant transmission",
+"rpc-whitelist-enabled": false,
+Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné
+
+service transmission-daemon reload
+Après n'oublier pas de vous rapeller des differents parametres que vous avez indiquer car ils vous seront demander durant la phase d'installation de feather
+
+On enchaine avec la mise à jour de composer et l'installations de tout les vendors
+
+php composer.phar update
 
 Si vous avez des problèmes contacter moi a l'adresse email suivante: william[dot]rudent[at]gmail[dot]com <br/>ou : quentin[dot]grisard[at]gmail[dot]com
 
