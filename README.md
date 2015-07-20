@@ -16,7 +16,7 @@ wget https://github.com/WENKz/feather/archive/master.zip && unzip master.zip && 
 <pre>
 apt-get install -y php5 php5-curl apache2 transmission-daemon git
 </pre>
-Et ensuite aller éditer le fichier settings.json<br/><br/>
+Et ensuite aller éditer le fichier settings.json<br/>
 <pre>
 nano /var/lib/transmission-daemon/info/settings.json
 </pre>
@@ -32,13 +32,13 @@ On modifie alors les lignes suivantes
 "rpc-username": "Votre identifiant transmission",<br/>
 "rpc-whitelist-enabled": false,
 </pre>
-Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné<br/><br/>
+Libre a vous après de jouer avec d'autres paramètres. On met à jour notre configuration auprès du service concerné<br/>
 <pre>
 service transmission-daemon reload
 </pre>
 Après n'oublier pas de vous rapeller des differents parametres que vous avez indiquer car ils vous seront demander durant la phase d'installation de feather<br/>
 
-On enchaine avec la mise à jour de composer et l'installations de tout les vendors<br/><br/>
+On enchaine avec la mise à jour de composer et l'installations de tout les vendors<br/>
 <pre>
 php composer.phar update
 </pre>
