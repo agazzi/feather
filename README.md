@@ -5,7 +5,7 @@ A Simple, Flexible and Beautiful torrent webapp
 
 Site officiel
 ========================
-https://feather.vigitas.com
+https://feather.heracles.io
 
 Installation ( BETA )
 ========================
