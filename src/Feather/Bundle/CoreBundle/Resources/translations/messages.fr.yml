@@ -1,3 +1,15 @@
+# Global
+global_duration_hour: 'heure'
+global_duration_hours: 'heures'
+global_duration_minutes: 'minutes'
+global_duration_minute: 'minute'
+global_duration_seconds: 'secondes'
+global_duration_second: 'seconde'
+global_duration_finished: 'Terminé'
+global_duration_seeding: 'En distribution'
+global_duration_stopped: 'Suspendu'
+global_duration_checking: 'Vérification'
+
 # Header
 header_toggle_navigation: 'Ouvrir la barre de navigation'
 header_toggle_menubar: 'Ouvrir la barre de menu'
@@ -45,15 +57,3 @@ page_browser_category_game: 'Jeux vidéo'
 page_browser_action_edit: 'Editer'
 page_browser_action_download: 'Télécharger'
 page_browser_action_trash: 'Supprimer'
-
-# Global
-global_duration_hour: 'heure'
-global_duration_hours: 'heures'
-global_duration_minutes: 'minutes'
-global_duration_minute: 'minute'
-global_duration_seconds: 'secondes'
-global_duration_second: 'seconde'
-global_duration_finished: 'Terminé'
-global_duration_seeding: 'En distribution'
-global_duration_stopped: 'Suspendu'
-global_duration_checking: 'Vérification'

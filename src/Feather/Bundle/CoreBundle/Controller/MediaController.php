@@ -49,6 +49,10 @@ class MediaController extends Controller
      */
     public function indexAction()
     {
+        $media = $this->get('service.media')->getTorrents();
+
+        var_dump($media);
+        die();
         return [];
     }
 

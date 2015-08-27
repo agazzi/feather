@@ -1,6 +1,7 @@
 parameters:
     feather.service.transmission.class: Feather\Bundle\ServiceBundle\Services\TransmissionService
     feather.service.system.class: Feather\Bundle\ServiceBundle\Services\SystemService
+    feather.service.media.class: Feather\Bundle\ServiceBundle\Services\MediaService
 
 services:
     service.transmission:
@@ -9,5 +10,9 @@ services:
             - [setContainer, [@service_container]]
     service.system:
         class: %feather.service.system.class%
+        calls:
+            - [setContainer, [@service_container]]
+    service.media:
+        class: %feather.service.media.class%
         calls:
             - [setContainer, [@service_container]]

@@ -34,18 +34,8 @@ use Transmission\Client;
 /**
  * @author William Rudent <william.rudent@gmail.com>
  */
-class TransmissionService extends Controller
+class MediaService extends Controller
 {
-    /**
-     * Load the transmission connexion
-     *
-     * @author William Rudent <william.rudent@gmail.com>
-     */
-    public function load()
-    {
-        $this->transmission = $this->get('transmission');
-    }
-
     /**
      * Get list of all torrents
      *
@@ -55,8 +45,10 @@ class TransmissionService extends Controller
      */
     public function getTorrents()
     {
-        self::load();
+        $em = $this->getDoctrine();
 
-        return $this->transmission->all();
+        $repository = $em->getRepository('FeatherServiceBundle:Torrent');
+
+        return $repository->findAll();
     }
 }

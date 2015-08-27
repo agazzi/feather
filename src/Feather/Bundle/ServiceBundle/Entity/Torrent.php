@@ -22,6 +22,13 @@ class Torrent
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="uid", type="integer")
+     */
+    private $uid;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -57,11 +64,12 @@ class Torrent
     private $date;
 
     /**
-     * @var integer
+     * @var User
      *
-     * @ORM\Column(name="author", type="smallint")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="torrent")
+     * @ORM\JoinColumn(name="author", referencedColumnName="id")
      */
-    private $author;
+    private $user;
 
     /**
      * @var string
@@ -74,11 +82,34 @@ class Torrent
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set uid
+     *
+     * @param integer $uid
+     * @return Torrent
+     */
+    public function setUid($uid)
+    {
+        $this->uid = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Get uid
+     *
+     * @return integer
+     */
+    public function getUid()
+    {
+        return $this->uid;
     }
 
     /**
@@ -97,7 +128,7 @@ class Torrent
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -120,7 +151,7 @@ class Torrent
     /**
      * Get size
      *
-     * @return integer 
+     * @return integer
      */
     public function getSize()
     {
@@ -143,7 +174,7 @@ class Torrent
     /**
      * Get hash
      *
-     * @return string 
+     * @return string
      */
     public function getHash()
     {
@@ -166,7 +197,7 @@ class Torrent
     /**
      * Get type
      *
-     * @return integer 
+     * @return integer
      */
     public function getType()
     {
@@ -189,7 +220,7 @@ class Torrent
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -197,26 +228,26 @@ class Torrent
     }
 
     /**
-     * Set author
+     * Set user
      *
-     * @param integer $author
+     * @param integer $user
      * @return Torrent
      */
-    public function setAuthor($author)
+    public function setUser($user)
     {
-        $this->author = $author;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get user
      *
-     * @return integer 
+     * @return integer
      */
-    public function getAuthor()
+    public function getUser()
     {
-        return $this->author;
+        return $this->user;
     }
 
     /**
@@ -235,7 +266,7 @@ class Torrent
     /**
      * Get filename
      *
-     * @return string 
+     * @return string
      */
     public function getFilename()
     {
