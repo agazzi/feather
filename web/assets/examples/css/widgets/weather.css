@@ -1,0 +1,20 @@
+/*!
+ * Remark (http://getbootstrapadmin.com/remark)
+ * Copyright 2015 amazingsurge
+ * Licensed under the Themeforest Standard Licenses
+ */
+
+.weather-location input {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.weather-location input:focus {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.weather-day {
+  height: 150px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+.weather-day.is-today {
+  border-left: none;
+}

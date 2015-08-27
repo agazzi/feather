@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Feather">
+    <meta name="author" content="William Rudent">
+
+    <title>Feather</title>
+
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="http://getbootstrapadmin.com/remark/assets/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-extend.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/site.min.css') }}">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/animsition/animsition.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/asscrollable/asScrollable.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/switchery/switchery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/intro-js/introjs.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/slidepanel/slidePanel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/flag-icon-css/flag-icon.min.css') }}">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/7-stroke/7-stroke.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/ionicons/ionicons.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-design/material-design.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/mfglabs/mfglabs.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/open-iconic/open-iconic.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/themify/themify.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/weather-icons/weather-icons.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/glyphicons/glyphicons.min.css">
+
+    <!-- Page -->
+    {% block stylesheets %}{% endblock %}
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="{{ asset('assets/fonts/web-icons/web-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/brand-icons/brand-icons.min.css') }}">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('assets/vendor/html5shiv/html5shiv.min.js') }}"></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src="{{ asset('assets/vendor/media-match/media.match.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/respond/respond.min.js') }}"></script>
+    <![endif]-->
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('assets/vendor/modernizr/modernizr.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/breakpoints/breakpoints.min.js') }}"></script>
+    <script>
+        Breakpoints();
+    </script>
+</head>
+<body class="{% block settings %}{% endblock %}">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    {% block body %}{% endblock %}
+
+    <!-- Core  -->
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/animsition/jquery.animsition.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/asscroll/jquery-asScroll.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/mousewheel/jquery.mousewheel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/asscrollable/jquery.asScrollable.all.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/ashoverscroll/jquery-asHoverScroll.min.js') }}"></script>
+
+    <!-- Plugins -->
+    <script src="{{ asset('assets/vendor/switchery/switchery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/intro-js/intro.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/screenfull/screenfull.js') }}"></script>
+    <script src="{{ asset('assets/vendor/slidepanel/jquery-slidePanel.min.js') }}"></script>
+
+    <!-- Plugins For This Page -->
+    <script src="{{ asset('assets/vendor/skycons/skycons.js') }}"></script>
+    <script src="{{ asset('assets/vendor/chartist-js/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aspieprogress/jquery-asPieProgress.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jvectormap/jquery-jvectormap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jvectormap/maps/jquery-jvectormap-au-mill-en.js') }}"></script>
+    <script src="{{ asset('assets/vendor/matchheight/jquery.matchHeight-min.js') }}"></script>
+
+    <!-- Scripts -->
+    <script src="{{ asset('assets/js/core.min.js') }}"></script>
+    <script src="{{ asset('assets/js/site.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/sections/menu.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sections/menubar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sections/gridmenu.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sections/sidebar.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/configs/config-colors.min.js') }}"></script>
+    <script src="{{ asset('assets/js/configs/config-tour.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/components/asscrollable.min.js') }}"></script>
+    <script src="{{ asset('assets/js/components/animsition.min.js') }}"></script>
+    <script src="{{ asset('assets/js/components/slidepanel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/components/switchery.min.js') }}"></script>
+
+    <!-- Page -->
+    {% block javascripts %}{% endblock %}
+
+</body>
+</html>
+

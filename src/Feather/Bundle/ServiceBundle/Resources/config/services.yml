@@ -1,0 +1,13 @@
+parameters:
+    feather.service.transmission.class: Feather\Bundle\ServiceBundle\Services\TransmissionService
+    feather.service.system.class: Feather\Bundle\ServiceBundle\Services\SystemService
+
+services:
+    service.transmission:
+        class: %feather.service.transmission.class%
+        calls:
+            - [setContainer, [@service_container]]
+    service.system:
+        class: %feather.service.system.class%
+        calls:
+            - [setContainer, [@service_container]]

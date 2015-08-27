@@ -1,0 +1,88 @@
+<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
+            <span class="sr-only">{{ 'header_toggle_navigation'|trans }}</span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
+            <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+        </button>
+        <div class="navbar-brand navbar-brand-center">
+            <img class="navbar-brand-logo" src="{{ asset('assets/images/logo.png') }}" title="Feather">
+            <span class="navbar-brand-text"> Feather</span>
+        </div>
+    </div>
+
+    <div class="navbar-container container-fluid">
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+
+            <ul class="nav navbar-toolbar">
+                <li class="hidden-float" id="toggleMenubar">
+                    <a data-toggle="menubar" href="index.html#" role="button">
+                        <i class="icon hamburger hamburger-arrow-left">
+                            <span class="sr-only">{{ 'header_toggle_menubar'|trans }}</span>
+                            <span class="hamburger-bar"></span>
+                        </i>
+                    </a>
+                </li>
+                <li class="hidden-xs" id="toggleFullscreen">
+                    <a class="icon icon-fullscreen" data-toggle="fullscreen" href="index.html#" role="button">
+                        <span class="sr-only">{{ 'header_toggle_fullscreen'|trans }}</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up" aria-expanded="false" role="button">
+                        <span class="flag-icon flag-icon-fr"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem">
+                                <span class="flag-icon flag-icon-gb"></span> {{ 'header_language_english'|trans }}
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem">
+                                <span class="flag-icon flag-icon-cn"></span> {{ 'header_language_chinese'|trans }}
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem">
+                                <span class="flag-icon flag-icon-de"></span> {{ 'header_language_german'|trans }}
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem">
+                                <span class="flag-icon flag-icon-nl"></span> {{ 'header_language_dutch'|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="index.html#" aria-expanded="false" data-animation="scale-up" role="button">
+                        <span class="avatar avatar-online">
+                            <img src="{{ asset('assets/portraits/5.jpg') }}" alt="...">
+                            <i></i>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> {{ 'header_profile'|trans }}</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> {{ 'header_settings'|trans }}</a>
+                        </li>
+                        <li class="divider" role="presentation"></li>
+                        <li role="presentation">
+                            <a href="{{ path('fos_user_security_logout') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> {{ 'header_logout'|trans }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

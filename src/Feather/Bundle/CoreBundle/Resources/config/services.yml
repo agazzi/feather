@@ -1,0 +1,7 @@
+services:
+    feather.twig.feather_extension:
+        class: Feather\Bundle\CoreBundle\Twig\FeatherExtension
+        calls:
+            - [setContainer, [@service_container]]
+        tags:
+            - { name: twig.extension }

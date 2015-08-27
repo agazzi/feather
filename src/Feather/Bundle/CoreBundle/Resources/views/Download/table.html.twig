@@ -1,0 +1,56 @@
+<table id="exampleFooAddRemove" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+    <thead>
+        <tr>
+            <th data-sort-initial="true" data-toggle="true">{{ 'page_download_table_col_filename'|trans }}</th>
+            <th width="120" data-hide="all">{{ 'page_download_table_col_filesize'|trans }}</th>
+            <th data-sort-ignore="true" data-hide="phone, tablet">{{ 'page_download_table_col_download'|trans }}</th>
+            <th data-sort-ignore="true" width="150" data-hide="phone, tablet">{{ 'page_download_table_col_timeleft'|trans }}</th>
+            <th data-sort-ignore="true">{{ 'page_download_table_col_progress'|trans }}</th>
+            <th data-sort-ignore="true" class="min-width">{{ 'page_download_table_col_interact'|trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for torrent in transmission.torrents %}
+        <tr>
+            <td>{{ torrent.name|humanize('name') }}</td>
+            <td>{{ torrent.size|humanize('size') }}</td>
+            <td>
+                {% if torrent.isdownloading %}
+                    {{ rate('down', torrent) }}
+                {% else %}
+                    {% if torrent.isseeding %}
+                        {{ rate('up', torrent) }}
+                    {% else %}
+                        ~
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td>{{ torrent|duration }}</td>
+            <td>
+                <div class="progress progress-xs margin-vertical-10 ">
+                    <div class="progress-bar progress-bar-{{ torrent.percentdone|progressbar }}" style="width: {{ torrent.percentdone }}%"></div>
+                </div>
+            </td>
+            <td>
+                <a href="{{ path('delete', {'id': torrent.id}) }}" type="button" class="btn btn-sm btn-icon btn-pure btn-default" data-toggle="tooltip" data-original-title="Delete"><i class="icon wb-close" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <div class="text-right">
+                    <ul class="pagination"></ul>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<script type="text/javascript" src="{{ asset('assets/vendor/footable/footable.all.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/examples/js/tables/footable.js') }}"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.8/datatables.min.js"></script>
+

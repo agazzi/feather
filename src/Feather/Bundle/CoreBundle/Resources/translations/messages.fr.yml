@@ -1,0 +1,59 @@
+# Header
+header_toggle_navigation: 'Ouvrir la barre de navigation'
+header_toggle_menubar: 'Ouvrir la barre de menu'
+header_toggle_fullscreen: 'Mettre en pleine écran'
+header_language_english: 'English'
+header_language_french: 'Français'
+header_language_chinese: '中国'
+header_language_german: 'Deutsch'
+header_language_dutch: 'Nederlander'
+header_profile: 'Profil'
+header_settings: 'Paramètres'
+header_logout: 'Déconnexion'
+
+# Sidebar
+sidebar_general: 'Générale'
+sidebar_dashboard: 'Dashboard'
+sidebar_diskusage: 'Espace disque'
+sidebar_browser: 'Médiathèque'
+sidebar_medias: 'Médias'
+sidebar_download: 'Téléchargements'
+
+# Breadcrumb
+breadcrumb_home: 'Feather'
+breadcrumb_download_center: 'Téléchargements'
+
+# Page: Download
+page_download_center: 'Centre de téléchargement'
+page_download_table_col_filename: 'Nom du fichier'
+page_download_table_col_filesize: 'Taille'
+page_download_table_col_timeleft: 'Status'
+page_download_table_col_progress: 'Progression'
+page_download_table_col_interact: 'Actions'
+page_download_table_head_add: 'Lancer un nouveau téléchargement'
+page_download_table_col_download: 'Vitesse'
+page_download_table_head_search: 'Rechercher'
+
+# Page: Browser
+page_browser_library_of: 'Médiathèque de'
+page_browser_category_title: 'Catégories'
+page_browser_category_image: 'Photo'
+page_browser_category_audio: 'Musique'
+page_browser_category_tv: 'Série TV'
+page_browser_category_movie: 'Film'
+page_browser_category_game: 'Jeux vidéo'
+page_browser_action_edit: 'Editer'
+page_browser_action_download: 'Télécharger'
+page_browser_action_trash: 'Supprimer'
+
+# Global
+global_duration_hour: 'heure'
+global_duration_hours: 'heures'
+global_duration_minutes: 'minutes'
+global_duration_minute: 'minute'
+global_duration_seconds: 'secondes'
+global_duration_second: 'seconde'
+global_duration_finished: 'Terminé'
+global_duration_seeding: 'En distribution'
+global_duration_stopped: 'Suspendu'
+global_duration_checking: 'Vérification'

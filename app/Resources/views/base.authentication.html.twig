@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Themes Lab - Creative Laborator{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {# BLOCK: META #}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="" name="description" />
+        <meta content="themes-lab" name="author" />
+        {# END BLOCK: META #}
+
+        {# BLOCK: STYLESHEETS #}
+        {% block stylesheets %}{% endblock %}
+        {# END BLOCK: STYLESHEETS #}
+
+    </head>
+    <body class="account2" data-page="login">
+
+        {# BLOCK: BODY #}
+        {% block body %}{% endblock %}
+        {# END BLOCK: BODY #}
+
+
+        {# BLOCK: JAVASCRIPTS #}
+        {% block javascripts %}{% endblock %}
+        {# END BLOCK: JAVASCRIPTS #}
+
+    </body>
+</html>

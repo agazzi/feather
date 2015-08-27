@@ -1,0 +1,100 @@
+{% extends 'FeatherCoreBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/examples/css/apps/media.css') }}">
+{% endblock %}
+
+{% block settings %}app-media{% endblock %}
+
+{% block content %}
+    <div class="page bg-white animsition">
+        <div class="page-aside">
+            <div class="page-aside-switch">
+                <i class="icon wb-chevron-left" aria-hidden="true"></i>
+                <i class="icon wb-chevron-right" aria-hidden="true"></i>
+            </div>
+            <div class="page-aside-inner">
+                <section class="page-aside-section">
+                    <h5 class="page-aside-title">{{ 'page_browser_category_title'|trans }}</h5>
+                    <div class="list-group">
+                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-image" aria-hidden="true"></i>{{ 'page_browser_category_image'|trans }}</a>
+                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-volume-high" aria-hidden="true"></i>{{ 'page_browser_category_audio'|trans }}</a>
+                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-camera" aria-hidden="true"></i>{{ 'page_browser_category_tv'|trans }}</a>
+                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-play" aria-hidden="true"></i>{{ 'page_browser_category_movie'|trans }}</a>
+                        <a class="list-group-item" href="javascript:void(0)"><i class="icon fa-gamepad" aria-hidden="true"></i>{{ 'page_browser_category_game'|trans }}</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="page-main">
+
+            <div class="page-header">
+                <h1 class="page-title">{{ 'page_browser_library_of'|trans }} {{ 'page_browser_category_image'|trans|lower }}</h1>
+                <div class="page-header-actions">
+                    <div class="btn-group media-arrangement" role="group">
+                        <button class="btn btn-outline btn-default active" id="arrangement-grid" type="button"><i class="icon wb-grid-4" aria-hidden="true"></i></button>
+                        <button class="btn btn-outline btn-default" id="arrangement-list" type="button"><i class="icon wb-list" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content page-content-table" data-selectable="selectable">
+                <div class="page-content-actions">
+                    <div class="actions-inner"></div>
+                </div>
+
+                <div class="media-list is-grid padding-bottom-50">
+                    <ul class="blocks blocks-100 blocks-xlg-4 blocks-lg-3 blocks-md-3 blocks-ms-2 blocks-xs-2" data-plugin="animateList" data-child=">li">
+                        {% for torrent in transmission.torrents %}
+                            <li>
+                                <div class="media-item" data-toggle="slidePanel" data-url="panel.tpl">
+                                    <div class="image-wrap">
+                                        <img class="image img-rounded" src="../../../assets/photos/view-1-960x640.jpg" alt="...">
+                                    </div>
+                                    <div class="info-wrap">
+                                        <div class="dropdown">
+                                            <span class="icon wb-settings dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button" data-animation="scale-up"></span>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <li><i class="icon wb-pencil" aria-hidden="true"></i>{{ 'page_browser_action_edit'|trans }}</li>
+                                                <li><i class="icon wb-download" aria-hidden="true"></i>{{ 'page_browser_action_download'|trans }}</li>
+                                                <li><i class="icon wb-trash" aria-hidden="true"></i>{{ 'page_browser_action_trash'|trans }}</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="title">{{ torrent.name|humanize('name') }}</div>
+                                        <div class="time">1 minutes ago</div>
+
+                                        <div class="media-item-actions btn-group">
+                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_edit'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                <i class="icon wb-pencil" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_download'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                <i class="icon wb-download" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_trash'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                <i class="icon wb-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        'assets/js/plugins/sticky-header.min.js'
+        'assets/js/components/asscrollable.min.js'
+        'assets/js/app.min.js'
+        'assets/js/components/animate-list.min.js'
+        'assets/js/components/selectable.min.js'
+        'assets/examples/js/apps/media.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
