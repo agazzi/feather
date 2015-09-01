@@ -39,6 +39,8 @@ twig:
     globals:
         system: '@service.system'
         transmission: '@service.transmission'
+        media: '@service.media'
+        my: '@service.user'
 
 # Assetic Configuration
 assetic:

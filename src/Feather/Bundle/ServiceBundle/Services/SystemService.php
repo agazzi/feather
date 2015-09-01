@@ -27,9 +27,8 @@ namespace Feather\Bundle\ServiceBundle\Services;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Transmission\Transmission;
-use Transmission\Client;
+use Symfony\Component\HttpFoundation\File\UploadedFile as File;
+use Feather\Bundle\ServiceBundle\Services\MediaService as Media;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
@@ -127,4 +126,52 @@ class SystemService extends Controller
 
         return round($diskusage);
     }
+
+    /**
+     * Upload torrent file
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param object $file
+     *
+     * @return bool
+     */
+    public function upload(File $file)
+    {
+        if ($file->getMimeType() == Media::TYPE_TORRENT) {
+            $filename = self::hash($file->getFileName()) . '.torrent';
+
+            $file->move('upload', $filename);
+
+            return $filename;
+        }
+
+        return false;
+    }
+
+    /**
+     * Hash torrent filename
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param string $filename
+     *
+     * @return string $filename
+     */
+    public function hash($filename)
+    {
+        $crypter = $this->get('service.crypter');
+
+        $key = $crypter->digest($filename);
+        $crypter->setKey($key);
+
+        $filename = $crypter->encrypt($key);
+        $filename = str_replace('/', '', $filename);
+        $filename = str_replace('+', '', $filename);
+        $filename = substr($filename, 0, 32);
+
+        return $filename;
+    }
+
+
 }

@@ -2,6 +2,10 @@ parameters:
     feather.service.transmission.class: Feather\Bundle\ServiceBundle\Services\TransmissionService
     feather.service.system.class: Feather\Bundle\ServiceBundle\Services\SystemService
     feather.service.media.class: Feather\Bundle\ServiceBundle\Services\MediaService
+    feather.service.crypter.class: Feather\Bundle\ServiceBundle\Services\CrypterService
+    feather.service.user.class: Feather\Bundle\ServiceBundle\Services\UserService
+
+    feather.entity.torrent.class: Feather\Bundle\ServiceBundle\Entity\Torrent
 
 services:
     service.transmission:
@@ -16,3 +20,15 @@ services:
         class: %feather.service.media.class%
         calls:
             - [setContainer, [@service_container]]
+    service.crypter:
+        class: %feather.service.crypter.class%
+        calls:
+            - [setContainer, [@service_container]]
+    service.user:
+        class: %feather.service.user.class%
+        calls:
+            - [setContainer, [@service_container]]
+
+    torrent.listener:
+        class: %feather.entity.torrent.class%
+        arguments: [@service_container]

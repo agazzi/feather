@@ -1,8 +1,8 @@
 transmission:
-    host: 5.189.159.159
-    port: 9091
-    username: transmission
-    password: transmission
+    host: %transmission_host%
+    port: %transmission_port%
+    username: %transmission_username%
+    password: %transmission_password%
 
 parameters:
     transmission_dir: null

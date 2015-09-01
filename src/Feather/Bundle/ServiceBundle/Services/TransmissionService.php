@@ -24,18 +24,25 @@
 
 namespace Feather\Bundle\ServiceBundle\Services;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Feather\Bundle\ServiceBundle\Entity\User;
+use Transmission\Model\Torrent as Torrent;
+use Feather\Bundle\ServiceBundle\Entity\Torrent as Data;
 
-use Transmission\Transmission;
-use Transmission\Client;
+use Datetime;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
  */
-class TransmissionService extends Controller
+class TransmissionService extends Service
 {
+    /**
+     * @var $upload
+     */
+    const UPLOAD_DIR = '/upload/';
+
     /**
      * Load the transmission connexion
      *
@@ -58,5 +65,168 @@ class TransmissionService extends Controller
         self::load();
 
         return $this->transmission->all();
+    }
+
+    /**
+     * Get torrent by id
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param integer $id
+     *
+     * @return Torrent $torrents
+     */
+    public function getTorrentById($id)
+    {
+        self::load();
+
+        return $this->transmission->get(intval($id));
+    }
+
+    /**
+     * Get torrent by id
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param integer $id
+     *
+     * @return Torrent $torrents
+     */
+    public function getTorrent(Data $data)
+    {
+        self::load();
+
+        return $this->transmission->get(intval($data->getUid()));
+    }
+
+    /**
+     * Get list of all datas
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return array $datas
+     */
+    public function getDatas()
+    {
+        $em = $this->getDoctrine();
+
+        $datas = $em->getRepository('FeatherServiceBundle:Torrent');
+
+        return $datas->findAll();
+    }
+
+    /**
+     * Get torrent data by torrent
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Torrent $torrent
+     *
+     * @return Torrent $torrents
+     */
+    public function getData(Torrent $torrent)
+    {
+        $em = $this->getDoctrine();
+
+        $data = $em->getRepository('FeatherServiceBundle:Torrent');
+
+        return $data->findOneBy([
+            'uid' => $torrent->getId()
+        ]);
+    }
+
+    /**
+     * Get torrent data by torrent
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param integer $uid
+     *
+     * @return Torrent $torrents
+     */
+    public function getDataByid($uid)
+    {
+        $em = $this->getDoctrine();
+
+        $data = $em->getRepository('FeatherServiceBundle:Torrent');
+
+        return $data->findOneBy([
+            'uid' => $uid
+        ]);
+    }
+
+    /**
+     * Remove torrent and data associated
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param integer $id
+     *
+     * @return bool true
+     */
+    public function remove($id)
+    {
+        $id = intval($id);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $this->get('transmission')->get($id)->remove(true);
+
+        $torrent = $em->getRepository('FeatherServiceBundle:Torrent')->findOneBy([
+            'uid' => $id
+        ]);
+
+        $em->remove($torrent);
+        $em->flush();
+
+        return true;
+    }
+
+    /**
+     * Add torrent
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Torrent $torrent
+     *
+     * @return bool
+     */
+    public function add($torrent)
+    {
+        $file = $this->get('service.system')->upload($torrent->getAttachment());
+        $twig = $this->get('feather.twig.feather_extension');
+        $user = $this->get('service.user')->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+        $transmission = $this->process($file);
+
+        $torrent->setUser($user);
+        $torrent->setDate(new Datetime('now'));
+        $torrent->setUid($transmission->getId());
+        $torrent->setHash($transmission->getHash());
+        $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
+        $torrent->setAttachment($file);
+
+        $em->persist($torrent);
+        $em->flush();
+
+        return true;
+    }
+
+    /**
+     * Process torrent into the transmission queue
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param string $file
+     *
+     * @return Torrent $torrent
+     */
+    public function process($file)
+    {
+        $file = $this->get('request')->getSchemeAndHttpHost() . self::UPLOAD_DIR . $file;
+        $torrent = $this->get('transmission')->add($file);
+
+        return $torrent;
     }
 }

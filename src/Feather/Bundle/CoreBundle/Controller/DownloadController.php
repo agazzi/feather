@@ -29,9 +29,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
-use Transmission\Transmission;
-use Transmission\Client;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/torrent")
@@ -53,23 +52,82 @@ class DownloadController extends Controller
      */
     public function indexAction()
     {
-        return [];
+        $form = $this->createForm('torrent_add', $this->get('torrent.listener'), [
+            'action' => $this->generateUrl('add')
+        ]);
+
+        return [
+            'form' => $form->createView()
+        ];
     }
 
     /**
-     * @Route("/delete/{id}", name="delete")
+     * @Route("/delete/{id}/{source}", name="delete")
      *
-     * Delete torrent index
+     * Delete torrent action
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @return Template
+     * @param integer $id
+     *
+     * @param string $source
+     *
+     * @return Route $source
      */
-    public function deleteAction($id)
+    public function deleteAction($id, $source = null)
+    {
+        $this->get('service.transmission')->remove($id);
+
+        if ($source) {
+            return $this->redirect($this->generateUrl($source));
+        }
+
+        return $this->redirect($this->generateUrl('download'));
+    }
+
+    /**
+     * @Route("/download/file/{id}", name="download_file")
+     *
+     * Download torrent action
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param integer $id
+     *
+     * @return Route download
+     */
+    public function downloadAction($id)
     {
         $id = intval($id);
 
-        $this->get('transmission')->get($id)->remove(true);
+        $torrent = $this->get('service.transmission')->getTorrent($id);
+        $data = $this->get('service.transmission')->getData($torrent);
+        $host = $this->getParameter('transmission_host');
+
+        header(sprintf("Content-disposition: attachment; filename=%s.zip", $data->getName()));
+        header("Content-type: application/avi");
+        readfile(sprintf("%s/%s", $host, $torrent->getName()));
+    }
+
+    /**
+     * @Route("/add", name="add")
+     *
+     * Add torrent page
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return Tempalte
+     */
+    public function addAction()
+    {
+        $torrent = $this->get('torrent.listener');
+
+        $form = $this->createForm('torrent_add', $torrent);
+        $form->handleRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $this->get('service.transmission')->add($torrent);
+        }
 
         return $this->redirect($this->generateUrl('download'));
     }

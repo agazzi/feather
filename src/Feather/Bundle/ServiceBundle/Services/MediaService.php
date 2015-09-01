@@ -24,20 +24,57 @@
 
 namespace Feather\Bundle\ServiceBundle\Services;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Transmission\Transmission;
-use Transmission\Client;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
  */
-class MediaService extends Controller
+class MediaService extends Service
 {
     /**
-     * Get list of all torrents
+     * @var integer
+     */
+    const TYPE_DVD = 1;
+
+    /**
+     * @var integer
+     */
+    const TYPE_BLURAY = 2;
+
+    /**
+     * @var integer
+     */
+    const TYPE_SERIES = 3;
+
+    /**
+     * @var integer
+     */
+    const TYPE_MUSIC = 4;
+
+    /**
+     * @var integer
+     */
+    const TYPE_PICTURE = 5;
+
+    /**
+     * @var integer
+     */
+    const TYPE_GAMES = 6;
+
+    /**
+     * @var integer
+     */
+    const TYPE_BOOK = 7;
+
+    /**
+     * @var integer
+     */
+    const TYPE_TORRENT = 'application/x-bittorrent';
+
+    /**
+     * Get list of all torrents in media database
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
@@ -47,7 +84,7 @@ class MediaService extends Controller
     {
         $em = $this->getDoctrine();
 
-        $repository = $em->getRepository('FeatherServiceBundle:Torrent');
+        $torrents = $em->getRepository('FeatherServiceBundle:Torrent');
 
         return $repository->findAll();
     }

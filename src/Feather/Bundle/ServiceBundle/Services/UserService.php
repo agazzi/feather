@@ -22,25 +22,30 @@
  * software or the use or other dealings in the Software. »
  */
 
-namespace Feather\Bundle\ServiceBundle\Entity;
+namespace Feather\Bundle\ServiceBundle\Services;
 
-use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Form as File;
+use Feather\Bundle\ServiceBundle\Services\MediaService as Media;
 
 /**
- * User
- *
- * @ORM\Table()
- * @ORM\Entity
+ * @author William Rudent <william.rudent@gmail.com>
  */
-class User extends BaseUser
+class UserService extends Controller
 {
     /**
-     * @var integer
+     * Get current session user
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return User $user
      */
-    protected $id;
+    public function getUser()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        return $user;
+    }
 }

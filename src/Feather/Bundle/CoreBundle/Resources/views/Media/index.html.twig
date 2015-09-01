@@ -1,3 +1,25 @@
+{#
+ # This file is part of Feather application.
+ #
+ # (c) William Rudent <william.rudent@gmail.com>
+ #
+ # Copyright © 2015 William Rudent <william.rudent@gmail.com>
+ # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ # associated documentation files (the “Software”), to deal in the Software without restriction, including
+ # without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ # sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject
+ # to the following conditions:
+ #
+ # The above copyright notice and this permission notice shall be included in all copies or substantial
+ # portions of the Software.
+ #
+ # The Software is provided “as is”, without warranty of any kind, express or implied, including but not
+ # limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
+ # In no event shall the authors or copyright holders be liable for any claim, damages or other liability,
+ # whether in an action of contract, tort or otherwise, arising from, out of or in connection with the
+ # software or the use or other dealings in the Software. »
+ #}
+
 {% extends 'FeatherCoreBundle::layout.html.twig' %}
 
 {% block stylesheets %}
@@ -17,11 +39,13 @@
                 <section class="page-aside-section">
                     <h5 class="page-aside-title">{{ 'page_browser_category_title'|trans }}</h5>
                     <div class="list-group">
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-image" aria-hidden="true"></i>{{ 'page_browser_category_image'|trans }}</a>
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-volume-high" aria-hidden="true"></i>{{ 'page_browser_category_audio'|trans }}</a>
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-camera" aria-hidden="true"></i>{{ 'page_browser_category_tv'|trans }}</a>
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-play" aria-hidden="true"></i>{{ 'page_browser_category_movie'|trans }}</a>
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon fa-gamepad" aria-hidden="true"></i>{{ 'page_browser_category_game'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '1'}) }}"><i class="icon wb-video" aria-hidden="true"></i>{{ 'page_browser_category_1'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '2'}) }}"><i class="icon glyphicon glyphicon-hdd" aria-hidden="true"></i>{{ 'page_browser_category_2'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '3'}) }}"><i class="icon wb-camera" aria-hidden="true"></i>{{ 'page_browser_category_3'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '4'}) }}"><i class="icon wb-volume-high" aria-hidden="true"></i>{{ 'page_browser_category_4'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '5'}) }}"><i class="icon wb-image" aria-hidden="true"></i>{{ 'page_browser_category_5'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '6'}) }}"><i class="icon wb-play" aria-hidden="true"></i>{{ 'page_browser_category_6'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '7'}) }}"><i class="icon wb-book" aria-hidden="true"></i>{{ 'page_browser_category_7'|trans }}</a>
                     </div>
                 </section>
             </div>
@@ -30,7 +54,25 @@
         <div class="page-main">
 
             <div class="page-header">
-                <h1 class="page-title">{{ 'page_browser_library_of'|trans }} {{ 'page_browser_category_image'|trans|lower }}</h1>
+                <h1 class="page-title">{{ 'page_browser_library_of'|trans }}
+                    {% if type == constant('TYPE_DVD', media) %}
+                        {{ 'page_browser_category_title_1'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_BLURAY', media) %}
+                        {{ 'page_browser_category_title_2'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_SERIES', media) %}
+                        {{ 'page_browser_category_title_3'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_MUSIC', media) %}
+                        {{ 'page_browser_category_title_4'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_PICTURE', media) %}
+                        {{ 'page_browser_category_title_5'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_GAMES', media) %}
+                        {{ 'page_browser_category_title_6'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_BOOK', media) %}
+                        {{ 'page_browser_category_title_7'|trans({'type': type}) }}
+                    {% else %}
+                        {{ 'page_browser_category_main'|trans|lower }}
+                    {% endif %}
+                </h1>
                 <div class="page-header-actions">
                     <div class="btn-group media-arrangement" role="group">
                         <button class="btn btn-outline btn-default active" id="arrangement-grid" type="button"><i class="icon wb-grid-4" aria-hidden="true"></i></button>
@@ -46,41 +88,66 @@
 
                 <div class="media-list is-grid padding-bottom-50">
                     <ul class="blocks blocks-100 blocks-xlg-4 blocks-lg-3 blocks-md-3 blocks-ms-2 blocks-xs-2" data-plugin="animateList" data-child=">li">
-                        {% for torrent in transmission.torrents %}
-                            <li>
-                                <div class="media-item" data-toggle="slidePanel" data-url="panel.tpl">
-                                    <div class="image-wrap">
-                                        <img class="image img-rounded" src="../../../assets/photos/view-1-960x640.jpg" alt="...">
-                                    </div>
-                                    <div class="info-wrap">
-                                        <div class="dropdown">
-                                            <span class="icon wb-settings dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button" data-animation="scale-up"></span>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <li><i class="icon wb-pencil" aria-hidden="true"></i>{{ 'page_browser_action_edit'|trans }}</li>
-                                                <li><i class="icon wb-download" aria-hidden="true"></i>{{ 'page_browser_action_download'|trans }}</li>
-                                                <li><i class="icon wb-trash" aria-hidden="true"></i>{{ 'page_browser_action_trash'|trans }}</li>
-                                            </ul>
-                                        </div>
+                        {% for data in transmission.datas %}
+                            {% set torrent = transmission.torrent(data) %}
 
-                                        <div class="title">{{ torrent.name|humanize('name') }}</div>
-                                        <div class="time">1 minutes ago</div>
+                            {% if data.user.id == my.user.id %}
+                                {% if type == data.type or type == null %}
+                                    {% if torrent.isfinished %}
+                                        <li>
+                                            <div class="media-item">
+                                            {# <div class="media-item" data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"> #}
+                                                <div class="image-wrap">
+                                                    <img class="image img-rounded" src="{{ asset('assets/photos/view-1-960x640.jpg') }}" alt="{{ data.name }}">
+                                                </div>
+                                                <div class="info-wrap">
+                                                    <div class="dropdown">
+                                                        <span class="icon wb-settings dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button" data-animation="scale-up"></span>
+                                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                            <li><a href="{{ path('download_file', {'id': data.uid}) }}"><i class="icon wb-download" aria-hidden="true"></i>{{ 'page_browser_action_download'|trans }}</a></li>
+                                                            <li><a href="{{ path('delete', {'id': data.uid, 'source': app.request.attributes.get('_route')}) }}"><i class="icon wb-trash" aria-hidden="true"></i>{{ 'page_browser_action_trash'|trans }}</a></li>
+                                                        </ul>
+                                                    </div>
 
-                                        <div class="media-item-actions btn-group">
-                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_edit'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
-                                                <i class="icon wb-pencil" aria-hidden="true"></i>
-                                            </button>
-                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_download'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
-                                                <i class="icon wb-download" aria-hidden="true"></i>
-                                            </button>
-                                            <button class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_trash'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
-                                                <i class="icon wb-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                                                    <div class="title">{{ data.name }}</div>
+                                                    <div class="time">{{ data.date|date('d/m/Y') }}</div>
+
+                                                    <div class="media-item-actions btn-group">
+                                                        <a href="{{ path('download_file', {'id': data.uid}) }}" class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_download'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                            <i class="icon wb-download" aria-hidden="true"></i>
+                                                        </a>
+                                                        <a href="{{ path('delete', {'id': data.uid, 'source': app.request.attributes.get('_route')}) }}" class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_trash'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                            <i class="icon wb-trash" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-danger" id="torrent_delete" aria-hidden="true" aria-labelledby="modalDelete" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Ête-vous certain de vouloir supprimer ce fichier ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary">Supprimer</button>
                 </div>
             </div>
         </div>

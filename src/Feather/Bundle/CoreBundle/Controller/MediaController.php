@@ -29,6 +29,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Security("has_role('ROLE_USER')")
@@ -38,7 +39,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class MediaController extends Controller
 {
     /**
-     * @Route("/browser", name="browser")
+     * @Route("/browser/{type}", name="browser")
      * @Template()
      *
      * Load browsing index
@@ -47,18 +48,16 @@ class MediaController extends Controller
      *
      * @return Template
      */
-    public function indexAction()
+    public function indexAction($type = null)
     {
-        $media = $this->get('service.media')->getTorrents();
-
-        var_dump($media);
-        die();
-        return [];
+        return [
+            'type' => $type
+        ];
     }
 
 
     /**
-     * @Route("/panel.tpl")
+     * @Route("panel.tpl", name="panel")
      * @Template()
      *
      * Load index page
@@ -67,8 +66,14 @@ class MediaController extends Controller
      *
      * @return Template
      */
-    public function panelAction()
+    public function panelAction(Request $request)
     {
-        return [];
+        $torrent = $this->get('service.transmission')->getTorrent($request->get('id'));
+        $data = $this->get('service.transmission')->getData($torrent);
+
+        return [
+            'torrent' => $torrent,
+            'data' => $data
+        ];
     }
 }

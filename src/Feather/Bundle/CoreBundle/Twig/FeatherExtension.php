@@ -30,7 +30,7 @@ class FeatherExtension extends Twig_Extension implements ContainerAwareInterface
         ];
     }
 
-    public function humanize($value, $state)
+    public function humanize($value, $state = null)
     {
         $type = [
             'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'
@@ -48,6 +48,7 @@ class FeatherExtension extends Twig_Extension implements ContainerAwareInterface
 
                 $value = rtrim($value, " \r");
                 $value = strtolower($value);
+                $value = str_replace(' ', '_', $value);
                 break;
 
             case 'size':
@@ -177,19 +178,19 @@ class FeatherExtension extends Twig_Extension implements ContainerAwareInterface
         '[',
         ']',
         'pe',
-        '2013',
-        '2015',
         'www',
+        'md',
+        'MeMe',
         'Cpasbien',
         'MULTi',
         'Slay3R',
-        '2014',
         'BDRiP',
         'Wita',
         'XViD',
         'AViTECH',
         '-',
         'AC3SVR',
+        '1080p',
         'XviD',
         'TRUE',
         'WEBRip',
