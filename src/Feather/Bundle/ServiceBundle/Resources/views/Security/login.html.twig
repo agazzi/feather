@@ -63,7 +63,7 @@
         <div class="page-content">
             <div class="page-brand-info">
                 <div class="brand">
-                    <img class="brand-img" src="{{ asset('assets/images/logo%402x.png') }}" alt="Feather">
+                    <img class="brand-img" src="{{ asset('assets/images/logo-white.png') }}" alt="Feather">
                     <h2 class="brand-text font-size-40">Feather</h2>
                 </div>
                 <p class="font-size-20">{{ 'page_login_grip_text'|trans }}</p>
@@ -71,7 +71,7 @@
 
             <div class="page-login-main">
                 <div class="brand visible-xs">
-                    <img class="brand-img" src="{{ asset('assets/images/logo-blue%402x.png') }}" alt="Feather">
+                    <img class="brand-img" src="{{ asset('assets/images/logo-black.png') }}" alt="Feather">
                     <h3 class="brand-text font-size-40">Feather</h3>
                 </div>
                 <h3 class="font-size-24">{{ 'page_login_sign_in'|trans }}</h3>
@@ -138,4 +138,14 @@
         'assets/js/components/jquery-placeholder.min.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    <script>
+        (function(document, window, $) {
+            'use strict';
+    
+            var Site = window.Site;
+            $(document).ready(function() {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
 {% endblock %}

@@ -7,11 +7,8 @@
 .page-login-v2 {
   height: 100%;
 }
-.page-login-v2:before {
-  background-image: url("../../images/login.jpg");
-}
 .page-login-v2.page-dark.layout-full:after {
-  background-color: rgba(38, 50, 56, 0.6);
+  background-color: rgba(38, 50, 56, 1);
 }
 .page-login-v2 .page-brand-info {
   margin: 220px 100px 0 90px;
