@@ -1,24 +1,141 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
 
-{% trans_default_domain 'FOSUserBundle' %}
+{## 
+ # This file is part of Feather application.
+ #
+ # (c) William Rudent <william.rudent@gmail.com>
+ #
+ # Copyright © 2015 William Rudent <william.rudent@gmail.com>
+ # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ # associated documentation files (the “Software”), to deal in the Software without restriction, including
+ # without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ # sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject
+ # to the following conditions:
+ # 
+ # The above copyright notice and this permission notice shall be included in all copies or substantial
+ # portions of the Software.
+ # 
+ # The Software is provided “as is”, without warranty of any kind, express or implied, including but not
+ # limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
+ # In no event shall the authors or copyright holders be liable for any claim, damages or other liability,
+ # whether in an action of contract, tort or otherwise, arising from, out of or in connection with the
+ # software or the use or other dealings in the Software. » 
+ #}
 
-{% block fos_user_content %}
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{#
+ # Extend the core layout 
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #}
+{% extends "FeatherCoreBundle::layout.html.twig" %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+{# 
+ # Load specific stylesheets for this view
+ #
+ # @author Jonathan Gleyze <gleyze.jonathan.pro@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/examples/css/pages/login-v2.css') }}">
+{% endblock %}
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+{# 
+ # Make specific body class for required elements 
+ #
+ # @author Jonathan Gleyze <gleyze.jonathan.pro@gmail.com>
+ #}
+{% block settings %}page-login-v2 layout-full page-dark{% endblock %}
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+{#
+ # Load block content for this view
+ #
+ # Author Gleyze Jonathan <gleyze.jonathan.pro@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
+{% block content %}
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    {# SECTION #}
+    <div class="page animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+        <div class="page-content">
+            <div class="page-brand-info">
+                <div class="brand">
+                    <img class="brand-img" src="{{ asset('assets/images/logo%402x.png') }}" alt="Feather">
+                    <h2 class="brand-text font-size-40">Feather</h2>
+                </div>
+                <p class="font-size-20">{{ 'page_login_grip_text'|trans }}</p>
+            </div>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
-{% endblock fos_user_content %}
+            <div class="page-login-main">
+                <div class="brand visible-xs">
+                    <img class="brand-img" src="{{ asset('assets/images/logo-blue%402x.png') }}" alt="Feather">
+                    <h3 class="brand-text font-size-40">Feather</h3>
+                </div>
+                <h3 class="font-size-24">{{ 'page_login_sign_in'|trans }}</h3>
+                <p>{{ 'page_login_login_grip'|trans }}</p>
+
+                {# FORM #}
+                <form method="post" action="{{ path("fos_user_security_check") }}">
+                    
+                    {# INPUT #}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {# END INPUT #}
+        
+
+                    {# INPUT #}
+                    <div class="form-group">
+                        <label class="sr-only">{{ 'page_login_username'|trans }}</label>
+                        <input type="text" class="form-control" id="inputEmail"  name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'page_login_username'|trans }}" >
+                    </div>
+                    {# END INPUT #}
+        
+
+                    {# INPUT #}
+                    <div class="form-group">            
+                        <label class="sr-only" >{{ 'page_login_password'|trans }}</label>
+                        <input type="password" class="form-control" id="inputPassword" name="_password"  required="required" placeholder="{{ 'page_login_password'|trans }}">
+                    </div>
+                    {# END INPUT #}
+        
+
+                    {# INPUT #}
+                    <div class="form-group clearfix">
+                        <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+                            <input type="checkbox" id="remember" name="_remember_me" value="on" >
+                            <label for="inputCheckbox">{{ 'page_login_remember_me'|trans }}</label>
+                        </div>
+                        <a class="pull-right" href="forgot-password.html">{{ 'page_login_forgot_password'|trans }}</a>
+                    </div>
+                    {# END INPUT #}
+
+
+                    {# INPUT #}
+                    <button type="submit" class="btn btn-primary btn-block" id="_submit" name="_submit" value="{{ 'page_login_submit'|trans }}">{{ 'page_login_submit'|trans }}</button>
+                    {# END INPUT #}
+
+                </form>
+                {# END FORM #}
+
+                <p>{{ 'page_login_no_account'|trans }}<a href="register-v2.html">{{ 'page_login_register'|trans }}</a></p>
+            </div>
+        </div>
+    </div>
+    {# END SECTION #}
+
+{% endblock %}
+
+{# 
+ # Load specific stylesheets for this view
+ #
+ # @author Jonathan Gleyze <gleyze.jonathan.pro@gmail.com>
+ #}
+{% block javascripts %}
+    {% javascripts
+        'assets/vendor/jquery-placeholder/jquery.placeholder.min.js'
+        'assets/js/components/jquery-placeholder.min.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

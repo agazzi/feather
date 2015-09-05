@@ -86,3 +86,15 @@ page_browser_category_main: 'principale'
 page_browser_action_edit: 'Editer'
 page_browser_action_download: 'Télécharger'
 page_browser_action_trash: 'Supprimer'
+
+# Page: Login
+page_login_grip_text: 'Un client torrent web simple et flexible'
+page_login_sign_in: 'Inscription'
+page_login_login_grip: 'Connecter vous'
+page_login_username: "Non d'utilisateur"
+page_login_password: 'Mot de passe'
+page_login_remember_me: 'Se rappelez de moi'
+page_login_forgot_password: 'Mot de passe perdu ?'
+page_login_submit: 'Connetion'
+page_login_no_account: 'Pas de compte : '
+page_login_register: 'Inscription'
