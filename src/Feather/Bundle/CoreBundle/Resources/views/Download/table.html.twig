@@ -14,30 +14,32 @@
     {% for torrent in transmission.torrents %}
         {% set data = transmission.data(torrent) %}
 
-        <tr>
-            <td>{{ data.name }}</td>
-            <td>{{ torrent.size|humanize('size') }}</td>
-            <td>
-                {% if torrent.isdownloading %}
-                    {{ rate('down', torrent) }}
-                {% else %}
-                    {% if torrent.isseeding %}
-                        {{ rate('up', torrent) }}
+        {% if data.user.id == my.user.id %}
+            <tr>
+                <td>{{ data.name }}</td>
+                <td>{{ torrent.size|humanize('size') }}</td>
+                <td>
+                    {% if torrent.isdownloading %}
+                        {{ rate('down', torrent) }}
                     {% else %}
-                        ~
+                        {% if torrent.isseeding %}
+                            {{ rate('up', torrent) }}
+                        {% else %}
+                            ~
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-            </td>
-            <td>{{ torrent|duration }}</td>
-            <td>
-                <div class="progress progress-xs margin-vertical-10 ">
-                    <div class="progress-bar progress-bar-{{ torrent.percentdone|progressbar }}" style="width: {{ torrent.percentdone }}%"></div>
-                </div>
-            </td>
-            <td>
-                <a href="{{ path('delete', {'id': torrent.id}) }}" type="button" class="btn btn-sm btn-icon btn-pure btn-default" data-toggle="tooltip" data-original-title="Delete"><i class="icon wb-close" aria-hidden="true"></i></a>
-            </td>
-        </tr>
+                </td>
+                <td>{{ torrent|duration }}</td>
+                <td>
+                    <div class="progress progress-xs margin-vertical-10 ">
+                        <div class="progress-bar progress-bar-{{ torrent.percentdone|progressbar }}" style="width: {{ torrent.percentdone }}%"></div>
+                    </div>
+                </td>
+                <td>
+                    <a href="{{ path('delete', {'id': torrent.id}) }}" type="button" class="btn btn-sm btn-icon btn-pure btn-default" data-toggle="tooltip" data-original-title="Delete"><i class="icon wb-close" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 
     </tbody>
