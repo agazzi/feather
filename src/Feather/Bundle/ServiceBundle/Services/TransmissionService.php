@@ -196,14 +196,15 @@ class TransmissionService extends Service
         $file = $this->get('service.system')->upload($torrent->getAttachment());
         $twig = $this->get('feather.twig.feather_extension');
         $user = $this->get('service.user')->getUser();
+        $hash = $this->get('service.system')->hash($file);
         $em = $this->getDoctrine()->getManager();
 
-        $transmission = $this->process($file);
+        $transmission = $this->process($file, $hash);
 
         $torrent->setUser($user);
         $torrent->setDate(new Datetime('now'));
         $torrent->setUid($transmission->getId());
-        $torrent->setHash($transmission->getHash());
+        $torrent->setHash($hash);
         $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
         $torrent->setAttachment($file);
 
@@ -222,10 +223,16 @@ class TransmissionService extends Service
      *
      * @return Torrent $torrent
      */
-    public function process($file)
+    public function process($file, $hash)
     {
         $file = $this->get('request')->getSchemeAndHttpHost() . self::UPLOAD_DIR . $file;
-        $torrent = $this->get('transmission')->add($file);
+        $transmission = $this->get('transmission');
+        $session = $transmission->getSession();
+
+        $session->setDownloadDir($this->getParameter('transmission_download') . $hash);
+        $session->save();
+
+        $torrent = $transmission->add($file);
 
         return $torrent;
     }
