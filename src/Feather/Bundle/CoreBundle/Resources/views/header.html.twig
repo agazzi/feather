@@ -9,7 +9,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center">
             <img class="navbar-brand-logo" src="{{ asset('assets/images/logo.png') }}" title="Feather">
-            <span class="navbar-brand-text"> Feather</span>
+            <span class="navbar-brand-text" >Feather</span>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up" aria-expanded="false" role="button">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up" aria-expanded="false" role="button" href="">
                         <span class="flag-icon flag-icon-fr"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -74,7 +74,7 @@
                             <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> {{ 'header_profile'|trans }}</a>
                         </li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> {{ 'header_settings'|trans }}</a>
+                            <a href="{{ path('setting') }}" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> {{ 'header_settings'|trans }}</a>
                         </li>
                         <li class="divider" role="presentation"></li>
                         <li role="presentation">
