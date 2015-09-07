@@ -17,3 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Transmission parameters
+    transmission_host: 5.189.159.159
+    transmission_port: 9091
+    transmission_username: transmission
+    transmission_password: transmission
+    transmission_download: '/var/lib/transmission-daemon/downloads/'
