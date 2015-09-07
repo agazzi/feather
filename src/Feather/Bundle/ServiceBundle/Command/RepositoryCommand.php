@@ -119,13 +119,13 @@ class RepositoryCommand extends ContainerAwareCommand
                             $filename = sprintf("%s.%s", $data->getFilename(), Media::EXT_ZIP);
                             $base = sprintf("%s/%s", $repository, $filename);
 
-                            $process = new Process(sprintf("zip -r /%s/%s %s", $path, $filename, $repository . '/*'));
+                            $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
                             $process->setTimeout(3600);
                             $process->run();
 
                             $fs->remove($repository . '/*');
-                            $fs->copy(sprintf("/%s/%s", $path, $filename), $repository . '/');
-                            $fs->remove(sprintf("/%s/%s", $path, $filename));
+                            $fs->copy(sprintf("%s%s", $path, $filename), $repository . '/');
+                            $fs->remove(sprintf("%s%s", $path, $filename));
                             break;
                     }
                 }
