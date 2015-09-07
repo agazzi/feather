@@ -120,7 +120,7 @@ class RepositoryCommand extends ContainerAwareCommand
                             $base = sprintf("%s/%s", $repository, $filename);
 
                             $process = new Process(sprintf("zip -r /tmp/%s %s", $filename, $repository . '/*'));
-                            $process->timeout(3600);
+                            $process->setTimeout(3600);
                             $process->run();
 
                             $fs->remove($repository . '/*');
