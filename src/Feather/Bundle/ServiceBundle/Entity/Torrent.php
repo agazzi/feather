@@ -44,9 +44,9 @@ class Torrent
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="uid", type="integer")
+     * @ORM\Column(name="uid", type="string")
      */
     private $uid;
 

@@ -203,7 +203,7 @@ class TransmissionService extends Service
 
         $torrent->setUser($user);
         $torrent->setDate(new Datetime('now'));
-        $torrent->setUid($transmission->getId());
+        $torrent->setUid($transmission->getHash());
         $torrent->setHash($hash);
         $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
         $torrent->setAttachment($file);
