@@ -96,7 +96,7 @@ class TransmissionService extends Service
     {
         self::load();
 
-        return $this->transmission->get(intval($data->getUid()));
+        return $this->transmission->get($data->getUid());
     }
 
     /**
@@ -131,7 +131,7 @@ class TransmissionService extends Service
         $data = $em->getRepository('FeatherServiceBundle:Torrent');
 
         return $data->findOneBy([
-            'uid' => $torrent->getId()
+            'uid' => $torrent->getHash()
         ]);
     }
 
