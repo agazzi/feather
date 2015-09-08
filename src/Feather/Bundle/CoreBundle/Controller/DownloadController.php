@@ -86,27 +86,40 @@ class DownloadController extends Controller
     }
 
     /**
-     * @Route("/download/file/{id}", name="download_file")
+     * @Route("/download/file/{hash}", name="download_file")
      *
      * Download torrent action
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @param integer $id
+     * @param string $hash
      *
      * @return Route download
      */
-    public function downloadAction($id)
+    public function downloadAction($hash)
     {
-        $id = intval($id);
-
-        $torrent = $this->get('service.transmission')->getTorrent($id);
+        $torrent = $this->get('service.transmission')->getTorrentById($hash);
         $data = $this->get('service.transmission')->getData($torrent);
-        $host = $this->getParameter('transmission_host');
 
-        header(sprintf("Content-disposition: attachment; filename=%s.zip", $data->getName()));
-        header("Content-type: application/avi");
-        readfile(sprintf("%s/%s", $host, $torrent->getName()));
+        $repository = $this->getParameter('transmission_download') . $data->gethash();
+
+        $filename = $data->getFilename();
+        $file = sprintf("%s/%s", $repository, $filename);
+        // header(sprintf("Content-disposition: attachment; filename=%s.zip", $data->getName()));
+        // header("Content-type: application/zip");
+        // readfile(sprintf("%s/%s.zip", $repository, $torrent->getName()));
+
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Cache-Control: private", false);
+        header("Content-Type: application/zip");
+        header("Content-disposition: attachment; filename=" . $filename);
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: " . filesize($file));
+        readfile($file);
+
+        exit;
     }
 
     /**

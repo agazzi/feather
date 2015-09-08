@@ -30,6 +30,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Feather\Bundle\ServiceBundle\Entity\User;
 use Transmission\Model\Torrent as Torrent;
 use Feather\Bundle\ServiceBundle\Entity\Torrent as Data;
+use Feather\Bundle\ServiceBundle\Services\MediaService as Media;
 
 use Datetime;
 
@@ -72,15 +73,15 @@ class TransmissionService extends Service
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @param integer $id
+     * @param string $hash
      *
      * @return Torrent $torrents
      */
-    public function getTorrentById($id)
+    public function getTorrentById($hash)
     {
         self::load();
 
-        return $this->transmission->get(intval($id));
+        return $this->transmission->get($hash);
     }
 
     /**
@@ -203,6 +204,21 @@ class TransmissionService extends Service
         $torrent->setDate(new Datetime('now'));
         $torrent->setUid($transmission->getHash());
         $torrent->setHash($hash);
+
+        switch ($torrent->getType()) {
+            case Media::TYPE_DVD:
+                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_DVD, 'name'));
+                break;
+
+            case Media::TYPE_BLURAY:
+                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_BLURAY, 'name'));
+                break;
+
+            case Media::TYPE_GAMES:
+                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_ZIP, 'name'));
+                break;
+        }
+
         $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
         $torrent->setAttachment($file);
 
