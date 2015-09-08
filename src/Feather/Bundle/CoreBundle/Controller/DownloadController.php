@@ -62,21 +62,21 @@ class DownloadController extends Controller
     }
 
     /**
-     * @Route("/delete/{id}/{source}", name="delete")
+     * @Route("/delete/{hash}/{source}", name="delete")
      *
      * Delete torrent action
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @param integer $id
+     * @param string $hash
      *
      * @param string $source
      *
      * @return Route $source
      */
-    public function deleteAction($id, $source = null)
+    public function deleteAction($hash, $source = null)
     {
-        $this->get('service.transmission')->remove($id);
+        $this->get('service.transmission')->remove($hash);
 
         if ($source) {
             return $this->redirect($this->generateUrl($source));

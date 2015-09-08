@@ -116,7 +116,7 @@
                                                         <a href="{{ path('download_file', {'id': data.uid}) }}" class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_download'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
                                                             <i class="icon wb-download" aria-hidden="true"></i>
                                                         </a>
-                                                        <a href="{{ path('delete', {'id': data.uid, 'source': app.request.attributes.get('_route')}) }}" class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_trash'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
+                                                        <a href="{{ path('delete', {'hash': data.hash, 'source': app.request.attributes.get('_route')}) }}" class="btn btn-icon btn-pure btn-default" data-original-title="{{ 'page_browser_action_trash'|trans }}" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" type="button">
                                                             <i class="icon wb-trash" aria-hidden="true"></i>
                                                         </a>
                                                     </div>

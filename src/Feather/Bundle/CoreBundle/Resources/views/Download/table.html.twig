@@ -36,7 +36,7 @@
                     </div>
                 </td>
                 <td>
-                    <a href="{{ path('delete', {'id': torrent.id}) }}" type="button" class="btn btn-sm btn-icon btn-pure btn-default" data-toggle="tooltip" data-original-title="Delete"><i class="icon wb-close" aria-hidden="true"></i></a>
+                    <a href="{{ path('delete', {'hash': torrent.hash}) }}" type="button" class="btn btn-sm btn-icon btn-pure btn-default" data-toggle="tooltip" data-original-title="Delete"><i class="icon wb-close" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% endif %}

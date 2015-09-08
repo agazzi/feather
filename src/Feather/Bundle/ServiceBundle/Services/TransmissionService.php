@@ -160,20 +160,18 @@ class TransmissionService extends Service
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @param integer $id
+     * @param string $hash
      *
      * @return bool true
      */
-    public function remove($id)
+    public function remove($hash)
     {
-        $id = intval($id);
-
         $em = $this->getDoctrine()->getManager();
 
-        $this->get('transmission')->get($id)->remove(true);
+        $this->get('transmission')->get($hash)->remove(true);
 
         $torrent = $em->getRepository('FeatherServiceBundle:Torrent')->findOneBy([
-            'uid' => $id
+            'uid' => $hash
         ]);
 
         $em->remove($torrent);
