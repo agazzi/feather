@@ -71,6 +71,21 @@ class MediaService extends Service
     /**
      * @var integer
      */
+    const EXT_DVD = 'avi';
+
+    /**
+     * @var integer
+     */
+    const EXT_BLURAY = 'mkv';
+
+    /**
+     * @var integer
+     */
+    const EXT_ZIP = 'zip';
+
+    /**
+     * @var integer
+     */
     const TYPE_TORRENT = 'application/x-bittorrent';
 
     /**

@@ -96,7 +96,7 @@ class TransmissionService extends Service
     {
         self::load();
 
-        return $this->transmission->get(intval($data->getUid()));
+        return $this->transmission->get($data->getUid());
     }
 
     /**
@@ -131,7 +131,7 @@ class TransmissionService extends Service
         $data = $em->getRepository('FeatherServiceBundle:Torrent');
 
         return $data->findOneBy([
-            'uid' => $torrent->getId()
+            'uid' => $torrent->getHash()
         ]);
     }
 
@@ -203,7 +203,7 @@ class TransmissionService extends Service
 
         $torrent->setUser($user);
         $torrent->setDate(new Datetime('now'));
-        $torrent->setUid($transmission->getId());
+        $torrent->setUid($transmission->getHash());
         $torrent->setHash($hash);
         $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
         $torrent->setAttachment($file);
