@@ -1,0 +1,120 @@
+
+{## 
+ # This file is part of Feather application.
+ #
+ # (c) William Rudent <william.rudent@gmail.com>
+ #
+ # Copyright © 2015 William Rudent <william.rudent@gmail.com>
+ # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ # associated documentation files (the “Software”), to deal in the Software without restriction, including
+ # without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ # sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject
+ # to the following conditions:
+ # 
+ # The above copyright notice and this permission notice shall be included in all copies or substantial
+ # portions of the Software.
+ # 
+ # The Software is provided “as is”, without warranty of any kind, express or implied, including but not
+ # limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
+ # In no event shall the authors or copyright holders be liable for any claim, damages or other liability,
+ # whether in an action of contract, tort or otherwise, arising from, out of or in connection with the
+ # software or the use or other dealings in the Software. » 
+ #}
+
+{#
+ # Extend the core layout 
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #}
+{% extends "FeatherCoreBundle::layout.html.twig" %}
+
+{# 
+ # Load specific stylesheets for this view
+ #
+ # @author Jonathan Gleyze <gleyze.jonathan.pro@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('assets/examples/css/pages/profile.css') }}">
+{% endblock %}
+
+{# 
+ # Make specific body class for required elements 
+ #
+ # @author Jonathan Gleyze <gleyze.jonathan.pro@gmail.com>
+ #}
+{% block settings %}page-profile site-menubar-unfold{% endblock %}
+
+
+{#
+ # Load block content for this view
+ #
+ # Author Gleyze Jonathan <gleyze.jonathan.pro@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
+{% block content %}
+    {# SECTION #}
+    <div class="page animsition" style="animation-duration: 0.8s; opacity: 1;">
+        <div class="page-content container-fluid">
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="widget widget-shadow text-center">
+                        <div class="widget-header">
+                            <div class="widget-header-content">
+                                <a class="avatar avatar-lg" href="javascript:void(0)"><img src="{{ asset('assets/portraits/5.jpg') }}" alt="avatar"></a>
+                                <h4 class="profile-user">Terrance arnold</h4>
+                                <p>Hi! I'm Adrian the Senior UI Designer at AmazingSurge. We hope
+                                you enjoy the design and quality of Social.</p>
+                            </div>
+                        </div>
+                        <div class="widget-footer"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="panel">
+                        <div class="panel-body nav-tabs-animate">
+                            <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
+                              <li class="active" role="presentation"><a data-toggle="tab" href="#identification" aria-controls="identification" role="tab">{{ 'page_setting_nav_tabs_identification'|trans }}</a></li>
+                            </ul>
+                            <div class="tab-content ">
+                                <div class="tab-pane animation-slide-left active" id="identification" role="tabpanel">
+                                    {# FORM #}
+                                    <form action="{{ path('fos_user_change_password') }}" {{ form_enctype(form) }} method="POST" >
+
+                                        {% form_theme form '::form.html.twig' %}
+                                        
+                                        <div class="example example-well">
+                                            <div class="page-header">
+                                                <h3 class="page-title">{{ 'page_setting_password'|trans }}</h3>
+                                            </div>
+                                        </div>
+
+                                        {# INPUT #}
+                                        {{ form_widget(form) }}
+                                        {# END INPUT #}
+
+
+
+                                        {# INPUT #}
+                                        <input type="submit" class="btn btn-primary" value="{{ 'page_setting_change_password_submit'|trans }}" />
+                                        {# END INPUT #}
+
+
+
+                                    </form>
+                                    {# END FORM #}
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {# END SECTION #}
+{% endblock %}
