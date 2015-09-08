@@ -123,6 +123,8 @@ class RepositoryCommand extends ContainerAwareCommand
                             $process->setTimeout(3600);
                             $process->run();
 
+                            $output->writeln('ok');
+
                             print $process->getOutput();
 
                             $process = new Process(sprintf("mv %s%s %s", $path, $filename, $repository . '/'));
