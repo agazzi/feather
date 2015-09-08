@@ -207,19 +207,21 @@ class TransmissionService extends Service
 
         switch ($torrent->getType()) {
             case Media::TYPE_DVD:
-                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_DVD, 'name'));
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_DVD;
+                $torrent->setFilename($filename);
                 break;
 
             case Media::TYPE_BLURAY:
-                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_BLURAY, 'name'));
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_BLURAY;
+                $torrent->setFilename($filename);
                 break;
 
             case Media::TYPE_GAMES:
-                $torrent->setFilename($twig->humanize($torrent->getName() . Media::EXT_ZIP, 'name'));
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
                 break;
         }
 
-        $torrent->setFilename($twig->humanize($torrent->getName(), 'name'));
         $torrent->setAttachment($file);
 
         $em->persist($torrent);
