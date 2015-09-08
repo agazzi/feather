@@ -123,9 +123,10 @@ class RepositoryCommand extends ContainerAwareCommand
                             $process->setTimeout(3600);
                             $process->run();
 
-                            $fs->remove($repository . '/*');
-                            $fs->copy(sprintf("%s%s", $path, $filename), $repository . '/');
-                            $fs->remove(sprintf("%s%s", $path, $filename));
+                            $process = new Process(sprintf("mv %s%s %s", $path, $filename, $repository . '/'));
+                            $process->setTimeout(60);
+                            $process->run();
+
                             break;
                     }
                 }
