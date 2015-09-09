@@ -89,7 +89,8 @@ class RepositoryCommand extends ContainerAwareCommand
                     switch ($data->getType()) {
                         case Media::TYPE_DVD:
                             foreach ($files as $file) {
-                                $base = sprintf("%s/%s.%s", $file->getPath(), $data->getFilename(), Media::EXT_DVD);
+                                $filename = $data->getFilename();
+                                $base = sprintf("%s/%s", $file->getPath(), $filename);
 
                                 if (!$fs->exists($base)) {
                                     if ($file->getExtension() == Media::EXT_DVD) {
@@ -103,7 +104,8 @@ class RepositoryCommand extends ContainerAwareCommand
 
                         case Media::TYPE_BLURAY:
                             foreach ($files as $file) {
-                                $base = sprintf("%s/%s.%s", $file->getPath(), $data->getFilename(), Media::EXT_BLURAY);
+                                $filename = $data->getFilename();
+                                $base = sprintf("%s/%s", $file->getPath(), $filename);
 
                                 if (!$fs->exists($base)) {
                                     if ($file->getExtension() == Media::EXT_BLURAY) {
@@ -116,7 +118,7 @@ class RepositoryCommand extends ContainerAwareCommand
                             break;
 
                         case Media::TYPE_GAMES:
-                            $filename = sprintf("%s.%s", $data->getFilename(), Media::EXT_ZIP);
+                            $filename = $data->getFilename();
                             $base = sprintf("%s/%s", $repository, $filename);
 
                             $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
