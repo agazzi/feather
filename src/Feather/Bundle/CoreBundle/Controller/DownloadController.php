@@ -31,6 +31,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/torrent")
@@ -100,26 +101,26 @@ class DownloadController extends Controller
     {
         $torrent = $this->get('service.transmission')->getTorrentById($hash);
         $data = $this->get('service.transmission')->getData($torrent);
-
         $repository = $this->getParameter('transmission_download') . $data->gethash();
 
         $filename = $data->getFilename();
         $file = sprintf("%s/%s", $repository, $filename);
+        $extension = explode('.', $filename)[1];
 
-        $extension = explode('.', $filename);
-        $extension = $extension[1];
+        $response = new Response();
+        $response->setStatusCode(200);
+        $response->setContent(readfile($file));
+        $response->headers->set('Content-Type', 'application/' . $extension);
+        $response->headers->set('Content-Description', 'Submissions Export');
+        $response->headers->set('Content-Disposition', 'attachment; filename=' . $filename . ';');
+        $response->headers->set('Content-Transfer-Encoding', 'binary');
+        $response->headers->set('Pragma', 'no-cache');
+        $response->headers->set('Expires', '0');
 
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        header("Cache-Control: private", false);
-        header("Content-Type: application/" . $extension);
-        header("Content-disposition: attachment; filename=" . $filename);
-        header("Content-Transfer-Encoding: binary");
-        header("Content-Length: " . filesize($file));
-        readfile("$file");
+        $response->sendHeaders();
+        $response->sendContent();
 
-        exit;
+        return $response;
     }
 
     /**
