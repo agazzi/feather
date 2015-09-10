@@ -109,7 +109,7 @@ class DownloadController extends Controller
 
         $response = new Response();
         $response->setStatusCode(200);
-        $response->setContent(readfile($file));
+        $response->setContent($file);
         $response->headers->set('Content-Type', 'application/' . $extension);
         $response->headers->set('Content-Description', 'Submissions Export');
         $response->headers->set('Content-Disposition', 'attachment; filename=' . $filename . ';');
