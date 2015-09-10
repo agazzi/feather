@@ -107,6 +107,9 @@ class DownloadController extends Controller
         $file = sprintf("%s/%s", $repository, $filename);
         $extension = explode('.', $filename)[1];
 
+        $handle = fopen($file, "r");
+        $file = fread($handle, filesize($file));
+
         $response = new Response();
         $response->setStatusCode(200);
         $response->setContent($file);
