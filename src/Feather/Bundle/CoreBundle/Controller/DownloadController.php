@@ -32,6 +32,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use http;
 
 /**
  * @Route("/torrent")
@@ -107,21 +108,19 @@ class DownloadController extends Controller
         $file = sprintf("%s/%s", $repository, $filename);
         $extension = explode('.', $filename)[1];
 
-        $handle = fopen($file, "r");
-        $file = fread($handle, filesize($file));
+        // exec("wput san_andreas.avi http://cdn.heracles.io/download/EheMboqffnKL6HoBkWwuJ5piYai6xJLp/san_andreas.avi");
+
+        http_send_file($file);
 
         $response = new Response();
         $response->setStatusCode(200);
-        $response->setContent($file);
-        $response->headers->set('Content-Type', 'application/' . $extension);
+        // $response->headers->set('Content-Type', 'application/' . $extension);
         $response->headers->set('Content-Description', 'Submissions Export');
-        $response->headers->set('Content-Disposition', 'attachment; filename=' . $filename . ';');
-        $response->headers->set('Content-Transfer-Encoding', 'binary');
+        // $response->headers->set('Content-Transfer-Encoding', 'binary');
         $response->headers->set('Pragma', 'no-cache');
         $response->headers->set('Expires', '0');
 
         $response->sendHeaders();
-        $response->sendContent();
 
         return $response;
     }
