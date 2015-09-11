@@ -31,12 +31,19 @@ use Symfony\Component\HttpFoundation\File\UploadedFile as File;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Feather\Bundle\ServiceBundle\Services\MediaService as Media;
 use Transmission\Model\Torrent as Torrent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
  */
 class SystemService extends Controller
 {
+    /**
+     * @var const
+     */
+    const ENV_DEV = 'dev';
+
+
     /**
      * Get total disk space
      *
@@ -162,15 +169,21 @@ class SystemService extends Controller
      */
     public function download(Torrent $torrent)
     {
-        $data = $this->get('service.transmission')->getData($torrent);
+        $environment = $this->get('kernel')->getEnvironment();
 
-        $repository = $this->getParameter('transmission_download') . $data->gethash();
-        $file = sprintf("%s/%s", $repository, $data->getFilename());
+        if (!$environment === self::ENV_DEV) {
+            $data = $this->get('service.transmission')->getData($torrent);
 
-        $response = new BinaryFileResponse($file);
-        $response->headers->set('Content-Disposition', 'attachment; filename=' . $data->getFilename() . ';');
+            $repository = $this->getParameter('transmission_download') . $data->gethash();
+            $file = sprintf("%s/%s", $repository, $data->getFilename());
 
-        return $response;
+            $response = new BinaryFileResponse($file);
+            $response->headers->set('Content-Disposition', 'attachment; filename=' . $data->getFilename() . ';');
+
+            return $response;
+        }
+
+        return false;
     }
 
     /**

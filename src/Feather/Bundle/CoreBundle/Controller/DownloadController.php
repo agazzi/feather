@@ -103,7 +103,13 @@ class DownloadController extends Controller
 
         $response = $this->get('service.system')->download($torrent);
 
-        return $response;
+        if ($response) {
+            return $response;
+        }
+
+        $referer = $this->getRequest()->headers->get('referer');;
+
+        return $this->redirect($referer);;
     }
 
     /**
