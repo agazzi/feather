@@ -100,6 +100,12 @@ class Torrent
      */
     private $attachment;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valid", type="boolean")
+     */
+    private $valid;
 
     /**
      * Get id
@@ -293,5 +299,42 @@ class Torrent
     public function getAttachment()
     {
         return $this->attachment;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param string $valid
+     * @return Torrent
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return string
+     */
+    public function getValid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * Is valid
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        if ($this->valid) {
+            return $this->valid;
+        }
+
+        return $this->valid;
     }
 }

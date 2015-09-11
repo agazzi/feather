@@ -196,8 +196,8 @@ class TransmissionService extends Service
         $twig = $this->get('feather.twig.feather_extension');
         $user = $this->get('service.user')->getUser();
         $hash = $this->get('service.system')->hash($file);
-        $em = $this->getDoctrine()->getManager();
 
+        $em = $this->getDoctrine()->getManager();
         $transmission = $this->process($file, $hash);
 
         $torrent->setUser($user);

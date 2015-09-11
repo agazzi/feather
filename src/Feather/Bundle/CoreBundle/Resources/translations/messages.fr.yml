@@ -100,10 +100,6 @@ page_login_no_account: 'Pas de compte ?  '
 page_login_register: 'Inscription'
 
 # Page: setting
-page_setting_password: 'Mot de passe : '
-page_setting_change_password_submit: 'Valider'
-page_setting_curent_password: 'Mot de passe actuelle :'
-page_setting_new_password: 'Nouveaux de passe :'
-page_setting_new_password_confirme: 'Confirmation du password :'
-page_setting_nav_tabs_identification: 'Identification'
-page_setting_alert_succes: 'Congratulation : votre mot de pas a bien etais motifier'
+page_setting_password: 'Changez votre mot de passe'
+page_setting_change_password_submit: 'Mettre à jour'
+page_setting_nav_tabs_identification: 'Sécurité'
