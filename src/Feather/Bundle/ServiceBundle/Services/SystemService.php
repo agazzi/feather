@@ -171,7 +171,7 @@ class SystemService extends Controller
     {
         $environment = $this->get('kernel')->getEnvironment();
 
-        if (!$environment === self::ENV_DEV) {
+        if ($environment != self::ENV_DEV) {
             $data = $this->get('service.transmission')->getData($torrent);
 
             $repository = $this->getParameter('transmission_download') . $data->gethash();
