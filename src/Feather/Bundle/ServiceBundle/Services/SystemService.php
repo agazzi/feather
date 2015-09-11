@@ -28,7 +28,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\File\UploadedFile as File;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Feather\Bundle\ServiceBundle\Services\MediaService as Media;
+use Transmission\Model\Torrent as Torrent;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
@@ -132,7 +134,7 @@ class SystemService extends Controller
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @param object $file
+     * @param File $file
      *
      * @return bool
      */
@@ -147,6 +149,28 @@ class SystemService extends Controller
         }
 
         return false;
+    }
+
+    /**
+     * Download torrent from mediacenter
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Torrent $torrent
+     *
+     * @return BinaryFileResponse $response
+     */
+    public function download(Torrent $torrent)
+    {
+        $data = $this->get('service.transmission')->getData($torrent);
+
+        $repository = $this->getParameter('transmission_download') . $data->gethash();
+        $file = sprintf("%s/%s", $repository, $data->getFilename());
+
+        $response = new BinaryFileResponse($file);
+        $response->headers->set('Content-Disposition', 'attachment; filename=' . $data->getFilename() . ';');
+
+        return $response;
     }
 
     /**

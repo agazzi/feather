@@ -32,7 +32,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\BinaryFileResponse as File;
 
 /**
  * @Route("/torrent")
@@ -101,27 +100,8 @@ class DownloadController extends Controller
     public function downloadAction($hash)
     {
         $torrent = $this->get('service.transmission')->getTorrentById($hash);
-        $data = $this->get('service.transmission')->getData($torrent);
-        $repository = $this->getParameter('transmission_download') . $data->gethash();
 
-        $filename = $data->getFilename();
-        $file = sprintf("%s/%s", $repository, $filename);
-        $extension = explode('.', $filename)[1];
-
-        $response = new File($file);
-
-        // $response = new Response();
-        // $response->setStatusCode(200);
-        // $response->setContent($file);
-        // $response->headers->set('Content-Type', 'application/' . $extension);
-        // $response->headers->set('Content-Description', 'Submissions Export');
-        // $response->headers->set('Content-Disposition', 'attachment; filename=' . $filename . ';');
-        // $response->headers->set('Content-Transfer-Encoding', 'binary');
-        // $response->headers->set('Pragma', 'no-cache');
-        // $response->headers->set('Expires', '0');
-
-        // $response->sendHeaders();
-        // $response->sendContent();
+        $response = $this->get('service.system')->download($torrent);
 
         return $response;
     }
