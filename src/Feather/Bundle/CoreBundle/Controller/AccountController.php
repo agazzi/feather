@@ -40,7 +40,7 @@ use FOS\UserBundle\Model\UserManagerInterface;
 class AccountController extends Controller
 {
     /**
-     * @Route("/setting", name="setting")
+     * @Route("/settings", name="setting")
      * @Template()
      *
      * Load setting index end create form
@@ -56,7 +56,6 @@ class AccountController extends Controller
         $formFactory = $this->get('fos_user.change_password.form.factory');
 
         $form = $formFactory->createForm();
-
         $form->setData($user);
 
         return[
