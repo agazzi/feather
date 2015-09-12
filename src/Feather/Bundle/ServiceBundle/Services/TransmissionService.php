@@ -252,4 +252,33 @@ class TransmissionService extends Service
 
         return $torrent;
     }
+
+    /**
+     * Validate torrent
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Torrent $torrent
+     *
+     * @return boolean
+     */
+    public function validate(Torrent $torrent)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $data = $em->getRepository('FeatherServiceBundle:Torrent')->findOneBy([
+            'uid' => $torrent->getHash()
+        ]);
+
+        if (!$data->isValid()) {
+            $data->setValid(true);
+
+            $em->persist($data);
+            $em->flush();
+
+            return true;
+        }
+
+        return false;
+    }
 }

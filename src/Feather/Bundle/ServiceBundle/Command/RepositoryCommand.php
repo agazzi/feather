@@ -74,8 +74,8 @@ class RepositoryCommand extends ContainerAwareCommand
         $torrents = $transmission->getTorrents();
         $path = $this->getContainer()->getParameter('transmission_download');
 
-        $finder = new Finder();
-        $fs = new Filesystem();
+        $this->finder = new Finder();
+        $this->filesystem = new Filesystem();
 
         foreach ($torrents as $torrent) {
             $data = $transmission->getData($torrent);
@@ -83,56 +83,133 @@ class RepositoryCommand extends ContainerAwareCommand
             $repository = $path . $data->gethash();
 
             if ($torrent->isFinished()) {
-                if ($fs->exists($repository)) {
-                    $files = $finder->files()->in($repository);
+                if (!$data->isValid()) {
+                    if ($this->filesystem->exists($repository)) {
+                        $files = $this->finder->files()->in($repository);
 
-                    switch ($data->getType()) {
-                        case Media::TYPE_DVD:
-                            foreach ($files as $file) {
-                                $filename = $data->getFilename();
-                                $base = sprintf("%s/%s", $file->getPath(), $filename);
-
-                                if (!$fs->exists($base)) {
-                                    if ($file->getExtension() == Media::EXT_DVD) {
-                                        $fs->rename($file->getRealPath(), $base);
-                                    } else {
-                                        $fs->remove($file);
-                                    }
+                        switch ($data->getType()) {
+                            case Media::TYPE_DVD:
+                                foreach ($files as $file) {
+                                    $this->convertDVD($data, $file, $path);
                                 }
-                            }
-                            break;
+                                $transmission->validate($torrent);
+                                break;
 
-                        case Media::TYPE_BLURAY:
-                            foreach ($files as $file) {
-                                $filename = $data->getFilename();
-                                $base = sprintf("%s/%s", $file->getPath(), $filename);
-
-                                if (!$fs->exists($base)) {
-                                    if ($file->getExtension() == Media::EXT_BLURAY) {
-                                        $fs->rename($file->getRealPath(), $base);
-                                    } else {
-                                        $fs->remove($file);
-                                    }
+                            case Media::TYPE_BLURAY:
+                                foreach ($files as $file) {
+                                    $this->convertBLURAY($data, $file, $path);
                                 }
-                            }
-                            break;
+                                $transmission->validate($torrent);
+                                break;
 
-                        case Media::TYPE_GAMES:
-                            $filename = $data->getFilename();
-                            $base = sprintf("%s/%s", $repository, $filename);
-
-                            $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
-                            $process->setTimeout(3600);
-                            $process->run();
-
-                            $process = new Process(sprintf("mv %s%s %s", $path, $filename, $repository . '/'));
-                            $process->setTimeout(60);
-                            $process->run();
-
-                            break;
+                            case Media::TYPE_GAMES:
+                                $this->convertGAME($data, $file, $path);
+                                $transmission->validate($torrent);
+                                break;
+                        }
                     }
                 }
             }
         }
+    }
+
+    /**
+     *
+     * @see Command
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Entity/Torrent $torrent
+     *
+     * @param SplFileInfo $file
+     *
+     * @param string $download
+     *
+     * @return boolean
+     */
+    protected function convertDVD(Entity\Torrent $torrent, SplFileInfo $file, $download)
+    {
+        $repository = $download . $torrent->gethash();
+
+        $filename = $torrent->getFilename();
+        $base = sprintf("%s/%s", $file->getPath(), $filename);
+
+        if (!$this->filesystem->exists($base)) {
+            if ($file->getExtension() == Media::EXT_DVD) {
+                $this->filesystem->rename($file->getRealPath(), $base);
+            } else {
+                $this->filesystem->remove($file);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     *
+     * @see Command
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Entity/Torrent $torrent
+     *
+     * @param SplFileInfo $file
+     *
+     * @param string $download
+     *
+     * @return boolean
+     */
+    protected function convertBLURAY(Entity\Torrent $torrent, SplFileInfo $file, $download)
+    {
+        $repository = $download . $torrent->gethash();
+
+        $filename = $torrent->getFilename();
+        $base = sprintf("%s/%s", $file->getPath(), $filename);
+
+        if (!$this->filesystem->exists($base)) {
+            if ($file->getExtension() == Media::EXT_BLURAY) {
+                $this->filesystem->rename($file->getRealPath(), $base);
+            } else {
+                $this->filesystem->remove($file);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     *
+     * @see Command
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Entity/Torrent $torrent
+     *
+     * @param SplFileInfo $file
+     *
+     * @param string $download
+     *
+     * @return boolean
+     */
+    protected function convertGAME(Entity\Torrent $torrent, SplFileInfo $file, $download)
+    {
+        $repository = $download . $torrent->gethash();
+
+        $filename = $data->getFilename();
+        $base = sprintf("%s/%s", $repository, $filename);
+
+        $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
+        $process->setTimeout(3600);
+        $process->run();
+
+        $process = new Process(sprintf("mv %s%s %s", $path, $filename, $repository . '/'));
+        $process->setTimeout(60);
+        $process->run();
+
+        return true;
     }
 }
