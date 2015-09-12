@@ -23,7 +23,11 @@
                         {{ rate('down', torrent) }}
                     {% else %}
                         {% if torrent.isseeding %}
-                            {{ rate('up', torrent) }}
+                            {% if data.isvalid %}
+                                {{ rate('up', torrent) }}
+                            {% else %}
+                                ~
+                            {% endif %}
                         {% else %}
                             ~
                         {% endif %}
