@@ -108,9 +108,9 @@ class Torrent
     private $valid;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="cover", type="string")
+     * @ORM\Column(name="cover", type="smallint")
      */
     private $cover;
 

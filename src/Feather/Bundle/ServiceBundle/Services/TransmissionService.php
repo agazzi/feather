@@ -209,16 +209,19 @@ class TransmissionService extends Service
             case Media::TYPE_DVD:
                 $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_DVD;
                 $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_DVD);
                 break;
 
             case Media::TYPE_BLURAY:
                 $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_BLURAY;
                 $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_BLURAY);
                 break;
 
             case Media::TYPE_GAMES:
                 $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
                 $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_GAMES);
                 break;
         }
 
