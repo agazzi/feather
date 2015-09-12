@@ -130,7 +130,6 @@ class RepositoryCommand extends ContainerAwareCommand
     protected function convertDVD(Entity\Torrent $torrent, SplFileInfo $file, $download)
     {
         $repository = $download . $torrent->gethash();
-
         $filename = $torrent->getFilename();
         $base = sprintf("%s/%s", $file->getPath(), $filename);
 
@@ -164,7 +163,6 @@ class RepositoryCommand extends ContainerAwareCommand
     protected function convertBLURAY(Entity\Torrent $torrent, SplFileInfo $file, $download)
     {
         $repository = $download . $torrent->gethash();
-
         $filename = $torrent->getFilename();
         $base = sprintf("%s/%s", $file->getPath(), $filename);
 
@@ -198,7 +196,6 @@ class RepositoryCommand extends ContainerAwareCommand
     protected function convertGAME(Entity\Torrent $torrent, SplFileInfo $file, $download)
     {
         $repository = $download . $torrent->gethash();
-
         $filename = $data->getFilename();
         $base = sprintf("%s/%s", $repository, $filename);
 

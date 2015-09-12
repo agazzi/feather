@@ -260,7 +260,7 @@ class TransmissionService extends Service
      *
      * @param Torrent $torrent
      *
-     * @return boolean
+     * @return bool
      */
     public function validate(Torrent $torrent)
     {
