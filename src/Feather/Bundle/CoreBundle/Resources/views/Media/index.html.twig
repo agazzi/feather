@@ -1,4 +1,5 @@
-{#
+
+{##
  # This file is part of Feather application.
  #
  # (c) William Rudent <william.rudent@gmail.com>
@@ -20,14 +21,38 @@
  # software or the use or other dealings in the Software. »
  #}
 
+{#
+ # Extend the core layout
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #}
 {% extends 'FeatherCoreBundle::layout.html.twig' %}
 
+{#
+ # Load specific stylesheets for this view
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('assets/examples/css/apps/media.css') }}">
 {% endblock %}
 
+{#
+ # Make specific body class for required elements
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #}
 {% block settings %}app-media{% endblock %}
 
+{#
+ # Load block content for this view
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
 {% block content %}
     <div class="page bg-white animsition">
         <div class="page-aside">
@@ -154,6 +179,13 @@
     </div>
 {% endblock %}
 
+{#
+ # Load specific javascripts for this view
+ #
+ # @author William Rudent <william.rudent@gmail.com>
+ #
+ # @original Remark <amazingSurge@yahoo.com>
+ #}
 {% block javascripts %}
     {% javascripts
         'assets/js/plugins/sticky-header.min.js'

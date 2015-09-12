@@ -49,6 +49,6 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        return [];
+        return $this->redirect('browser');
     }
 }
