@@ -9,6 +9,7 @@ global_duration_finished: 'Terminé'
 global_duration_seeding: 'En distribution'
 global_duration_stopped: 'Suspendu'
 global_duration_checking: 'Vérification'
+global_duration_starting: 'Démarrage'
 
 # Header
 header_toggle_navigation: 'Ouvrir la barre de navigation'

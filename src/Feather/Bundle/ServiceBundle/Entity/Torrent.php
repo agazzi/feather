@@ -317,7 +317,7 @@ class Torrent
      */
     public function setValid($valid)
     {
-        $this->valid = $valid;
+        $this->valid = ($this->valid === null) ? false : $valid;
 
         return $this;
     }

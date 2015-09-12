@@ -204,6 +204,7 @@ class TransmissionService extends Service
         $torrent->setDate(new Datetime('now'));
         $torrent->setUid($transmission->getHash());
         $torrent->setHash($hash);
+        $torrent->setValid(false);
 
         switch ($torrent->getType()) {
             case Media::TYPE_DVD:

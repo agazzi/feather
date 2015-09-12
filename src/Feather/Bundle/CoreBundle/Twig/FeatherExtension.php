@@ -126,6 +126,11 @@ class FeatherExtension extends Twig_Extension implements ContainerAwareInterface
             return $translator->trans('global_duration_finished');
         }
 
+        if ($torrent->getEta() == -1 ||
+            $torrent->getEta() == -2) {
+            return $translator->trans('global_duration_starting');
+        }
+
         $duration = gmdate("H:i:s", $duration);
         $duration = explode(':', $duration);
 
