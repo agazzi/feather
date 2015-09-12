@@ -108,6 +108,14 @@ class Torrent
     private $valid;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="cover", type="string")
+     */
+    private $cover;
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -336,5 +344,28 @@ class Torrent
         }
 
         return $this->valid;
+    }
+
+    /**
+     * Set cover
+     *
+     * @param string $cover
+     * @return Torrent
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    /**
+     * Get cover
+     *
+     * @return string
+     */
+    public function getCover()
+    {
+        return $this->cover;
     }
 }
