@@ -137,6 +137,24 @@ class TransmissionService extends Service
     }
 
     /**
+     * Get torrent messages by data
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Data $data
+     *
+     * @return Torrent $torrents
+     */
+    public function getMessages(Data $data)
+    {
+        $em = $this->getDoctrine();
+
+        $messages = $em->getRepository('FeatherServiceBundle:Message')->getMessages($data);
+
+        return $messages;
+    }
+
+    /**
      * Get torrent data by torrent
      *
      * @author William Rudent <william.rudent@gmail.com>

@@ -121,8 +121,7 @@
                                     {% if torrent.isfinished %}
                                         {% if data.isvalid %}
                                             <li>
-                                                <div class="media-item">
-                                                {# <div class="media-item" data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"> #}
+                                                <div class="media-item" {% if data.type == constant('TYPE_DVD', media) or data.type == constant('TYPE_BLURAY', media) %}data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"{% endif %}>
                                                     <div class="image-wrap">
                                                         <img class="image img-rounded" src="{{ asset('assets/images/types/' ~ data.cover ~ '.png') }}" alt="{{ data.name }}">
                                                     </div>

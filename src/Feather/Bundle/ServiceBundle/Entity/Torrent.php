@@ -114,6 +114,13 @@ class Torrent
      */
     private $cover;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -367,5 +374,28 @@ class Torrent
     public function getCover()
     {
         return $this->cover;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Torrent
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

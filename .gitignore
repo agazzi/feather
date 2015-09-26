@@ -11,3 +11,4 @@
 /web/bundles/
 .DS_*
 /web/upload/
+/web/app.php

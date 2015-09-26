@@ -5,59 +5,45 @@
         </div>
         <h4>{{ data.name }}</h4>
     </div>
+    <video width="720" height="405" controls  poster="{{ asset('assets/photos/focus-9-854x350.jpg') }}" style="position: absolute;left: 0;right: 0;bottom: 0;z-index: -1;">
+    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.mp4" type="video/mp4">
+    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.ogg" type="video/ogg">
+    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.webm" type="video/webm">
+    Your browser does not support the video tag or the file format of this video. <a href="http://www.supportduweb.com/">http://www.supportduweb.com/</a>
+</video>
 </header>
 
 <div class="slidePanel-inner">
     <section class="slidePanel-inner-section">
         <div class="media-header">
-            <div class="tags">Tags:
-                <button type="button" class="btn btn-outline btn-default"></button>
-                <button type="button" class="btn btn-outline btn-default">Design</button>
-                <button type="button" class="btn btn-outline btn-default">Cool</button>
-            </div>
-
-            <div class="share">Share:
-                <div class="btn-group">
-                    <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon bd-twitter" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon bd-facebook" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-icon btn-pure btn-default"><i class="icon bd-dribbble" aria-hidden="true"></i></button>
-                </div>
+            <div class="tags">Catégorie:
+                <button type="button" class="btn btn-outline btn-default">Film</button>
             </div>
         </div>
         <div class="media-content">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
-                Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper
-                sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
-                Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum
-                nisl eu consectetur.
-            </p>
+            <p>{{ data.description }}</p>
         </div>
     </section>
 
     <section class="slidePanel-inner-section">
-        <div class="media-header">
-            <div class="pull-right">
-                <div class="time">3 minutes ago</div>
+        {% for message in messages %}
+            <div class="media-header">
+                <div class="pull-right">
+                    <div class="time">{{ message.date|date('d/m/y') }}</div>
+                </div>
+                <a class="avatar margin-right-10" href="javascript:void(0)">
+                    <img src="{{ asset('assets/portraits/2.jpg') }}" alt="{{ data.name }}">
+                </a>
+                <span class="name">{{ message.user.username }}</span>
             </div>
-            <a class="avatar margin-right-10" href="javascript:void(0)">
-                <img src="{{ asset('assets/portraits/2.jpg') }}" alt="{{ data.name }}">
-            </a>
-            <span class="name">Seevisual</span>
-        </div>
-        <div class="media-content">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
-                Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper
-                sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
-                Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum
-                nisl eu consectetur.
-            </p>
-        </div>
+            <div class="media-content">
+                <p>{{ message.content }}</p>
+            </div>
+        {% endfor %}
     </section>
 
     <div class="slidePanel-comment">
         <textarea class="maxlength-textarea form-control mb-sm margin-bottom-20" rows="4"></textarea>
-        <button class="btn btn-primary" data-dismiss="modal" type="button">Reply</button>
+        <button class="btn btn-primary" data-dismiss="modal" type="button">Poster un commentaire</button>
     </div>
 </div>

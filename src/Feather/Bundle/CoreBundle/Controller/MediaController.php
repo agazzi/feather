@@ -55,7 +55,6 @@ class MediaController extends Controller
         ];
     }
 
-
     /**
      * @Route("panel.tpl", name="panel")
      * @Template()
@@ -68,12 +67,14 @@ class MediaController extends Controller
      */
     public function panelAction(Request $request)
     {
-        $torrent = $this->get('service.transmission')->getTorrent($request->get('id'));
+        $torrent = $this->get('service.transmission')->getTorrentById($request->get('id'));
         $data = $this->get('service.transmission')->getData($torrent);
+        $messages = $this->get('service.transmission')->getMessages($data);
 
         return [
             'torrent' => $torrent,
-            'data' => $data
+            'data' => $data,
+            'messages' => $messages
         ];
     }
 }
