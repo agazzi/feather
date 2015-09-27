@@ -1,6 +1,7 @@
 parameters:
     twig.extension.feather.class: Feather\Bundle\CoreBundle\Twig\FeatherExtension
     feather.form.torrent_add.class: Feather\Bundle\CoreBundle\Form\TorrentFileType
+    feather.form.post_comment.class: Feather\Bundle\CoreBundle\Form\PostCommentType
 
 services:
     feather.twig.feather_extension:
@@ -15,3 +16,9 @@ services:
             - [setContainer, [@service_container]]
         tags:
             - { name: form.type, alias: torrent_add }
+    app.form.post_comment:
+        class: %feather.form.post_comment.class%
+        calls:
+            - [setContainer, [@service_container]]
+        tags:
+            - { name: form.type, alias: post_comment }

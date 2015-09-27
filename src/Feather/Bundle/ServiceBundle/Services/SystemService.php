@@ -210,5 +210,24 @@ class SystemService extends Controller
         return $filename;
     }
 
+    /**
+     * Detect client browser
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return string $browser
+     */
+    public function getBrowser()
+    {
+        // Chrome has blocked NPAPI Extensions,
+        // cause an interuption of streaming service
+        $request = $this->getRequest();
+        $browser = $request->headers->get('User-Agent');
 
+        if (preg_match("/Chrome/", $browser)) {
+            return 'chrome';
+        }
+
+        return null;
+    }
 }

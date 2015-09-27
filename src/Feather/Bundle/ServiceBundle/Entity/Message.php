@@ -38,14 +38,14 @@ class Message
     /**
      * @var integer
      *
-     * @ORM\Column(name="thread", type="integer")
+     * @ORM\Column(name="torrent", type="integer")
      */
-    private $thread;
+    private $torrent;
 
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="torrent")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="author", referencedColumnName="id")
      */
     private $user;
@@ -87,7 +87,7 @@ class Message
      * Set date
      *
      * @param \Datetime $date
-     * @return Thread
+     * @return Message
      */
     public function setDate($date)
     {
@@ -107,26 +107,26 @@ class Message
     }
 
     /**
-     * Set thread
+     * Set torrent
      *
-     * @param string $thread
+     * @param integer $data
      * @return Message
      */
-    public function setThread($thread)
+    public function setTorrent($data)
     {
-        $this->thread = $thread;
+        $this->torrent = $data->getId();
 
         return $this;
     }
 
     /**
-     * Get thread
+     * Get torrent
      *
-     * @return string
+     * @return integer
      */
-    public function getThread()
+    public function getTorrent()
     {
-        return $this->thread;
+        return $this->torrent;
     }
 
     /**

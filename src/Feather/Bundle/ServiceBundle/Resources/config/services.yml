@@ -6,6 +6,7 @@ parameters:
     feather.service.user.class: Feather\Bundle\ServiceBundle\Services\UserService
 
     feather.entity.torrent.class: Feather\Bundle\ServiceBundle\Entity\Torrent
+    feather.entity.message.class: Feather\Bundle\ServiceBundle\Entity\Message
 
 services:
     service.transmission:
@@ -31,4 +32,7 @@ services:
 
     torrent.listener:
         class: %feather.entity.torrent.class%
+        arguments: [@service_container]
+    message.listener:
+        class: %feather.entity.message.class%
         arguments: [@service_container]

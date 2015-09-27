@@ -55,6 +55,8 @@ form.torrent_add.name.placeholder: 'Indiquez un nom ( e.g: San Andreas )'
 form.torrent_add.attachment.placeholder: 'Selectionner un fichier ( .torrent )'
 form.torrent_add.type.placeholder: 'Type de fichier'
 form.torrent_add.add.value: 'Démarrer le téléchargement'
+form.post_comment.content.placeholder: 'Contenu de votre message'
+form.post_comment.submit.value: 'Poster votre message'
 
 # Page: Download
 page_download_center: 'Centre de téléchargement'
@@ -89,6 +91,7 @@ page_browser_action_edit: 'Editer'
 page_browser_action_download: 'Télécharger'
 page_browser_action_trash: 'Supprimer'
 page_browser_streaming_not_available: 'Streaming indisponible'
+page_browser_description_not_yet: "Ce film n'a pas encore de description"
 
 # Page: Login
 page_login_grip_text: 'Un client torrent web simple et flexible'

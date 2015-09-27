@@ -27,6 +27,7 @@ namespace Feather\Bundle\ServiceBundle\Services;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as Service;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Datetime;
 
 /**
  * @author William Rudent <william.rudent@gmail.com>
@@ -89,18 +90,26 @@ class MediaService extends Service
     const TYPE_TORRENT = 'application/x-bittorrent';
 
     /**
-     * Get list of all torrents in media database
+     * Post comment
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @return array $torrents
+     * @return boolean
      */
-    public function getTorrents()
+    public function postComment($message, $torrent)
     {
-        $em = $this->getDoctrine();
+        $em = $this->getDoctrine()->getManager();
 
-        $torrents = $em->getRepository('FeatherServiceBundle:Torrent');
+        $user = $this->get('service.user')->getUser();
+        $data = $this->get('service.transmission')->getData($torrent);
 
-        return $repository->findAll();
+        $message->setUser($user);
+        $message->setDate(new Datetime('now'));
+        $message->setTorrent($data);
+
+        $em->persist($message);
+        $em->flush();
+
+        return true;
     }
 }

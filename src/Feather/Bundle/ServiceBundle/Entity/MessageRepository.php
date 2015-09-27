@@ -43,8 +43,8 @@ class MessageRepository extends EntityRepository
     public function getMessages(Torrent $torrent)
     {
         return $this->createQueryBuilder('m')
-            ->where('m.thread = :thread')
-            ->setParameter('thread', $torrent->getId())
+            ->where('m.torrent = :torrent')
+            ->setParameter('torrent', $torrent->getId())
             ->getQuery()
             ->getResult();
     }

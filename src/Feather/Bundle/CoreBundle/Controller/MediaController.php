@@ -70,19 +70,44 @@ class MediaController extends Controller
         $torrent = $this->get('service.transmission')->getTorrentById($request->get('id'));
         $data = $this->get('service.transmission')->getData($torrent);
         $messages = $this->get('service.transmission')->getMessages($data);
-        $browser = $request->headers->get('User-Agent');
+        $browser = $this->get('service.system')->getBrowser();
 
-        if (preg_match("/Chrome/", $browser)) {
-            $chrome = true;
-        } else {
-            $chrome = false;
-        }
+        $form = $this->createForm('post_comment', $this->get('message.listener'), [
+            'action' => $this->generateUrl('post_comment', [
+                'hash' => $data->getUid()
+            ])
+        ]);
 
         return [
             'torrent' => $torrent,
             'data' => $data,
             'messages' => $messages,
-            'chrome' => $chrome
+            'browser' => $browser,
+            'form' => $form->createView()
         ];
+    }
+
+    /**
+     * @Route("post/comment/{hash}", name="post_comment")
+     *
+     * Post comment route
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return boolean
+     */
+    public function commentAction(Request $request, $hash)
+    {
+        $torrent = $this->get('service.transmission')->getTorrentById($hash);
+        $message = $this->get('message.listener');
+
+        $form = $this->createForm('post_comment', $message);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->get('service.media')->postComment($message, $torrent);
+        }
+
+        return $this->redirect($this->generateUrl('browser'));
     }
 }
