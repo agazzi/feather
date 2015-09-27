@@ -50,8 +50,11 @@ class MediaController extends Controller
      */
     public function indexAction($type = null)
     {
+        $form = $this->createForm('edit_cover');
+
         return [
-            'type' => $type
+            'type' => $type,
+            'cover' => $form->createView()
         ];
     }
 
@@ -94,7 +97,7 @@ class MediaController extends Controller
      *
      * @author William Rudent <william.rudent@gmail.com>
      *
-     * @return boolean
+     * @return Redirection
      */
     public function commentAction(Request $request, $hash)
     {
@@ -106,6 +109,29 @@ class MediaController extends Controller
 
         if ($form->isValid()) {
             $this->get('service.media')->postComment($message, $torrent);
+        }
+
+        return $this->redirect($this->generateUrl('browser'));
+    }
+
+    /**
+     * @Route("edit/cover/{hash}", name="edit_cover")
+     *
+     * Edit torrent cover route
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @return Redirection
+     */
+    public function coverAction(Request $request, $hash)
+    {
+        $torrent = $this->get('service.transmission')->getTorrentById($hash);
+
+        $form = $this->createForm('edit_cover', $torrent);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->get('service.transmission')->update($torrent);
         }
 
         return $this->redirect($this->generateUrl('browser'));

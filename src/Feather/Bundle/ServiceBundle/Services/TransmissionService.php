@@ -253,6 +253,25 @@ class TransmissionService extends Service
     }
 
     /**
+     * Update torrent
+     *
+     * @author William Rudent <william.rudent@gmail.com>
+     *
+     * @param Torrent $torrent
+     *
+     * @return bool
+     */
+    public function update($torrent)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($torrent);
+        $em->flush();
+
+        return true;
+    }
+
+    /**
      * Process torrent into the transmission queue
      *
      * @author William Rudent <william.rudent@gmail.com>

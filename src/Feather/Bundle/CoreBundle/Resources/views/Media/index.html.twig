@@ -121,7 +121,7 @@
                                     {% if torrent.isfinished %}
                                         {% if data.isvalid %}
                                             <li>
-                                                <div class="media-item" {% if data.type == constant('TYPE_DVD', media) or data.type == constant('TYPE_BLURAY', media) %}data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"{% endif %}>
+                                                <div class="media-item" {% if data.type == constant('TYPE_DVD', media) %}data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"{% endif %}>
                                                     <div class="image-wrap">
                                                         {% if data.cover|length < 2 %}
                                                             <img class="image img-rounded" src="{{ asset('assets/images/types/' ~ data.cover ~ '.png') }}" alt="{{ data.name }}">
@@ -134,6 +134,13 @@
                                                             <span class="icon wb-settings dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button" data-animation="scale-up"></span>
                                                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                                                 <li><a href="{{ path('download_file', {'hash': data.uid}) }}"><i class="icon wb-download" aria-hidden="true"></i>{{ 'page_browser_action_download'|trans }}</a></li>
+
+                                                                {# {% if data.type == constant('TYPE_DVD', media) %}
+                                                                    <li><a data-target="#edit_cover_{{ data.id }}" data-toggle="modal"><i class="icon wb-gallery" aria-hidden="true"></i>{{ 'page_browser_edit_cover'|trans }}</a></li>
+                                                                    <li><a data-target="#edit_description" data-toggle="modal"><i class="icon wb-text" aria-hidden="true"></i>{{ 'page_browser_edit_description'|trans }}</a></li>
+                                                                {% endif %} #}
+
+                                                                <li class="divider" role="presentation"></li>
                                                                 <li><a href="{{ path('delete', {'hash': data.uid, 'source': app.request.attributes.get('_route')}) }}"><i class="icon wb-trash" aria-hidden="true"></i>{{ 'page_browser_action_trash'|trans }}</a></li>
                                                             </ul>
                                                         </div>
@@ -152,32 +159,53 @@
                                                     </div>
                                                 </div>
                                             </li>
+
+                                            {# MODAL: EDIT COVER #}
+                                            {# <div class="modal fade" id="edit_cover_{{ data.id }}" aria-hidden="false" role="dialog" tabindex="-1">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                            <h4 class="modal-title">{{ 'modal.edit_cover.title'|trans }}</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+
+                                                                {{ form_start(cover, {'action': path('edit_cover', {'hash': data.uid})}) }}
+
+                                                                    <div class="col-lg-12 form-group">
+                                                                        <div class="input-group input-group-file">
+                                                                            <input type="text" class="form-control" readonly="" placeholder="{{ 'form.torrent_add.attachment.placeholder'|trans }}">
+                                                                            <span class="input-group-btn">
+                                                                                <span class="btn btn-success btn-file">
+                                                                                    <i class="icon wb-upload" aria-hidden="true"></i>
+                                                                                    {{ form_widget(cover.cover) }}
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-sm-12 pull-right">
+                                                                        {{ form_widget(cover.add) }}
+                                                                    </div>
+
+                                                                {{ form_end(cover) }}
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> #}
+                                            {# END MODAL: EDIT COVER #}
+
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
                     </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade modal-danger" id="torrent_delete" aria-hidden="true" aria-labelledby="modalDelete" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title">Confirmation</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Ête-vous certain de vouloir supprimer ce fichier ?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Supprimer</button>
                 </div>
             </div>
         </div>

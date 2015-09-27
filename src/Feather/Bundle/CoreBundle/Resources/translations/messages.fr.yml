@@ -90,6 +90,8 @@ page_browser_category_main: 'principale'
 page_browser_action_edit: 'Editer'
 page_browser_action_download: 'Télécharger'
 page_browser_action_trash: 'Supprimer'
+page_browser_edit_cover: 'Modifier la couverture'
+page_browser_edit_description: 'Modifier la description'
 page_browser_streaming_not_available: 'Streaming indisponible'
 page_browser_description_not_yet: "Ce film n'a pas encore de description"
 

@@ -2,6 +2,7 @@ parameters:
     twig.extension.feather.class: Feather\Bundle\CoreBundle\Twig\FeatherExtension
     feather.form.torrent_add.class: Feather\Bundle\CoreBundle\Form\TorrentFileType
     feather.form.post_comment.class: Feather\Bundle\CoreBundle\Form\PostCommentType
+    feather.form.edit_cover.class: Feather\Bundle\CoreBundle\Form\EditCoverType
 
 services:
     feather.twig.feather_extension:
@@ -22,3 +23,9 @@ services:
             - [setContainer, [@service_container]]
         tags:
             - { name: form.type, alias: post_comment }
+    app.form.edit_cover:
+        class: %feather.form.edit_cover.class%
+        calls:
+            - [setContainer, [@service_container]]
+        tags:
+            - { name: form.type, alias: edit_cover }
