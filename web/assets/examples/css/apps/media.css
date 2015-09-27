@@ -161,6 +161,8 @@
 .app-media .slidePanel-header {
   height: 350px;
   width: 100%;
+  background-size: cover;
+  background: #000;
 }
 .app-media .slidePanel-header .slidePanel-actions {
   min-height: 46px;

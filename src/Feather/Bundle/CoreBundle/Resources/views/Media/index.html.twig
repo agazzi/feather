@@ -123,7 +123,11 @@
                                             <li>
                                                 <div class="media-item" {% if data.type == constant('TYPE_DVD', media) or data.type == constant('TYPE_BLURAY', media) %}data-toggle="slidePanel" data-url="{{ path('panel', {'id': data.uid}) }}"{% endif %}>
                                                     <div class="image-wrap">
-                                                        <img class="image img-rounded" src="{{ asset('assets/images/types/' ~ data.cover ~ '.png') }}" alt="{{ data.name }}">
+                                                        {% if data.cover|length < 2 %}
+                                                            <img class="image img-rounded" src="{{ asset('assets/images/types/' ~ data.cover ~ '.png') }}" alt="{{ data.name }}">
+                                                        {% else %}
+                                                            <img class="image img-rounded" src="{{ data.cover }}" alt="{{ data.name }}">
+                                                        {% endif %}
                                                     </div>
                                                     <div class="info-wrap">
                                                         <div class="dropdown">

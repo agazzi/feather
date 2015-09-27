@@ -88,6 +88,7 @@ page_browser_category_main: 'principale'
 page_browser_action_edit: 'Editer'
 page_browser_action_download: 'Télécharger'
 page_browser_action_trash: 'Supprimer'
+page_browser_streaming_not_available: 'Streaming indisponible'
 
 # Page: Login
 page_login_grip_text: 'Un client torrent web simple et flexible'

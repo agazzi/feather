@@ -70,11 +70,19 @@ class MediaController extends Controller
         $torrent = $this->get('service.transmission')->getTorrentById($request->get('id'));
         $data = $this->get('service.transmission')->getData($torrent);
         $messages = $this->get('service.transmission')->getMessages($data);
+        $browser = $request->headers->get('User-Agent');
+
+        if (preg_match("/Chrome/", $browser)) {
+            $chrome = true;
+        } else {
+            $chrome = false;
+        }
 
         return [
             'torrent' => $torrent,
             'data' => $data,
-            'messages' => $messages
+            'messages' => $messages,
+            'chrome' => $chrome
         ];
     }
 }

@@ -1,16 +1,20 @@
-<header class="slidePanel-header overlay" style="background-image: url({{ asset('assets/photos/view-8-960x640.jpg') }});" data-method="scroll" data-min="50">
+<header class="slidePanel-header overlay" {% if chrome %}style="background: url({{ data.cover }});background-size: cover;"{% endif %} data-method="scroll" data-min="50">
     <div class="overlay-top overlay-panel overlay-background">
         <div class="slidePanel-actions btn-group" aria-label="actions" role="group">
             <button type="button" class="btn btn-pure btn-inverse slidePanel-close icon wb-close"aria-hidden="true"></button>
         </div>
-        <h4>{{ data.name }}</h4>
+        <h4>{{ data.name }} {% if chrome %}( {{ 'page_browser_streaming_not_available'|trans }} ){% endif %}</h4>
     </div>
-    <video width="720" height="405" controls  poster="{{ asset('assets/photos/focus-9-854x350.jpg') }}" style="position: absolute;left: 0;right: 0;bottom: 0;z-index: -1;">
-    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.mp4" type="video/mp4">
-    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.ogg" type="video/ogg">
-    <source src="http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.webm" type="video/webm">
-    Your browser does not support the video tag or the file format of this video. <a href="http://www.supportduweb.com/">http://www.supportduweb.com/</a>
-</video>
+
+    {% if not chrome %}
+        <object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" width="700" height="430" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab" style="position: absolute;left: 0;right: 0;bottom: 0;z-index: -1;">
+            <param name="custommode" value="none"/>
+            <param name="autoPlay" value="false"/>
+            <param name="src" value="{{ path('download_file', {'hash': data.uid}) }}"/>
+
+            <embed type="video/divx" src="{{ path('download_file', {'hash': data.uid}) }}" custommode="none" width="700" height="430" autoPlay="false"  pluginspage="http://go.divx.com/plugin/download/"></embed>
+        </object>
+    {% endif %}
 </header>
 
 <div class="slidePanel-inner">
@@ -47,3 +51,6 @@
         <button class="btn btn-primary" data-dismiss="modal" type="button">Poster un commentaire</button>
     </div>
 </div>
+
+
+

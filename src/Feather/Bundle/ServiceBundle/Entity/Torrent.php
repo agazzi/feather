@@ -81,7 +81,7 @@ class Torrent
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="torrent")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="author", referencedColumnName="id")
      */
     private $user;
@@ -108,9 +108,9 @@ class Torrent
     private $valid;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="cover", type="smallint")
+     * @ORM\Column(name="cover", type="string")
      */
     private $cover;
 
