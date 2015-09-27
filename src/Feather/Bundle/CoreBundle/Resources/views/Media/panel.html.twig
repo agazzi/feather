@@ -1,12 +1,12 @@
-<header class="slidePanel-header overlay" {% if chrome %}style="background: url({{ data.cover }});background-size: cover;"{% endif %} data-method="scroll" data-min="50">
+<header class="slidePanel-header overlay" {% if browser == 'chrome' %}style="background: url({{ data.cover }});background-size: cover;"{% endif %} data-method="scroll" data-min="50">
     <div class="overlay-top overlay-panel overlay-background">
         <div class="slidePanel-actions btn-group" aria-label="actions" role="group">
             <button type="button" class="btn btn-pure btn-inverse slidePanel-close icon wb-close"aria-hidden="true"></button>
         </div>
-        <h4>{{ data.name }} {% if chrome %}( {{ 'page_browser_streaming_not_available'|trans }} ){% endif %}</h4>
+        <h4>{{ data.name }} {% if browser == 'chrome' %}( {{ 'page_browser_streaming_not_available'|trans }} ){% endif %}</h4>
     </div>
 
-    {% if not chrome %}
+    {% if not browser == 'chrome' %}
         <object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" width="700" height="430" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab" style="position: absolute;left: 0;right: 0;bottom: 0;z-index: -1;">
             <param name="custommode" value="none"/>
             <param name="autoPlay" value="false"/>
@@ -19,36 +19,38 @@
 
 <div class="slidePanel-inner">
     <section class="slidePanel-inner-section">
-        <div class="media-header">
-            <div class="tags">Catégorie:
-                <button type="button" class="btn btn-outline btn-default">Film</button>
-            </div>
-        </div>
         <div class="media-content">
-            <p>{{ data.description }}</p>
+            <p>
+                {% if not data.description %}
+                    {{ 'page_browser_description_not_yet'|trans }}
+                {% else %}
+                    {{ data.description }}
+                {% endif %}
+            </p>
         </div>
     </section>
 
-    <section class="slidePanel-inner-section">
-        {% for message in messages %}
-            <div class="media-header">
-                <div class="pull-right">
-                    <div class="time">{{ message.date|date('d/m/y') }}</div>
+    {% if messages|length > 0 %}
+        <section class="slidePanel-inner-section">
+            {% for message in messages %}
+                <div class="media-header">
+                    <div class="pull-right">
+                        <div class="time">{{ message.date|date('d/m/y H:i', 'Europe/Paris') }}</div>
+                    </div>
+                    <a class="avatar margin-right-10" href="javascript:void(0)">
+                        <img src="{{ asset('assets/portraits/21.jpg') }}" alt="{{ data.name }}">
+                    </a>
+                    <span class="name">{{ message.user.username }}</span>
                 </div>
-                <a class="avatar margin-right-10" href="javascript:void(0)">
-                    <img src="{{ asset('assets/portraits/2.jpg') }}" alt="{{ data.name }}">
-                </a>
-                <span class="name">{{ message.user.username }}</span>
-            </div>
-            <div class="media-content">
-                <p>{{ message.content }}</p>
-            </div>
-        {% endfor %}
-    </section>
+                <div class="media-content">
+                    <p>{{ message.content }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
 
     <div class="slidePanel-comment">
-        <textarea class="maxlength-textarea form-control mb-sm margin-bottom-20" rows="4"></textarea>
-        <button class="btn btn-primary" data-dismiss="modal" type="button">Poster un commentaire</button>
+        {{ form(form) }}
     </div>
 </div>
 
