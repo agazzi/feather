@@ -136,8 +136,6 @@ class RepositoryCommand extends ContainerAwareCommand
                 }
             }
         }
-
-        $this->execute($input, $output);
     }
 
     /**
