@@ -70,6 +70,7 @@ class TorrentFileType extends AbstractType implements ContainerAwareInterface
                     Services\MediaService::TYPE_PICTURE  => $translator->trans('form.torrent_add.type_picture'),
                     Services\MediaService::TYPE_GAMES    => $translator->trans('form.torrent_add.type_games'),
                     Services\MediaService::TYPE_BOOK     => $translator->trans('form.torrent_add.type_book'),
+                    Services\MediaService::TYPE_SOFTWARE => $translator->trans('form.torrent_add.type_software'),
                 ],
                 'attr' => [
                     'required' => true,
