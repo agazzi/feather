@@ -89,47 +89,47 @@ class RepositoryCommand extends ContainerAwareCommand
 
                         switch ($data->getType()) {
                             case Media::TYPE_DVD:
+                                $transmission->validate($torrent);
                                 foreach ($files as $file) {
                                     $this->convertDVD($data, $file, $path);
                                 }
-                                $transmission->validate($torrent);
                                 break;
 
                             case Media::TYPE_BLURAY:
+                                $transmission->validate($torrent);
                                 foreach ($files as $file) {
                                     $this->convertBLURAY($data, $file, $path);
                                 }
-                                $transmission->validate($torrent);
                                 break;
 
                             case Media::TYPE_SERIES:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
 
                             case Media::TYPE_MUSIC:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
 
                             case Media::TYPE_PICTURE:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
 
                             case Media::TYPE_GAMES:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
 
                             case Media::TYPE_BOOK:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
 
                             case Media::TYPE_SOFTWARE:
-                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
+                                $this->convertZIP($data, $path);
                                 break;
                         }
                     }
