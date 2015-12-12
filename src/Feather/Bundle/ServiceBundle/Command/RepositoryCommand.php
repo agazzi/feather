@@ -102,8 +102,33 @@ class RepositoryCommand extends ContainerAwareCommand
                                 $transmission->validate($torrent);
                                 break;
 
+                            case Media::TYPE_SERIES:
+                                $this->convertZIP($data, $path);
+                                $transmission->validate($torrent);
+                                break;
+
+                            case Media::TYPE_MUSIC:
+                                $this->convertZIP($data, $path);
+                                $transmission->validate($torrent);
+                                break;
+
+                            case Media::TYPE_PICTURE:
+                                $this->convertZIP($data, $path);
+                                $transmission->validate($torrent);
+                                break;
+
                             case Media::TYPE_GAMES:
-                                $this->convertGAME($data, $file, $path);
+                                $this->convertZIP($data, $path);
+                                $transmission->validate($torrent);
+                                break;
+
+                            case Media::TYPE_BOOK:
+                                $this->convertZIP($data, $path);
+                                $transmission->validate($torrent);
+                                break;
+
+                            case Media::TYPE_SOFTWARE:
+                                $this->convertZIP($data, $path);
                                 $transmission->validate($torrent);
                                 break;
                         }
@@ -187,13 +212,11 @@ class RepositoryCommand extends ContainerAwareCommand
      *
      * @param Entity/Torrent $torrent
      *
-     * @param SplFileInfo $file
-     *
      * @param string $download
      *
      * @return boolean
      */
-    protected function convertGAME(Entity\Torrent $torrent, SplFileInfo $file, $download)
+    protected function convertZIP(Entity\Torrent $torrent, $download)
     {
         $repository = $download . $torrent->gethash();
         $filename = $data->getFilename();

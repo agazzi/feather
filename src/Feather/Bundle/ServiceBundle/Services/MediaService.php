@@ -72,6 +72,11 @@ class MediaService extends Service
     /**
      * @var integer
      */
+    const TYPE_SOFTWARE = 8;
+
+    /**
+     * @var integer
+     */
     const EXT_DVD = 'avi';
 
     /**

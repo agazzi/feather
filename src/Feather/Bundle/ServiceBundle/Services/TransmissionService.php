@@ -237,10 +237,40 @@ class TransmissionService extends Service
                 $torrent->setCover(Media::TYPE_BLURAY);
                 break;
 
+            case Media::TYPE_SERIES:
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_SERIES);
+                break;
+
+            case Media::TYPE_MUSIC:
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_MUSIC);
+                break;
+
+            case Media::TYPE_PICTURE:
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_PICTURE);
+                break;
+
             case Media::TYPE_GAMES:
                 $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
                 $torrent->setFilename($filename);
                 $torrent->setCover(Media::TYPE_GAMES);
+                break;
+
+            case Media::TYPE_BOOK:
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_BOOK);
+                break;
+
+            case Media::TYPE_SOFTWARE:
+                $filename = $twig->humanize($torrent->getName(), 'name') . '.' . Media::EXT_ZIP;
+                $torrent->setFilename($filename);
+                $torrent->setCover(Media::TYPE_SOFTWARE);
                 break;
         }
 

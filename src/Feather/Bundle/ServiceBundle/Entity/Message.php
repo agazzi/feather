@@ -38,7 +38,8 @@ class Message
     /**
      * @var integer
      *
-     * @ORM\Column(name="torrent", type="integer")
+     * @ORM\ManyToOne(targetEntity="Torrent")
+     * @ORM\JoinColumn(name="torrent", referencedColumnName="id")
      */
     private $torrent;
 

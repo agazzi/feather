@@ -217,6 +217,20 @@ class FeatherExtension extends Twig_Extension implements ContainerAwareInterface
         'mkv',
         'DVDRiP',
         'ALBOY',
-        '.'
+        '.',
+        '\'',
+        ':',
+        'û',
+        'ù',
+        'ü',
+        'ú',
+        'ū',
+        'é',
+        'è',
+        'ê',
+        'ë',
+        'ę',
+        'ė',
+        'ē'
     ];
 }
