@@ -219,7 +219,7 @@ class RepositoryCommand extends ContainerAwareCommand
     protected function convertZIP(Entity\Torrent $torrent, $download)
     {
         $repository = $download . $torrent->gethash();
-        $filename = $data->getFilename();
+        $filename = $torrent->getFilename();
         $base = sprintf("%s/%s", $repository, $filename);
 
         $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
