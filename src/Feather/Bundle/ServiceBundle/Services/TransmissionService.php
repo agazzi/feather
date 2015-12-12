@@ -113,7 +113,9 @@ class TransmissionService extends Service
 
         $datas = $em->getRepository('FeatherServiceBundle:Torrent');
 
-        return $datas->findAll();
+        return $datas->findBy([], [
+            'id' => 'DESC'
+        ]);
     }
 
     /**
