@@ -222,11 +222,11 @@ class RepositoryCommand extends ContainerAwareCommand
         $filename = $torrent->getFilename();
         $base = sprintf("%s/%s", $repository, $filename);
 
-        $process = new Process(sprintf("zip -r %s%s %s", $path, $filename, $repository . '/*'));
+        $process = new Process(sprintf("zip -r %s %s", $base, $repository . '/*'));
         $process->setTimeout(3600);
         $process->run();
 
-        $process = new Process(sprintf("mv %s%s %s", $path, $filename, $repository . '/'));
+        $process = new Process(sprintf("mv %s %s", $base, $repository . '/'));
         $process->setTimeout(60);
         $process->run();
 
