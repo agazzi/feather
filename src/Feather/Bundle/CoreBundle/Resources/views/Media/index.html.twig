@@ -71,6 +71,7 @@
                         <a class="list-group-item" href="{{ path('browser', {'type': '5'}) }}"><i class="icon wb-image" aria-hidden="true"></i>{{ 'page_browser_category_5'|trans }}</a>
                         <a class="list-group-item" href="{{ path('browser', {'type': '6'}) }}"><i class="icon wb-play" aria-hidden="true"></i>{{ 'page_browser_category_6'|trans }}</a>
                         <a class="list-group-item" href="{{ path('browser', {'type': '7'}) }}"><i class="icon wb-book" aria-hidden="true"></i>{{ 'page_browser_category_7'|trans }}</a>
+                        <a class="list-group-item" href="{{ path('browser', {'type': '8'}) }}"><i class="icon wb-memory" aria-hidden="true"></i>{{ 'page_browser_category_8'|trans }}</a>
                     </div>
                 </section>
             </div>
@@ -94,6 +95,8 @@
                         {{ 'page_browser_category_title_6'|trans({'type': type}) }}
                     {% elseif type == constant('TYPE_BOOK', media) %}
                         {{ 'page_browser_category_title_7'|trans({'type': type}) }}
+                    {% elseif type == constant('TYPE_BOOK', media) %}
+                        {{ 'page_browser_category_title_8'|trans({'type': type}) }}
                     {% else %}
                         {{ 'page_browser_category_main'|trans|lower }}
                     {% endif %}
